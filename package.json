@@ -1,0 +1,32 @@
+{
+  "name": "e-commerce-react",
+  "version": "1.0.0",
+  "description": "\"E-Commerce single page app with React, Express, & Node.\"",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Whitney-HR/E-Commerce-React.git"
+  },
+  "author": "Juan Pablo Bustamante, Nicholas Ledan, Santiago Vera Nicola",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Whitney-HR/E-Commerce-React/issues"
+  },
+  "homepage": "https://github.com/Whitney-HR/E-Commerce-React#readme",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "babel": "^6.23.0",
+    "bluebird": "^3.7.2",
+    "express": "^4.17.1",
+    "moment": "^2.29.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "webpack": "^5.45.1"
+  },
+  "devDependencies": {
+    "jest": "^27.0.6"
+  }
+}
