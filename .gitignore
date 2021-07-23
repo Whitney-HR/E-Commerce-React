@@ -106,3 +106,8 @@ dist
 #Auth token
 Client/env/config.js
 
+#Compiled Dirs
+build/
+dist/
+bundle.js
+
