@@ -12,8 +12,12 @@ app.use(express.static(path.join(__dirname, '../public')));
 
 
 // app.get('atelier/api', controller.review.get)
+//InThe client
+//axios.get('/api/santiago/information')
 
+// app.get('/overview/item', controllers.review.get)
 
+// app.get('/reviews/starts')
 /*
 GET /products
 GET /products/:product_id

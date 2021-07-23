@@ -107,5 +107,7 @@ dist
 Client/env/config.js
 
 #Compiled Dirs
-public/bundle.js
+build/
+dist/
+bundle.js
 

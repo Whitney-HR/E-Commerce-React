@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Overview from './Overview/Overview.jsx';
 import Questions from './Questions/Questions.jsx';
-import Reviews from './Reviews/Reviews.jsx';
+import Reviews from './Reviews/Review.jsx';
 
 
 class App extends React.Component {
