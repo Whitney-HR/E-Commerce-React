@@ -31,10 +31,6 @@ var App = () => {
 
   return (
     <div>
-<<<<<<< HEAD
-      <h1>Hello World!!</h1>
-      <Questions id={19089}/>
-=======
       <h1>E-COMMERCE</h1>
       <div>{item.category}</div>
       <div><h3>{item.name}</h3></div>
@@ -43,10 +39,8 @@ var App = () => {
         <p>{item.slogan}</p>
         <p>{item.description}</p>
       </div>
-      {/* <Overview id={item.id}/>
+      {/* <h2>{item.id}</h2> */}
       <Questions id={item.id}/>
-      <Reviews id={item.id}/> */}
->>>>>>> 21c5fb528afb49d3bb87d4242dabfa9fde114c26
     </div>
 
   )
