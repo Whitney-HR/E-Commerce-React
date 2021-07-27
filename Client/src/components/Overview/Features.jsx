@@ -2,21 +2,20 @@ import React, { useState, useEffect } from 'react';
 import Axios from 'axios';
 
 var Features = (props) => {
-  console.log(props.feat);
   return (
     <div className="Features-body">
       <h3> Features </h3>
       <ul>
-        {props.feat.map((ft) => {
+        {props.feat.map((ft, index) => {
           if (ft.value) {
             return (
-              <li>
+              <li key={index}>
                 {ft.feature+ ' - ' + ft.value}
               </li>
             )
           } else {
             return (
-              <li>
+              <li key={index}>
                 {ft.feature}
               </li>
             )
