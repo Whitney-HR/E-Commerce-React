@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Axios from 'axios';
 import token from '/Client/src/env/config.js'
 import Features from './Features';
+import Hub from './Hub';
 
 
 
@@ -29,6 +30,14 @@ var Overview = (props) => {
     prodft = product.features;
   }
 
+  var prodst = {'results': [ { 'name': 'Patience', 'photos': ['loading please wait'] } ] } ;
+
+  var stylesKeys = Object.keys(styles)
+  if (stylesKeys.length > 0 ) {
+    console.log(true);
+    prodst = styles;
+  }
+
   return (
     <div className="overview-body">
       <div className="to-the-left">
@@ -39,6 +48,7 @@ var Overview = (props) => {
         <h3>{product.category}</h3>
         <h2>{product.name}</h2>
         <h3>{product.default_price}</h3>
+        <Hub styles={prodst}/>
         <h3>share</h3>
       </div>
       <div className="to-the-left">

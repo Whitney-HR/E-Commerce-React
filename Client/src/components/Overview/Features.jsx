@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import Axios from 'axios';
 
 var Features = (props) => {
   return (
