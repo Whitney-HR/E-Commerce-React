@@ -15,7 +15,7 @@ render() {
   return (
     <div>
       <h1>Hello World!!</h1>
-      <Questions />
+      <Questions id={19089}/>
     </div>
   )
 }
