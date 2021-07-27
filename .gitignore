@@ -111,3 +111,5 @@ build/
 dist/
 bundle.js
 
+#config
+config.js
