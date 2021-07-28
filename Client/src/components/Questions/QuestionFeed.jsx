@@ -11,7 +11,7 @@ import token from '../../env/config.js'
 export default function QuestionFeed({id}) {
   const [questions, setQuestions] = useState([])
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     Axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/qa/questions?product_id=${id}`, { headers: {Authorization: token} })
       .then(data => {
         setQuestions(data.data.results)
