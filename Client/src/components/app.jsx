@@ -32,15 +32,22 @@ var App = () => {
   return (
     <div>
       <h1>E-COMMERCE</h1>
-      <div>{item.category}</div>
+      {/* <div>{item.category}</div>
       <div><h3>{item.name}</h3></div>
       <div>{item.default_price}</div>
       <div>
         <p>{item.slogan}</p>
         <p>{item.description}</p>
+<<<<<<< HEAD
+      </div> */}
+      <Overview id={item.id}/>
+      {/* <Questions id={item.id}/>
+      <Reviews id={item.id}/> */}
+=======
       </div>
       {/* <h2>{item.id}</h2> */}
       <Questions id={item.id}/>
+>>>>>>> 595d7979fd617590e21ede5afb06b5d1309c7d5c
     </div>
 
   )
