@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import ReactDOM from 'react-dom';
 import App from '../App.jsx';
 import Questions from './Questions.jsx';
 import Question from './Question.jsx';
+import Answers from './Answers.jsx';
+import AddQuestion from './AddQuestion.jsx';
+import MoreAnsweredQuestion from './MoreAnsweredQuestions.jsx';
 import Axios from 'axios';
 import token from '../../env/config.js'
 
@@ -19,32 +21,33 @@ export default function QuestionFeed({id}) {
       })
   }, [id]);
 
-  // var question = {
-  //   question_body: 'Loading please wait'
-  // };
 
-  // if (questions.length) {
-  //   question = questions[0]
-  // }
-  // console.log(question)
-  // return (
-
-  //   <div>
-  //     <Question question={question.question_body}/>
-  //     {/* <p>{question.answers[0].body}</p> */}
-  //   </div>
-  // )
   if (!questions.length) {
     return (
       <p>Still Loading</p>
+    )
+  } else if (questions.length <= 2) {
+    return (
+      <div>
+        {questions.map((question, index) =>
+        <div key={index}>
+          <Question {...question} />
+          <Answers {...question} />
+        </div>
+        )}
+        <AddQuestion />
+      </div>
     )
   } else {
     return (
       <div>
         {questions.map((question, index) =>
-          <Question key={index} question={question.question_body} />
+        <div key={index}>
+          <Question {...question} />
+          <Answers {...question} />
+        </div>
         )}
-        <p>SUP World</p>
+        <MoreAnsweredQuestion /> <AddQuestion />
       </div>
     )
   }

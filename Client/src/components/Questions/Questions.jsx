@@ -7,14 +7,12 @@ import AddQuestion from './AddQuestion.jsx';
 import MoreAnsweredQuestion from './MoreAnsweredQuestions.jsx';
 import QuestionFeed from './QuestionFeed.jsx';
 
-export default function Questions(props) {
+export default function Questions({id}) {
   return (
     <div>
-      {/* <p>{props.id}</p> */}
       {/* <SearchBar /> */}
-      <QuestionFeed id={props.id}/>
+      <QuestionFeed id={id}/>
       {/* <MoreAnsweredQuestion /> <AddQuestion /> */}
-      {/* <h1>Q and A</h1> */}
     </div>
   )
 };
