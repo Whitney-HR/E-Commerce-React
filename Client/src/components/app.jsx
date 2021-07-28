@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useLayoutEffect } from 'react';
 import ReactDOM from 'react-dom';
 import Overview from './Overview/Overview.jsx';
 import Questions from './Questions/Questions.jsx';
@@ -12,7 +12,7 @@ import SearchBar from './Questions/SearchBar.jsx';
 var App = () => {
   const [products, productsUpdate] = useState([]);
 
-  useEffect (() => {
+  useLayoutEffect (() => {
     Axios.get('https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/products',   { headers: {  Authorization: token } })
       .then(data => {
         productsUpdate(data.data);
@@ -38,10 +38,16 @@ var App = () => {
       <div>
         <p>{item.slogan}</p>
         <p>{item.description}</p>
+<<<<<<< HEAD
       </div> */}
       <Overview id={item.id}/>
       {/* <Questions id={item.id}/>
       <Reviews id={item.id}/> */}
+=======
+      </div>
+      {/* <h2>{item.id}</h2> */}
+      <Questions id={item.id}/>
+>>>>>>> 595d7979fd617590e21ede5afb06b5d1309c7d5c
     </div>
 
   )
