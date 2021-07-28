@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useLayoutEffect } from 'react';
 import ReactDOM from 'react-dom';
 import Overview from './Overview/Overview.jsx';
 import Questions from './Questions/Questions.jsx';
@@ -12,7 +12,7 @@ import SearchBar from './Questions/SearchBar.jsx';
 var App = () => {
   const [products, productsUpdate] = useState([]);
 
-  useEffect (() => {
+  useLayoutEffect (() => {
     Axios.get('https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/products',   { headers: {  Authorization: token } })
       .then(data => {
         productsUpdate(data.data);

@@ -10,7 +10,7 @@ import QuestionFeed from './QuestionFeed.jsx';
 export default function Questions({id}) {
   return (
     <div>
-      {/* <SearchBar /> */}
+      <SearchBar />
       <QuestionFeed id={id}/>
       {/* <MoreAnsweredQuestion /> <AddQuestion /> */}
     </div>

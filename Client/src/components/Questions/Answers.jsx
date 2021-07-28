@@ -22,8 +22,8 @@ export default function Answers({ question_id, question_body, question_date, ask
   // console.log('BODY: ', answers[first].body);
 
   return (
-    <div>
-      <p>A: {answers[first].body}</p>
+    <div >
+      <p >A: {answers[first].body}</p>
     </div>
   )
 }
