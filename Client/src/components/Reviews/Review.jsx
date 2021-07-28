@@ -8,7 +8,7 @@ const axios = require('axios');
 
 
 var url = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/products';
-var APIkey = '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'
+
 
 
 
