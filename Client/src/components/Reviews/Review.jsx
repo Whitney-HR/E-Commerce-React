@@ -21,22 +21,22 @@ class Review extends React.Component {
 
   };
 
-  componentDidMount() {
+  // componentDidMount() {
 
-    axios.get(url, {
-      headers: {
-        Authorization: APIkey
-      }
-    })
-    .then((response)=> {
-      console.log(response);
-    })
-    .catch((error)=> {
-      console.log(error);
-      console.log('test')
-    })
+  //   axios.get(url, {
+  //     headers: {
+  //       Authorization: APIkey
+  //     }
+  //   })
+  //   .then((response)=> {
+  //     console.log(response);
+  //   })
+  //   .catch((error)=> {
+  //     console.log(error);
+  //     console.log('test')
+  //   })
 
-  }
+  // }
 
 
 
