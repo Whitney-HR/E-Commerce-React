@@ -6,10 +6,10 @@ import Hub from './Hub';
 
 
 
-
 var Overview = (props) => {
   const [product, productUpdate] = useState({});
   const [styles, stylesUpdate] = useState({});
+  const [chosenStyle, updateChosenStyle] = useState({});
 
   useEffect (() => {
     Axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/products/${props.id}`,   { headers: {  Authorization: token } })
@@ -34,21 +34,16 @@ var Overview = (props) => {
 
   var stylesKeys = Object.keys(styles)
   if (stylesKeys.length > 0 ) {
-    console.log(true);
     prodst = styles;
   }
 
   return (
     <div className="overview-body">
-      <div className="to-the-left">
-        images
-      </div>
       <div className="to-the-right">
         <h3>Stars</h3>
         <h3>{product.category}</h3>
         <h2>{product.name}</h2>
-        <h3>{product.default_price}</h3>
-        <Hub styles={prodst}/>
+        <Hub styles={prodst} />
         <h3>share</h3>
       </div>
       <div className="to-the-left">
