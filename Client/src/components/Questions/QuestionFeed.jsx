@@ -21,32 +21,41 @@ export default function QuestionFeed({id}) {
       })
   }, [id]);
 
+  let feedstyle = {
+    'width': '1000px',
+    'height': '400px'
+  }
 
-  if (!questions.length) {
+  let compareHelpfulness = function(question1, question2) {
+    return question2.question_helpfulness - question1.question_helpfulness
+  }
+  let sortedQuestions = questions.sort(compareHelpfulness)
+
+  if (!sortedQuestions.length) {
     return (
       <p>Still Loading</p>
     )
-  } else if (questions.length <= 2) {
+  } else if (sortedQuestions.length <= 2) {
     return (
-      <div>
-        {questions.map((question, index) =>
+      <section style={feedstyle}>
+        {sortedQuestions.map((question, index) =>
         <div key={index}>
           <Question {...question} />
           <Answers {...question} />
         </div>
         )}
         <AddQuestion />
-      </div>
+      </section>
     )
   } else {
     return (
-      <div>
-        <Question {...questions[0]} />
-        <Answers {...questions[0]} />
-        <Question {...questions[1]} />
-        <Answers {...questions[1]} />
+      <section style={feedstyle}>
+        <Question {...sortedQuestions[0]} />
+        <Answers {...sortedQuestions[0]} />
+        <Question {...sortedQuestions[1]} />
+        <Answers {...sortedQuestions[1]} />
         <MoreAnsweredQuestion /> <AddQuestion />
-      </div>
+      </section>
     )
   }
 }

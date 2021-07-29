@@ -8,10 +8,18 @@ import Axios from 'axios';
 import token from '../../env/config.js';
 
 export default function Question({ question_id, question_body, question_date, asker_name, question_helpfulness, reported, answers}) {
+  let questionStyle = {
+    "display": 'inline-block',
+    "textAlign": 'left',
+    "marginBottom": 0
+  }
+  let rightSideStyle = {
+    "display": 'inline-block',
+    "float": 'right'
+  }
   return (
-    <div>
-      <h3>Q: {question_body}</h3>
-      <AddAnswer />
-    </div>
+    <>
+      <h3 style={questionStyle}>Q: {question_body}</h3> <p style={rightSideStyle}>Add Answer</p> <p style={rightSideStyle}>({question_helpfulness}) | </p><p style={rightSideStyle}>Yes?</p><p style={rightSideStyle}>Helpful?</p>
+    </>
   )
 }

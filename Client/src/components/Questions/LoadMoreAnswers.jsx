@@ -3,11 +3,20 @@ import QuestionFeed from './QuestionFeed.jsx';
 import Answers from './Answers.jsx';
 import Answer from './Answer.jsx';
 
-export default function LoadMoreAnswers() {
+export default function LoadMoreAnswers({load}) {
+  // handleLoad = (e) => {
+  //   e.preventDefault()
+  //   load()
+  // }
+  const handleLoad = function(e) {
+    e.preventDefault();
+    load()
+  }
+
   return (
-    <div>
-      <a>Load More answers</a>
-    </div>
+    <>
+      <button onClick={handleLoad}>Load more answers</button>
+    </>
   )
 }
 
