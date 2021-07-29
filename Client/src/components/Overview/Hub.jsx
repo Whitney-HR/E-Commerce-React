@@ -22,7 +22,7 @@ var Hub = (props) => {
     borderRadius: '100px',
     border: '2px solid black',
     height: '75px',
-    width: '75px'
+    width: '75px',
   }
   const lineThrough = {
     textDecoration: 'line-through'
@@ -30,6 +30,10 @@ var Hub = (props) => {
   const redText = {
     color: 'red'
   }
+  const moveToRight = {
+    float: 'right'
+  }
+
 
   const pricePicker = () => {
     if (currentStyle.sale_price) {
@@ -48,16 +52,22 @@ var Hub = (props) => {
 
   return (
     <div>
-      <div>
-        {pricePicker()}
-      </div>
-      <h3>Styles > {currentStyle.name}</h3>
-      <div>
-        {props.styles.results.map((current, index) => {
-          return (
-            <img style={styleSelect} src={current.photos[0].thumbnail_url} key={index} onClick={() => { newCurrent(current) }}></img>
-          )
-        })}
+      <div style={moveToRight}>
+        <div>
+          <h3>{props.category}</h3>
+          <h2>{props.name}</h2>
+        </div>
+        <div>
+          {pricePicker()}
+        </div>
+        <h3>Styles > {currentStyle.name}</h3>
+        <div >
+          {props.styles.results.map((current, index) => {
+            return (
+              <img style={styleSelect} src={current.photos[0].thumbnail_url} key={index} onClick={() => { newCurrent(current) }}></img>
+            )
+          })}
+        </div>
       </div>
       <div>
         <Images chosenStyle={currentStyle}/>

@@ -2,7 +2,10 @@ import React, { useState, useEffect } from 'react';
 
 var Images = (props) => {
   const [bigPicture, updateBigPicture] = useState({})
-  ///console.log(props.chosenStyle);
+
+  useEffect(() => {
+    updateBigPicture(props.chosenStyle.photos[0])
+  }, [props.chosenStyle]);
 
   const pictureSelect = {
     border: '2px solid black',
@@ -11,16 +14,13 @@ var Images = (props) => {
   }
   const pictureSelected = {
     border: '2px solid black',
-    height: '700px',
-    // width: '700px'
+    height: '500px',
+    maxWidth: '600px'
   }
-
-  var picsInputCss = pictureSelect;
 
   var changeBigPic = (negatives) => {
     updateBigPicture(negatives);
   }
-
 
   return (
     <div>

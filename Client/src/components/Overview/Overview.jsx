@@ -37,20 +37,25 @@ var Overview = (props) => {
     prodst = styles;
   }
 
+  const shrinkToLeft = {
+    maxWidth: '600px',
+    float: 'left'
+  }
+
   return (
     <div className="overview-body">
       <div className="to-the-right">
         <h3>Stars</h3>
-        <h3>{product.category}</h3>
-        <h2>{product.name}</h2>
-        <Hub styles={prodst} />
+        {/* <h3>{product.category}</h3>
+        <h2>{product.name}</h2> */}
+        <Hub styles={prodst} name={product.name} category={product.category}/>
         <h3>share</h3>
       </div>
-      <div className="to-the-left">
+      <div style={shrinkToLeft}>
         <h3>{product.slogan}</h3>
         <h5>{product.description}</h5>
       </div>
-      <div className="to-the-right">
+      <div >
         <Features feat={prodft}/>
       </div>
     </div>
