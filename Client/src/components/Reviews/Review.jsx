@@ -4,54 +4,30 @@ import SortR from './SubComponents/SortR.jsx';
 import Rbreakdown from './SubComponents/Rbreakdown.jsx';
 import Pbreakdown from './SubComponents/Pbreakdown.jsx';
 
-const axios = require('axios');
-
-
-var url = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/products';
-
-
 
 
 class Review extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      productID: '19089'// this.props
+      productID: '19093'// this.props.id
     };
 
   };
 
-  // componentDidMount() {
-
-  //   axios.get(url, {
-  //     headers: {
-  //       Authorization: APIkey
-  //     }
-  //   })
-  //   .then((response)=> {
-  //     console.log(response);
-  //   })
-  //   .catch((error)=> {
-  //     console.log(error);
-  //     console.log('test')
-  //   })
-
-  // }
-
-
-
 
   render () {
+
       return (
         <div>
           Ratings Reviews
-          <SortR />
+          <SortR id={this.state.productID}/>
           <br></br>
           <br></br>
-          <Rbreakdown />
+          <Rbreakdown id={this.state.productID}/>
           <br></br>
           <br></br>
-          <Pbreakdown />
+          <Pbreakdown id={this.state.productID}/>
         </div>
       )
   }
