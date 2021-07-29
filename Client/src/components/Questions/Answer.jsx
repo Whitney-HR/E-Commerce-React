@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import App from '../App.jsx';
 import Questions from './Questions.jsx';
 import QuestionFeed from './QuestionFeed.jsx';
-import Answers from './Answers.jsx';
+import AnswerFeed from './AnswerFeed.jsx';
 import Axios from 'axios';
 import token from '../../env/config.js';
 

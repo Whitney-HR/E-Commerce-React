@@ -2,7 +2,7 @@ import React, { useState, useEffect, useLayoutEffect } from 'react';
 import App from '../App.jsx';
 import Questions from './Questions.jsx';
 import Question from './Question.jsx';
-import Answers from './Answers.jsx';
+import AnswerFeed from './AnswerFeed.jsx';
 import AddQuestion from './AddQuestion.jsx';
 import MoreAnsweredQuestion from './MoreAnsweredQuestions.jsx';
 import Axios from 'axios';
@@ -41,7 +41,7 @@ export default function QuestionFeed({id}) {
         {sortedQuestions.map((question, index) =>
         <div key={index}>
           <Question {...question} />
-          <Answers {...question} />
+          <AnswerFeed {...question} />
         </div>
         )}
         <AddQuestion />
@@ -51,18 +51,11 @@ export default function QuestionFeed({id}) {
     return (
       <section style={feedstyle}>
         <Question {...sortedQuestions[0]} />
-        <Answers {...sortedQuestions[0]} />
+        <AnswerFeed {...sortedQuestions[0]} />
         <Question {...sortedQuestions[1]} />
-        <Answers {...sortedQuestions[1]} />
+        <AnswerFeed {...sortedQuestions[1]} />
         <MoreAnsweredQuestion /> <AddQuestion />
       </section>
     )
   }
 }
-
-// {/* {questions.map((question, index) =>
-//         <div key={index}>
-//           <Question {...question} />
-//           <Answers {...question} />
-//         </div>
-//         )} */}

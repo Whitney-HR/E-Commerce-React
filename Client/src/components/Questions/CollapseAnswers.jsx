@@ -1,6 +1,6 @@
 import React from 'react';
 import QuestionFeed from './QuestionFeed.jsx';
-import Answers from './Answers.jsx';
+import AnswerFeed from './AnswerFeed.jsx';
 import Answer from './Answer.jsx';
 
 export default function CollapseAnswers({reload}) {
