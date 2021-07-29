@@ -41,14 +41,19 @@ export default function QuestionFeed({id}) {
   } else {
     return (
       <div>
-        {questions.map((question, index) =>
-        <div key={index}>
-          <Question {...question} />
-          <Answers {...question} />
-        </div>
-        )}
+        <Question {...questions[0]} />
+        <Answers {...questions[0]} />
+        <Question {...questions[1]} />
+        <Answers {...questions[1]} />
         <MoreAnsweredQuestion /> <AddQuestion />
       </div>
     )
   }
 }
+
+// {/* {questions.map((question, index) =>
+//         <div key={index}>
+//           <Question {...question} />
+//           <Answers {...question} />
+//         </div>
+//         )} */}
