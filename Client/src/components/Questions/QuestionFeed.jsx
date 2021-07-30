@@ -8,7 +8,7 @@ import MoreAnsweredQuestions from './MoreAnsweredQuestions.jsx';
 import Axios from 'axios';
 import token from '../../env/config.js'
 
-export default function QuestionFeed({ id }) {
+export default function QuestionFeed({ id, showModal }) {
   const [questions, setQuestions] = useState([])
   const [questionsShowing, setShowingQues] = useState(2)
 
@@ -37,12 +37,13 @@ export default function QuestionFeed({ id }) {
 
   //STYLES
   let feedstyle = {
-    'width': '600px',
+    'width': '1000px',
     'height': '400px'
   }
 
 
-  //Nothing loaded
+
+  //Start of JSX
   if (!sortedQuestions.length) {
     return (
       <p>Still Loading</p>
@@ -59,7 +60,7 @@ export default function QuestionFeed({ id }) {
             <AnswerFeed {...question} />
           </div>
         )}
-        <AddQuestion />
+        <AddQuestion showModal={showModal}/>
       </section>
     )
   }
@@ -83,14 +84,14 @@ export default function QuestionFeed({ id }) {
     return (
       <section style={feedstyle} >
         {showing}
-        <AddQuestion />
+        <AddQuestion showModal={showModal}/>
       </section>
     )
   } else {
     return (
       <section style={feedstyle}>
         {showing}
-        <MoreAnsweredQuestions load={showTwoMore} /> <AddQuestion />
+        <MoreAnsweredQuestions load={showTwoMore} /> <AddQuestion showModal={showModal}/>
       </section>
     )
   }
