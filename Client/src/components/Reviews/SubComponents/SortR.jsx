@@ -78,7 +78,6 @@ class SortR extends React.Component {
                 <option value="newest">Newest</option>
               </select>
             </label>
-
           </form>
               <ReviewList displayComments={this.state.displayComments} comments={this.state.comments}/>
               {MoreReviewButton} {<input type="submit" value="Add a Review"/>}
