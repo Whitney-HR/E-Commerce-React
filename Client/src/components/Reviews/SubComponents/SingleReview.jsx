@@ -112,7 +112,6 @@ class SingleReview extends React.Component{
         <div>
           Was it helpful?  <span onClick={this.clickHandlerYesHelpful}>Yes({this.state.yesCount})</span><span> / </span><span onClick={this.clickHandlerNoHelpful}>No ({this.state.noCount})</span>
         </div>
-
       </div>
     )
     }

@@ -39,8 +39,9 @@ var App = () => {
         <p>{item.slogan}</p>
         <p>{item.description}</p>
       </div>
-      {/* <h2>{item.id}</h2> */}
-      <Reviews id={item.id}/>
+        {/* <h2>{item.id}</h2> */}
+      <Overview id={item.id}/>
+      {/* <Questions id={item.id}/> */}
     </div>
 
   )
