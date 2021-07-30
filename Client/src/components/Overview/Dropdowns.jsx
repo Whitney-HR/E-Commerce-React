@@ -33,12 +33,13 @@ var Dropdowns = (props) => {
   const dropDown = {
     'width': '120px',
     'height': '30px',
-    'border': '1px solid #999',
+    'border': '1px solid black',
     'fontSize': '18px',
-    'color': '#1c87c9',
+    'color': 'black',
     'backgroundColor': '#eee',
     'borderRadius': '5px',
     'boxShadow': '4px 4px #ccc',
+
   }
   return (
     <div >
@@ -74,5 +75,3 @@ var Dropdowns = (props) => {
 };
 
 export default Dropdowns;
-
-//onClick={() => updateCsAs(skuStorage[sku]['quantity'])}
