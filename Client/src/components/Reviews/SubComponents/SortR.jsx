@@ -26,9 +26,10 @@ class SortR extends React.Component {
       }
     })
     .then((data)=> {
+      console.log(data.data)
       this.setState({
         currentFilter: 'relevant',
-        reviewCount: data.data.count,
+        reviewCount: data.data.results.length,
         comments: data.data.results
       })
     })

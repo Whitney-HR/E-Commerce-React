@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { Component } from "react";
 import moment from 'moment'
+import imageModal from './reviewImageModal.jsx'
 
 var divBoxStyle = {
   width: '60%',
@@ -17,7 +18,6 @@ var dummytext = `Any images that were submitted as part of the review should app
 		Response to Review - Our internal sales team has the ability to respond to any reviews written.  If the review has a corresponding response, this should appear below the reviewer name.  The response should be preceded by the text “Response from seller”, and should be visually distinguished from the rest of the review.
 		Rating Helpfulness - Any user on the site will have the ability to provide feedback on whether reviews are helpful.  At the bottom of the review tile the text “Was this review helpful?” will precede two links “Yes (#)” and “No (#)”.   Following “Yes” and “No” will be the count of users that have selected that button.  Clicking either link should cast a vote for that selection.   `
 
-
 class SingleReview extends React.Component{
   constructor(props) {
     super(props);
@@ -26,11 +26,32 @@ class SingleReview extends React.Component{
       body: null,
       yesCount: Math.floor(Math.random()*10), // random initial value
       noCount: Math.floor(Math.random()*10), // random initial value
-      yesNoSelected: false
+      yesNoSelected: false,
+      showImageModal: false,
+      showNewReviewModal: false
     };
     this.handleBodyClick = this.handleBodyClick.bind(this);
     this.clickHandlerYesHelpful = this.clickHandlerYesHelpful.bind(this);
     this.clickHandlerNoHelpful = this.clickHandlerNoHelpful.bind(this);
+    this.clickShowImageModal = this.clickShowImageModal.bind(this);
+    this.clickShowNewReviewModal = this.clickShowNewReviewModal.bind(this);
+    this.clickHideImageModal = this.clickHideImageModal.bind(this);
+  }
+
+
+  clickShowImageModal() {
+    console.log('click show image')
+    this.setState({
+      showImageModal: true
+    })
+  }
+
+  clickHideImageModal() {
+
+  }
+
+  clickShowNewReviewModal() {
+
   }
 
 
@@ -61,9 +82,7 @@ class SingleReview extends React.Component{
         yesCount: newYes,
         yesNoSelected: true
       })
-
     }
-
   }
 
   clickHandlerNoHelpful(){
@@ -89,10 +108,17 @@ class SingleReview extends React.Component{
       }
       var body;
       if (this.state.hideBody) {
-        body = <div>{`${this.state.body}...`}<div onClick={this.handleBodyClick} style={{color: 'blue'}}>...Show More</div></div>
+        body = <div style={{textAlign: 'justify', textJustify: 'inter-word'}}>{`${this.state.body}...`}<div onClick={this.handleBodyClick} style={{color: 'blue'}}>...Show More</div></div>
       } else {
-        body = <div>{this.state.body}</div>
+        body = <div style={{textAlign: 'justify', textJustify: 'inter-word'}}>{this.state.body}</div>
       }
+
+      const thumbnailStyle = {
+        border: '2px solid black',
+        height: '50px',
+        width: '50px'
+      }
+
 
     return (
       <div style={divBoxStyle}>
@@ -101,7 +127,9 @@ class SingleReview extends React.Component{
         {moment(this.props.comment.date).format("MMMM DD YYYY")}
         <p style={{fontWeight: 'bold', fontSize: '150%'}}>{this.props.comment.summary}</p>
         {body}
-        {'here goes the images thumbnails'}
+        {this.props.comment.photos.map((photo, index)=>
+          <img onClick={this.clickShowImageModal} style={thumbnailStyle}key={index} src={`${photo.url}`}></img>
+        )}
         <br></br>
         {recommendedProduct}
         <br></br>
@@ -119,21 +147,3 @@ class SingleReview extends React.Component{
 
 
 export default SingleReview;
-
-
-/*
-
-    <div className="feed">
-      <ul>
-        {props.posts.map((post) =>
-          <li key={post._id} className="feed-list-item">
-            <div className="feed-list-item-title" onClick={()=> clickHandlerSelectPost(post)}>{post.title}</div>
-            <div className="feed-list-item-byline"><span className="feed-list-item-byline-author">{post.author}</span>{moment(post.createdAt).startOf('hour').fromNow()}</div>
-            <img src={`${post.imageUrl}`} onClick={()=> clickHandlerSelectPost(post)} className="feed-list-item-image" />
-            <span className="feed-list-item-lede">{post.body.split('\n\n').map((para)=> <p>{para}</p>)} </span>
-          </li>
-        )}
-      </ul>
-    </div>
-
-*/

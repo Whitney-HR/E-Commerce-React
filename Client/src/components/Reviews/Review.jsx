@@ -11,7 +11,7 @@ class Review extends React.Component {
     super(props);
     this.state = {
       // productID: '19093'// this.props.id 5 reviews
-      productID: '19093'// this.props.id 5 reviews
+      productID: '19092'// this.props.id 5 reviews
     };
 
   };
