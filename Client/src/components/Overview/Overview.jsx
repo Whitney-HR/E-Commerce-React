@@ -6,10 +6,10 @@ import Hub from './Hub';
 
 
 
-
 var Overview = (props) => {
   const [product, productUpdate] = useState({});
   const [styles, stylesUpdate] = useState({});
+  const [chosenStyle, updateChosenStyle] = useState({});
 
   useEffect (() => {
     Axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/products/${props.id}`,   { headers: {  Authorization: token } })
@@ -30,32 +30,32 @@ var Overview = (props) => {
     prodft = product.features;
   }
 
-  var prodst = {'results': [ { 'name': 'Patience', 'photos': ['loading please wait'] } ] } ;
+  var prodst = {'results': [ { 'name': 'Patience', 'photos': [{'url':'a', 'thumbnail_url': 'b'}], 'skus': {'12345': {'quantity': 7, 'size': 'M'}} } ] } ;
 
   var stylesKeys = Object.keys(styles)
   if (stylesKeys.length > 0 ) {
-    console.log(true);
     prodst = styles;
+  }
+
+  const shrinkToLeft = {
+    maxWidth: '600px',
+    float: 'left'
   }
 
   return (
     <div className="overview-body">
-      <div className="to-the-left">
-        images
-      </div>
       <div className="to-the-right">
         <h3>Stars</h3>
-        <h3>{product.category}</h3>
-        <h2>{product.name}</h2>
-        <h3>{product.default_price}</h3>
-        <Hub styles={prodst}/>
+        {/* <h3>{product.category}</h3>
+        <h2>{product.name}</h2> */}
+        <Hub styles={prodst} name={product.name} category={product.category}/>
         <h3>share</h3>
       </div>
-      <div className="to-the-left">
+      <div style={shrinkToLeft}>
         <h3>{product.slogan}</h3>
         <h5>{product.description}</h5>
       </div>
-      <div className="to-the-right">
+      <div >
         <Features feat={prodft}/>
       </div>
     </div>
