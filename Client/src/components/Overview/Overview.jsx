@@ -30,7 +30,7 @@ var Overview = (props) => {
     prodft = product.features;
   }
 
-  var prodst = {'results': [ { 'name': 'Patience', 'photos': ['loading please wait'] } ] } ;
+  var prodst = {'results': [ { 'name': 'Patience', 'photos': [{'url':'a', 'thumbnail_url': 'b'}], 'skus': {'12345': {'quantity': 7, 'size': 'M'}} } ] } ;
 
   var stylesKeys = Object.keys(styles)
   if (stylesKeys.length > 0 ) {

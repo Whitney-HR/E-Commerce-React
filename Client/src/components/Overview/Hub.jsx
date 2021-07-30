@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Images from './images';
+import Dropdowns from './Dropdowns';
 
 var Hub = (props) => {
   const [currentStyle, currentStyleUpdate] = useState(props.styles.results[0]);
@@ -67,6 +68,9 @@ var Hub = (props) => {
               <img style={styleSelect} src={current.photos[0].thumbnail_url} key={index} onClick={() => { newCurrent(current) }}></img>
             )
           })}
+        </div>
+        <div>
+          <Dropdowns currentStyle={currentStyle}/>
         </div>
       </div>
       <div>

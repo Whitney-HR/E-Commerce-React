@@ -4,7 +4,7 @@ var Features = (props) => {
 
   const moveToRight = {
     float: 'left',
-    padding: '20px'
+    paddingLeft: '20px'
   }
 
   return (
