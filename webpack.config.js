@@ -17,6 +17,10 @@ module.exports = {
         use: { //origina: use: 'babel-loader'
           loader: 'babel-loader'
         }
+      },
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader']
       }
     ]
   },
