@@ -41,7 +41,7 @@ var App = () => {
       </div>
         {/* <h2>{item.id}</h2> */}
       <Overview id={item.id}/>
-      {/* <Questions id={item.id}/> */}
+      <Questions id={item.id}/>
     </div>
 
   )
