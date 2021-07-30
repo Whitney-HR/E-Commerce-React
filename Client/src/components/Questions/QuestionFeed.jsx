@@ -37,7 +37,7 @@ export default function QuestionFeed({ id }) {
 
   //STYLES
   let feedstyle = {
-    'width': '1000px',
+    'width': '600px',
     'height': '400px'
   }
 
