@@ -7,12 +7,13 @@ import Axios from 'axios';
 import token from '../env/config.js'
 import randomNumber from './Shared/randomNumberInator.js'
 import SearchBar from './Questions/SearchBar.jsx';
+import Modal from './Shared/SharedModal.jsx';
 
 
 var App = () => {
   const [products, productsUpdate] = useState([]);
 
-  useLayoutEffect (() => {
+  useEffect (() => {
     Axios.get('https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/products',   { headers: {  Authorization: token } })
       .then(data => {
         productsUpdate(data.data);
@@ -41,7 +42,8 @@ var App = () => {
       </div>
         {/* <h2>{item.id}</h2> */}
       <Overview id={item.id}/>
-      <Questions id={item.id}/>
+      <br/>
+      <Questions id={item.id} />
       <Reviews id={item.id}/>
     </div>
 

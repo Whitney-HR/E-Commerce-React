@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { FaStar } from 'react-icons/fa'
 import Axios from 'axios';
 import token from '/Client/src/env/config.js'
 import Features from './Features';
@@ -37,15 +38,23 @@ var Overview = (props) => {
     prodst = styles;
   }
 
+  const style = {
+    height: '900px',
+
+  }
   const shrinkToLeft = {
     maxWidth: '600px',
     float: 'left'
   }
 
   return (
-    <div className="overview-body">
+    <div className="overview-body" style={style}>
       <div className="to-the-right">
         <h3>Stars</h3>
+        <FaStar color="yellow" />
+        <FaStar color="yellow" />
+        <FaStar color="yellow" />
+        <FaStar color="yellow" />
         {/* <h3>{product.category}</h3>
         <h2>{product.name}</h2> */}
         <Hub styles={prodst} name={product.name} category={product.category}/>
