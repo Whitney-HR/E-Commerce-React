@@ -3,7 +3,7 @@ import React from 'react';
 import SortR from './SubComponents/SortR.jsx';
 import Rbreakdown from './SubComponents/Rbreakdown.jsx';
 import Pbreakdown from './SubComponents/Pbreakdown.jsx';
-import StarRating from '../Shared/StarRating.jsx'
+
 
 
 
@@ -23,11 +23,11 @@ class Review extends React.Component {
   //all products id: 19089 19090 19091 19092 19093
 
   render () {
+    console.log(props)
       return (
         <div className='reviews'>
           <h2>{`Ratings & Reviews`}</h2>
           <>
-          <StarRating />
           <Rbreakdown id={this.state.productID}/>
           <Pbreakdown id={this.state.productID}/>
           <SortR id={this.state.productID}/>

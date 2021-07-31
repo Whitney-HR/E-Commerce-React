@@ -95,7 +95,7 @@ class SingleReview extends React.Component{
         <StarRating rating={this.props.comment.rating}/>
         <br></br>
         {moment(this.props.comment.date).format("MMMM DD YYYY")}
-        <p style={{fontWeight: 'bold', fontSize: '150%'}}>{this.props.comment.summary}</p>
+        <h3>{this.props.comment.summary}</h3>
         {body}
         {this.state.photos.map((photo, index)=>
           <ImageThumbnail photo={photo.url} key={index}/>
