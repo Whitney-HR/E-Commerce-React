@@ -4,7 +4,7 @@ import React from 'react';
 function Rbreakdown(props) {
 
   return (
-    <div>Rbreakdown main Div</div>
+    <div className='Rbreakdown'>Rbreakdown main Div</div>
   )
 
 }

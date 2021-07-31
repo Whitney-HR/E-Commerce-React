@@ -6,3 +6,38 @@ to-the-left {
 to-the-right {
   float: right;
 }
+
+
+
+
+
+/* Ratings & Reviews  */
+.reviews {
+  /* background-color: lightgrey; */
+}
+
+
+.Rbreakdown {
+  /* background-color: blue; */
+  /* width:200px; */
+
+
+
+}
+
+.Pbreakdown {
+  /* background-color: blue; */
+  /* width:200px; */
+
+}
+
+.SortR {
+  /* position: absolute; */
+  top: 10px;
+  right:10px;
+  width:80%;
+}
+
+.ReviewList {
+  background-color: rgb(71, 186, 186);
+}
