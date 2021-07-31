@@ -6,6 +6,9 @@ import Pbreakdown from './SubComponents/Pbreakdown.jsx';
 
 
 
+
+
+
 class Review extends React.Component {
   constructor(props) {
     super(props);
@@ -20,16 +23,15 @@ class Review extends React.Component {
   //all products id: 19089 19090 19091 19092 19093
 
   render () {
+    // console.log(props)
       return (
-        <div id="reviews">
-          Ratings Reviews
-          <SortR id={this.state.productID}/>
-          <br></br>
-          <br></br>
+        <div className='reviews' id="reviews">
+          <h2>{`Ratings & Reviews`}</h2>
+          <>
           <Rbreakdown id={this.state.productID}/>
-          <br></br>
-          <br></br>
           <Pbreakdown id={this.state.productID}/>
+          <SortR id={this.state.productID}/>
+          </>
         </div>
       )
   }

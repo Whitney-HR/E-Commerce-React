@@ -84,7 +84,7 @@ class SortR extends React.Component {
       }
 
         return (
-          <div style={{overflowY: 'scroll'}}>
+          <div className='SortR'>
             <form>
             <label>
               {this.state.reviewCount} reviews, sorted by
