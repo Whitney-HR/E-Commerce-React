@@ -30,6 +30,7 @@ var App = () => {
     item = products[numRand];
   }
 
+  console.log(item.name)
   return (
     <div>
       <h1>E-COMMERCE</h1>
