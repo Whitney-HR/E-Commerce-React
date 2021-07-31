@@ -16,7 +16,7 @@ class ReviewList extends React.Component {
   render () {
     var comments = this.props.comments.slice(0, this.props.displayComments)
     return (
-      <div>
+      <div className='ReviewList'>
       {comments.map((comment)=>
         <SingleReview key={comment.review_id} comment={comment}/>
       )}
