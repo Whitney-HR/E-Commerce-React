@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Images from './images';
 import Dropdowns from './Dropdowns';
-import { FaStar, FaFacebookSquare, FaExpand, FaTwitterSquare, FaPinterestSquare } from 'react-icons/fa'
+import { FaStar, FaFacebookSquare, FaTwitterSquare, FaPinterestSquare } from 'react-icons/fa';
 
 var Hub = (props) => {
   const [currentStyle, currentStyleUpdate] = useState(props.styles.results[0]);
@@ -66,7 +66,7 @@ var Hub = (props) => {
   }
 
   return (
-    <div style={{height: '700px'}}>
+    <div style={{height: '750px'}}>
       <div style={moveToRight}>
         <div>
           <FaStar color="yellow" />

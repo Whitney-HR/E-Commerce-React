@@ -39,11 +39,11 @@ var Overview = (props) => {
   }
 
   const style = {
-    'height': '900px',
+    'height': '1000px',
 
   }
   const shrinkToLeft = {
-    maxWidth: '600px',
+    maxWidth: '800px',
     float: 'left'
   }
 
