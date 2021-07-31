@@ -23,13 +23,11 @@ class Review extends React.Component {
       return (
         <div>
           Ratings Reviews
-          <SortR id={this.state.productID}/>
-          <br></br>
-          <br></br>
+          <>
           <Rbreakdown id={this.state.productID}/>
-          <br></br>
-          <br></br>
           <Pbreakdown id={this.state.productID}/>
+          <SortR id={this.state.productID}/>
+          </>
         </div>
       )
   }

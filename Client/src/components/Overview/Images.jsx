@@ -10,12 +10,25 @@ var Images = (props) => {
   const pictureSelect = {
     border: '2px solid black',
     height: '80px',
-    width: '80px'
+    width: '80px',
+    marginTop: '5px',
+    marginBottom: '5px',
   }
   const pictureSelected = {
+    position: 'relative',
     border: '2px solid black',
-    height: '500px',
-    maxWidth: '600px'
+    height: '600px',
+    maxWidth: '700px'
+
+  }
+
+  const carousel = {
+    float: 'left',
+    maxWidth: '110px',
+    display: 'flex',
+    flexDirection: 'column',
+    maxHeight: '600px',
+    overflow: 'scroll',
   }
 
   var changeBigPic = (negatives) => {
@@ -24,9 +37,8 @@ var Images = (props) => {
 
   return (
     <div>
-      <div>
+      <div style={carousel}>
         {props.chosenStyle.photos.map((currentPicture, index) => {
-
           return (
             <img style={pictureSelect} src={currentPicture.thumbnail_url} key={index} onClick={() => {changeBigPic(currentPicture) }}></img>
           )

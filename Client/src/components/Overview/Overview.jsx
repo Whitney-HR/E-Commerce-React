@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { FaStar } from 'react-icons/fa'
+import { FaStar } from 'react-icons/fa';
 import Axios from 'axios';
-import token from '/Client/src/env/config.js'
+import token from '/Client/src/env/config.js';
 import Features from './Features';
 import Hub from './Hub';
 
@@ -39,7 +39,7 @@ var Overview = (props) => {
   }
 
   const style = {
-    height: '900px',
+    'height': '900px',
 
   }
   const shrinkToLeft = {
@@ -48,15 +48,8 @@ var Overview = (props) => {
   }
 
   return (
-    <div className="overview-body" style={style}>
-      <div className="to-the-right">
-        <h3>Stars</h3>
-        <FaStar color="yellow" />
-        <FaStar color="yellow" />
-        <FaStar color="yellow" />
-        <FaStar color="yellow" />
-        {/* <h3>{product.category}</h3>
-        <h2>{product.name}</h2> */}
+    <div  style={style}>
+      <div >
         <Hub styles={prodst} name={product.name} category={product.category}/>
         <h3>share</h3>
       </div>

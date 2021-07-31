@@ -4,11 +4,12 @@ import Questions from './Questions.jsx';
 import Question from './Question.jsx';
 import AnswerFeed from './AnswerFeed.jsx';
 import AddQuestion from './AddQuestion.jsx';
+import AddAnswer from './AddAnswer.jsx';
 import MoreAnsweredQuestions from './MoreAnsweredQuestions.jsx';
 import Axios from 'axios';
 import token from '../../env/config.js'
 
-export default function QuestionFeed({ id, showModal }) {
+export default function QuestionFeed({ id, showModal, showAnswerModal }) {
   const [questions, setQuestions] = useState([])
   const [questionsShowing, setShowingQues] = useState(2)
 
@@ -58,6 +59,7 @@ export default function QuestionFeed({ id, showModal }) {
           <div key={index}>
             <Question {...question} />
             <AnswerFeed {...question} />
+            <AddAnswer showAnswerModal={showAnswerModal} />
           </div>
         )}
         <AddQuestion showModal={showModal}/>
@@ -75,6 +77,7 @@ export default function QuestionFeed({ id, showModal }) {
     showing.push(<div key={x}>
       <Question {...sortedQuestions[x]} />
       <AnswerFeed {...sortedQuestions[x]} />
+      <AddAnswer showAnswerModal={showAnswerModal}/>
     </div>);
     x++;
   }
