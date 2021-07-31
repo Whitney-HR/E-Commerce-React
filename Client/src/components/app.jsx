@@ -30,22 +30,30 @@ var App = () => {
     item = products[numRand];
   }
 
-  console.log(item.name)
+  const margins = {
+    'marginLeft': '100px ',
+    'marginRight': '100px '
+  }
+
   return (
-    <div>
-      <h1>E-COMMERCE</h1>
-      {/* <div>{item.category}</div>
-      <div><h3>{item.name}</h3></div>
-      <div>{item.default_price}</div>
-      <div>
-        <p>{item.slogan}</p>
-        <p>{item.description}</p>
+    <div >
+      <div style={{'marginLeft': '50px '}}>
+        <h1>E-COMMERCE</h1>
       </div>
+      <div style={margins}>
+        <Overview id={item.id}/>
+        <br/>
+        <Questions id={item.id} />
+        <Reviews id={item.id}/>
+      </div>
+<<<<<<< HEAD
         {/* <h2>{item.id}</h2> */}
       <Overview id={item.id}/>
       <br/>
       <Questions id={item.id} />
       <Reviews id={item.id}/>
+=======
+>>>>>>> 3524f6207d20b5891c24dc2052e79970ae4b64d8
     </div>
 
   )
