@@ -1,7 +1,9 @@
 import React from 'react';
 import ReviewList from './ReviewList.jsx'
+import ReviewModal from './NewReviewModal.jsx'
 var APIkey = require('../../../env/config.js')
 const axios = require('axios');
+
 
 var url = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/reviews/?product_id=';
 
@@ -12,9 +14,11 @@ class SortR extends React.Component {
         currentFilter: '',
         reviewCount: '0',
         comments: [],
-        displayComments: 2
+        displayComments: 2,
+        showReviewModal: false
       }
-
+      this.clickShowNewReviewModal = this.clickShowNewReviewModal.bind(this);
+      this.clickHideNewReviewModal = this.clickHideNewReviewModal.bind(this);
       this.handleSortedChange = this.handleSortedChange.bind(this);
       this.handleMoreReviewClick = this.handleMoreReviewClick.bind(this);
   }
@@ -28,12 +32,24 @@ class SortR extends React.Component {
     .then((data)=> {
       this.setState({
         currentFilter: 'relevant',
-        reviewCount: data.data.count,
+        reviewCount: data.data.results.length,
         comments: data.data.results
       })
     })
     .catch((error)=> {
-      console.log(error);
+      throw(error);
+    })
+  }
+
+  clickShowNewReviewModal() {
+    this.setState({
+      showReviewModal: true
+    })
+  }
+
+  clickHideNewReviewModal() {
+    this.setState({
+      showReviewModal: false
     })
   }
 
@@ -68,7 +84,7 @@ class SortR extends React.Component {
       }
 
         return (
-          <div>
+          <div style={{overflowY: 'scroll'}}>
             <form>
             <label>
               {this.state.reviewCount} reviews, sorted by
@@ -80,11 +96,19 @@ class SortR extends React.Component {
             </label>
           </form>
               <ReviewList displayComments={this.state.displayComments} comments={this.state.comments}/>
-              {MoreReviewButton} {<input type="submit" value="Add a Review"/>}
+              {MoreReviewButton}
+              {<span>
+                <input
+                  onClick={this.clickShowNewReviewModal}
+                  type="submit"
+                  value="Add a Review"/>
+                  <ReviewModal
+                    showReviewModal={this.state.showReviewModal}
+                    HideNewReviewModal={this.clickHideNewReviewModal}
+                  />
+              </span>}
         </div>
         )
-
-
     }
 
 }
