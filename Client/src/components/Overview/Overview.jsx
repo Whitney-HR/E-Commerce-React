@@ -51,7 +51,6 @@ var Overview = (props) => {
     <div  style={style}>
       <div >
         <Hub styles={prodst} name={product.name} category={product.category}/>
-        <h3>share</h3>
       </div>
       <div style={shrinkToLeft}>
         <h3>{product.slogan}</h3>
