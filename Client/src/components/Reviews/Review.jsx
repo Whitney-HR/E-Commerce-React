@@ -23,7 +23,7 @@ class Review extends React.Component {
   //all products id: 19089 19090 19091 19092 19093
 
   render () {
-    console.log(props)
+    // console.log(props)
       return (
         <div className='reviews'>
           <h2>{`Ratings & Reviews`}</h2>
