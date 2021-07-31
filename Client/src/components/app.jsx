@@ -30,6 +30,7 @@ var App = () => {
     item = products[numRand];
   }
 
+  console.log(item.name)
   return (
     <div>
       <h1>E-COMMERCE</h1>
@@ -43,7 +44,7 @@ var App = () => {
         {/* <h2>{item.id}</h2> */}
       <Overview id={item.id}/>
       <br/>
-      <Questions id={item.id} />
+      <Questions id={item.id} name={item.name}/>
       <Reviews id={item.id}/>
     </div>
 

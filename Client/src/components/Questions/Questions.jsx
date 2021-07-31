@@ -8,7 +8,7 @@ import MoreAnsweredQuestion from './MoreAnsweredQuestions.jsx';
 import QuestionFeed from './QuestionFeed.jsx';
 import Modal from '../Shared/SharedModal.jsx';
 
-export default function Questions({id}) {
+export default function Questions({id, name}) {
   //State
   const [addQuestionModal, updateQuesModal] = useState(false)
   const [addAnswerModal, updateAnswerModal] = useState(false)
@@ -77,7 +77,7 @@ export default function Questions({id}) {
       <Modal show={addQuestionModal} handleClose={hideQuesModal}>
         <form onSubmit={submitQuestion}>
           <h3>Ask Your Question</h3>
-          <p>About the "Product Name Here"</p>
+          <p>About the "{name}"</p>
           <h5>Your Question*</h5>
           <textarea ref={newQuestion} className="QuestionToBeAsked" cols="20" rows="5" maxLength="1000" placeholder="Enter your question"></textarea>
           <h5>Your nickname*</h5>
@@ -92,7 +92,7 @@ export default function Questions({id}) {
       <Modal show={addAnswerModal} handleClose={hideAnswerModal} >
         <form onSubmit={submitAnswer}>
           <h3>Submit your Answer</h3>
-          <p>"Product name here": 'Question body"</p>
+          <p>"{name}": 'Question body"</p>
           <h5>Your Answer*</h5>
           <textarea ref={newAnswer} className="new_Answer" cols="20" rows="5" maxLength="1000" placeholder="Enter your answer"></textarea>
           <h5>Your nickname*</h5>
