@@ -1,6 +1,7 @@
-import React, { Component } from "react";
+import React from "react";
 import moment from 'moment'
-import imageModal from './reviewImageModal.jsx'
+import ImageModal from './reviewImageModal.jsx'
+import ImageThumbnail from './ImageThumbnail.jsx'
 
 var divBoxStyle = {
   width: '60%',
@@ -8,8 +9,6 @@ var divBoxStyle = {
   padding: '10px',
   borderStyle: 'solid',
   borderColor: 'grey'
-
-
 }
 
 var dummytext = `Any images that were submitted as part of the review should appear as thumbnails below the review text. Upon clicking a thumbnail, the image should open in a modal window, displaying at full resolution.  The only functionality available within this modal should be the ability to close the window.
@@ -27,33 +26,12 @@ class SingleReview extends React.Component{
       yesCount: Math.floor(Math.random()*10), // random initial value
       noCount: Math.floor(Math.random()*10), // random initial value
       yesNoSelected: false,
-      showImageModal: false,
-      showNewReviewModal: false
+      photos: this.props.comment.photos
     };
     this.handleBodyClick = this.handleBodyClick.bind(this);
     this.clickHandlerYesHelpful = this.clickHandlerYesHelpful.bind(this);
     this.clickHandlerNoHelpful = this.clickHandlerNoHelpful.bind(this);
-    this.clickShowImageModal = this.clickShowImageModal.bind(this);
-    this.clickShowNewReviewModal = this.clickShowNewReviewModal.bind(this);
-    this.clickHideImageModal = this.clickHideImageModal.bind(this);
   }
-
-
-  clickShowImageModal() {
-    console.log('click show image')
-    this.setState({
-      showImageModal: true
-    })
-  }
-
-  clickHideImageModal() {
-
-  }
-
-  clickShowNewReviewModal() {
-
-  }
-
 
   componentDidMount() {
     if (this.props.comment.body.length > 250 ) {
@@ -87,7 +65,6 @@ class SingleReview extends React.Component{
 
   clickHandlerNoHelpful(){
     if (!this.state.yesNoSelected) {
-    console.log('click no')
     var newNo = this.state.noCount + 1;
     this.setState({
       noCount: newNo,
@@ -95,7 +72,6 @@ class SingleReview extends React.Component{
     })
     }
   }
-
 
     render () {
       let sellerResponse = <div></div>
@@ -113,13 +89,6 @@ class SingleReview extends React.Component{
         body = <div style={{textAlign: 'justify', textJustify: 'inter-word'}}>{this.state.body}</div>
       }
 
-      const thumbnailStyle = {
-        border: '2px solid black',
-        height: '50px',
-        width: '50px'
-      }
-
-
     return (
       <div style={divBoxStyle}>
         {'insert Star rating here'}
@@ -127,8 +96,8 @@ class SingleReview extends React.Component{
         {moment(this.props.comment.date).format("MMMM DD YYYY")}
         <p style={{fontWeight: 'bold', fontSize: '150%'}}>{this.props.comment.summary}</p>
         {body}
-        {this.props.comment.photos.map((photo, index)=>
-          <img onClick={this.clickShowImageModal} style={thumbnailStyle}key={index} src={`${photo.url}`}></img>
+        {this.state.photos.map((photo, index)=>
+          <ImageThumbnail photo={photo.url} key={index}/>
         )}
         <br></br>
         {recommendedProduct}

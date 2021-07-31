@@ -1,17 +1,28 @@
+import React from 'react';
 import './imageModalStyle.css'
 
+const thumbnailStyle = {
+  border: '2px solid black',
+  height: '350px',
+  width: 'auto'
+}
 
-const Modal = ({ handleClose, show, children }) => {
-  const showHideClassName = show ? "modal display-block" : "modal display-none";
+const buttonStyle={
+  alignItems: 'center'
 
+}
+
+
+const ImageModal = (props) => {
+  const showHideClassName = props.showImageModal ? "modal display-block" : "modal display-none";
   return (
-    <div className={showHideClassName}>
+    <div onClick={props.clickHideImageModal} className={showHideClassName}>
       <section className="modal-main">
-        {children}
-        <button type="button" onClick={handleClose}>
-          Close
-        </button>
+        {props.children}
+        <img  style={thumbnailStyle} src={`${props.image}`}></img>
       </section>
     </div>
   );
 };
+
+export default ImageModal;
