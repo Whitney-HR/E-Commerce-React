@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Images from './images';
 import Dropdowns from './Dropdowns';
+import { FaStar } from 'react-icons/fa'
 
 var Hub = (props) => {
   const [currentStyle, currentStyleUpdate] = useState(props.styles.results[0]);
@@ -24,6 +25,7 @@ var Hub = (props) => {
     border: '2px solid black',
     height: '75px',
     width: '75px',
+    margin: '5px'
   }
   const lineThrough = {
     textDecoration: 'line-through'
@@ -32,9 +34,17 @@ var Hub = (props) => {
     color: 'red'
   }
   const moveToRight = {
+    maxWidth: '500px',
     float: 'right'
   }
 
+
+  const styleFlex = {
+    display: 'flex',
+    flexWrap: 'wrap',
+    maxWidth: '400px',
+    margin: '10px'
+  }
 
   const pricePicker = () => {
     if (currentStyle.sale_price) {
@@ -55,6 +65,12 @@ var Hub = (props) => {
     <div>
       <div style={moveToRight}>
         <div>
+          <FaStar color="yellow" />
+          <FaStar color="yellow" />
+          <FaStar color="yellow" />
+          <FaStar color="yellow" />
+        </div>
+        <div>
           <h3>{props.category}</h3>
           <h2>{props.name}</h2>
         </div>
@@ -62,7 +78,7 @@ var Hub = (props) => {
           {pricePicker()}
         </div>
         <h3>Styles > {currentStyle.name}</h3>
-        <div >
+        <div style={styleFlex}>
           {props.styles.results.map((current, index) => {
             return (
               <img style={styleSelect} src={current.photos[0].thumbnail_url} key={index} onClick={() => { newCurrent(current) }}></img>
