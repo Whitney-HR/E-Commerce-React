@@ -21,7 +21,7 @@ class Review extends React.Component {
 
   render () {
       return (
-        <div>
+        <div id="reviews">
           Ratings Reviews
           <SortR id={this.state.productID}/>
           <br></br>

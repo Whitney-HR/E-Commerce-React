@@ -65,6 +65,10 @@ var Hub = (props) => {
     }
   }
 
+  var seeAllReviews = (e) => {
+    document.getElementById("reviews").scrollIntoView();
+  }
+
   return (
     <div style={{height: '750px'}}>
       <div style={moveToRight}>
@@ -73,6 +77,9 @@ var Hub = (props) => {
           <FaStar color="yellow" />
           <FaStar color="yellow" />
           <FaStar color="yellow" />
+          <div onClick={seeAllReviews}>
+            Read All Reviews
+          </div>
         </div>
         <div>
           <h3>{props.category}</h3>
