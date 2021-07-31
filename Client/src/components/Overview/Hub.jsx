@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Images from './images';
 import Dropdowns from './Dropdowns';
 import { FaStar, FaFacebookSquare, FaTwitterSquare, FaPinterestSquare } from 'react-icons/fa';
+import Stars from '../Shared/StarRating.jsx';
 
 var Hub = (props) => {
   const [currentStyle, currentStyleUpdate] = useState(props.styles.results[0]);
@@ -78,7 +79,7 @@ var Hub = (props) => {
           <FaStar color="yellow" />
           <FaStar color="yellow" />
           <div onClick={seeAllReviews}>
-            Read All Reviews
+            Read All {props.reviewCount} Reviews
           </div>
         </div>
         <div>

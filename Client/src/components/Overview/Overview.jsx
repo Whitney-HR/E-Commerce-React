@@ -11,6 +11,7 @@ var Overview = (props) => {
   const [product, productUpdate] = useState({});
   const [styles, stylesUpdate] = useState({});
   const [chosenStyle, updateChosenStyle] = useState({});
+  const [reviewCount, updateReviewCount] = useState();
 
   useEffect (() => {
     Axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/products/${props.id}`,   { headers: {  Authorization: token } })
@@ -21,6 +22,11 @@ var Overview = (props) => {
     Axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/products/${props.id}/styles`,   { headers: {  Authorization: token } })
       .then(data => {
         stylesUpdate(data.data);
+      });
+
+    Axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/reviews/?product_id=${props.id}&sort=relevant`,   { headers: {  Authorization: token } })
+      .then(data => {
+        updateReviewCount(data.data.results.length);
       });
 
   }, [props.id]);
@@ -50,7 +56,7 @@ var Overview = (props) => {
   return (
     <div  style={style}>
       <div >
-        <Hub styles={prodst} name={product.name} category={product.category}/>
+        <Hub styles={prodst} name={product.name} category={product.category} reviewCount={reviewCount}/>
       </div>
       <div style={shrinkToLeft}>
         <h3>{product.slogan}</h3>
