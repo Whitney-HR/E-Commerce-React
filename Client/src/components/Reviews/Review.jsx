@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 import SortR from './SubComponents/SortR.jsx';
 import Rbreakdown from './SubComponents/Rbreakdown.jsx';
@@ -6,7 +6,43 @@ import Pbreakdown from './SubComponents/Pbreakdown.jsx';
 
 
 
+function Review(props) {
+  const [productID, setProductID] = useState(null);
 
+
+  useEffect(() => {
+    setProductID(props.id)
+  }, [props.id])
+
+  if(productID) {
+
+    return (
+      <div className='reviews' id="reviews">
+        <h2>{`Ratings & Reviews`}</h2>
+        <>
+        <Rbreakdown id={productID}/>
+        <Pbreakdown id={productID}/>
+        <SortR id={productID}/>
+        </>
+      </div>
+    )
+
+  } else {
+
+    return (
+      <div>Loading...</div>
+
+    )
+  }
+
+}
+
+
+export default Review;
+
+
+
+/*
 
 
 class Review extends React.Component {
@@ -17,17 +53,9 @@ class Review extends React.Component {
     };
   };
 
-  componentDidMount() {
-    this.setState({productID: this.props.id})
-  }
-
-  // componentDidUpdate() {
-  //   this.setState({productID: this.props.id})
-  // }
-
-
   render () {
-    // console.log(this.props.id)
+    console.log(this.props.id)
+    // this.setState({productID: this.props.id})
 
       return (
         <div className='reviews' id="reviews">
@@ -43,5 +71,4 @@ class Review extends React.Component {
 
 }
 
-
-export default Review;
+*/
