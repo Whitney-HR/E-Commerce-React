@@ -9,9 +9,8 @@ import CollapseAnswers from './CollapseAnswers.jsx';
 import Axios from 'axios';
 import token from '../../env/config.js';
 
-export default function AnswerFeed({ question_id, question_body, question_date, asker_name, question_helpfulness, reported, answers }) {
+export default function AnswerFeed({ question_id, question_body, question_date, asker_name, question_helpfulness, reported, answers}) {
   const [loaded, updateLoaded] = useState('false')
-
   //Handling State
   const loadAnswers = function () {
     updateLoaded('true')
