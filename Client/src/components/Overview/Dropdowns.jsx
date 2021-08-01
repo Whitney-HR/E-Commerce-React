@@ -38,15 +38,15 @@ var Dropdowns = (props) => {
   }
 
   const dropDown = {
-    'width': '120px',
-    'height': '30px',
+    'width': '300px',
+    'height': '50px',
     'border': '1px solid black',
     'fontSize': '18px',
     'color': 'black',
     'backgroundColor': '#eee',
     'borderRadius': '5px',
     'boxShadow': '4px 4px #ccc',
-
+    'margin': '10px'
   }
 
   var addToCart = (e) => {

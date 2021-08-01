@@ -2,6 +2,7 @@ import React from "react";
 import moment from 'moment'
 import ImageModal from './reviewImageModal.jsx'
 import ImageThumbnail from './ImageThumbnail.jsx'
+import StarRating from '../../Shared/StarRating.jsx'
 
 var divBoxStyle = {
   width: '60%',
@@ -91,10 +92,10 @@ class SingleReview extends React.Component{
 
     return (
       <div style={divBoxStyle}>
-        {'insert Star rating here'}
+        <StarRating rating={this.props.comment.rating}/>
         <br></br>
         {moment(this.props.comment.date).format("MMMM DD YYYY")}
-        <p style={{fontWeight: 'bold', fontSize: '150%'}}>{this.props.comment.summary}</p>
+        <h3>{this.props.comment.summary}</h3>
         {body}
         {this.state.photos.map((photo, index)=>
           <ImageThumbnail photo={photo.url} key={index}/>
