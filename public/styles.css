@@ -6,3 +6,56 @@ to-the-left {
 to-the-right {
   float: right;
 }
+
+/*
+===========================
+Question Styles
+===========================
+*/
+.question-Style {
+  display: inline-block;
+  text-align: left;
+  margin-bottom: 0px;
+  margin-top: 10px;
+}
+
+.right-Side-Style {
+  float: right;
+  padding-right: 10px;
+  margin-top: 10px;
+}
+.right-Side-Style-Answer {
+  color: blue;
+  text-decoration: underline;
+  float: right;
+  padding-right: 10px;
+  margin-top: 10px;
+}
+.right-Side-Style-Answer:hover {
+  color: rebeccapurple;
+}
+.right-Side-no-Padding {
+  color: blue;
+  float: right;
+  text-decoration: underline;
+  margin-top: 10px;
+}
+.right-Side-no-Padding:hover {
+  color: rebeccapurple;
+}
+
+
+/*
+===========================
+Answer Styles
+===========================
+*/
+
+.report-Answer {
+  color: blue;
+  text-decoration: underline;
+}
+
+.report-Answer:hover {
+  color: rebeccapurple;
+}
