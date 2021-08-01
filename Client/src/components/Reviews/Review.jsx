@@ -14,25 +14,17 @@ class Review extends React.Component {
     super(props);
     this.state = {
       productID: '19093'// this.props.id 5 reviews
-      // productID: this.props.id1// this.props.id 5 reviews
     };
-    // console.log('state: ', this.state.productID)
-    // console.log('props: ' ,this.props.id)
-
   };
 
-  // console.log(this.state.productID)
+  componentDidMount() {
+    this.setState({productID: this.props.id})
+  }
 
   // componentDidUpdate() {
   //   this.setState({productID: this.props.id})
   // }
-  // doStuff() {this.setState({productID: this.props.id.toString()})};
 
-
-  // ()=> {}
-
-
-  //all products id: 19089 19090 19091 19092 19093
 
   render () {
     // console.log(this.props.id)

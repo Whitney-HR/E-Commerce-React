@@ -34,6 +34,7 @@ var App = () => {
 
   if (products.length) {
     item = products[numRand];
+
   }
 
   return (
