@@ -22,17 +22,18 @@ var App = () => {
 
   var numRand = randomNumber(0, products.length);
 
+
   var item = {
     name: 'Loading please wait'
   };
 
-  if (products.length) {
-    item = products[numRand];
-  }
-
   const margins = {
     'marginLeft': '100px ',
     'marginRight': '100px '
+  }
+
+  if (products.length) {
+    item = products[numRand];
   }
 
   return (
@@ -41,14 +42,17 @@ var App = () => {
         <h1>E-COMMERCE</h1>
       </div>
       <div style={margins}>
-        <Overview id={item.id}/>
+        {/* <Overview id={item.id}/> */}
         <br/>
-        <Questions id={item.id} />
+        {/* <Questions id={item.id} /> */}
         <Reviews id={item.id}/>
       </div>
     </div>
 
   )
+
+
+
 };
 
 export default App;

@@ -9,7 +9,7 @@ var url = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/reviews/?product_
 
 class SortR extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
       this.state = {
         currentFilter: '',
         reviewCount: '0',
@@ -21,9 +21,16 @@ class SortR extends React.Component {
       this.clickHideNewReviewModal = this.clickHideNewReviewModal.bind(this);
       this.handleSortedChange = this.handleSortedChange.bind(this);
       this.handleMoreReviewClick = this.handleMoreReviewClick.bind(this);
+
+      // console.log(this.props)
   }
 
+
+
+
+
   componentDidMount() {
+    // console.log('test line 26', this.props.id1)
     axios.get(url+this.props.id+'&sort=relevant', {
       headers: {
         Authorization: APIkey
@@ -78,6 +85,8 @@ class SortR extends React.Component {
   }
 
     render() {
+      // console.log('props id # down in render', this.props.id1)
+
       let MoreReviewButton = <div></div>;
       if(this.state.displayComments < this.state.comments.length) {
         MoreReviewButton =  <input type="submit" value="More Reviews" onClick={this.handleMoreReviewClick}/>
