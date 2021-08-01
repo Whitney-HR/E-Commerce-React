@@ -7,37 +7,55 @@ to-the-right {
   float: right;
 }
 
+/*
+===========================
+Question Styles
+===========================
+*/
+.question-Style {
+  display: inline-block;
+  text-align: left;
+  margin-bottom: 0px;
+  margin-top: 10px;
+}
 
-
-
-
-/* Ratings & Reviews  */
-.reviews {
-  /* background-color: lightgrey; */
+.right-Side-Style {
+  float: right;
+  padding-right: 10px;
+  margin-top: 10px;
+}
+.right-Side-Style-Answer {
+  color: blue;
+  text-decoration: underline;
+  float: right;
+  padding-right: 10px;
+  margin-top: 10px;
+}
+.right-Side-Style-Answer:hover {
+  color: rebeccapurple;
+}
+.right-Side-no-Padding {
+  color: blue;
+  float: right;
+  text-decoration: underline;
+  margin-top: 10px;
+}
+.right-Side-no-Padding:hover {
+  color: rebeccapurple;
 }
 
 
-.Rbreakdown {
-  /* background-color: blue; */
-  /* width:200px; */
+/*
+===========================
+Answer Styles
+===========================
+*/
 
-
-
+.report-Answer {
+  color: blue;
+  text-decoration: underline;
 }
 
-.Pbreakdown {
-  /* background-color: blue; */
-  /* width:200px; */
-
-}
-
-.SortR {
-  /* position: absolute; */
-  top: 10px;
-  right:10px;
-  width:80%;
-}
-
-.ReviewList {
-  /* background-color: rgb(71, 186, 186); */
+.report-Answer:hover {
+  color: rebeccapurple;
 }

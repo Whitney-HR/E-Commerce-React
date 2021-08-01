@@ -30,7 +30,7 @@ class Review extends React.Component {
     // console.log(this.props.id)
 
       return (
-        <div className='reviews'>
+        <div className='reviews' id="reviews">
           <h2>{`Ratings & Reviews`}</h2>
           <>
           <Rbreakdown id={this.state.productID}/>

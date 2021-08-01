@@ -1,17 +1,20 @@
 import React, { useState, useEffect, useRef } from 'react';
 import ReactDOM from 'react-dom';
-import Axios from 'axios';
 import App from '../App.jsx';
 import SearchBar from './SearchBar.jsx';
 import AddQuestion from './AddQuestion.jsx';
 import MoreAnsweredQuestion from './MoreAnsweredQuestions.jsx';
 import QuestionFeed from './QuestionFeed.jsx';
 import Modal from '../Shared/SharedModal.jsx';
+import Axios from 'axios';
+import token from '../../env/config.js';
 
-export default function Questions({id, name}) {
+export default function Questions({ id, name }) {
   //State
   const [addQuestionModal, updateQuesModal] = useState(false)
   const [addAnswerModal, updateAnswerModal] = useState(false)
+  const [questionBody, updateQuestionBody] = useState('Body')
+  const [questionId, updateQuestionId] = useState([])
 
   //References
   const newQuestion = useRef();
@@ -23,36 +26,84 @@ export default function Questions({id, name}) {
   const answererEmail = useRef();
 
   //Updating State
-    //Question
-  const showQuesModal = function() {
+  //Question
+  const showQuesModal = function () {
     updateQuesModal(true)
   }
-  const hideQuesModal = function() {
+  const hideQuesModal = function () {
     updateQuesModal(false)
   }
-  const submitQuestion = function(e) {
+  const submitQuestion = function (e) {
     e.preventDefault();
     const quest = newQuestion.current.value;
     const nickname = userNickname.current.value;
     const email = userEmail.current.value;
-    //SEND AXIOS REQUEST TO API
+    if (!quest.length || !nickname.length || !email.length) {
+      alert('All entries must be filled out')
+    }
+    if (email.indexOf('@') === -1) {
+      alert('Email must be in proper email format')
+    }
+    let body = {
+      "body": quest,
+      "name": nickname,
+      "email": email,
+      "product_id": id
+    }
+    Axios.post('https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/qa/questions', body, { headers: { Authorization: token } })
+      .then(results => {
+        console.log(results)
+      })
+      .catch(err => {
+        console.log(err)
+      })
     newQuestion.current.value = '';
     userNickname.current.value = '';
     userEmail.current.value = '';
   }
-    //Answer
-  const showAnswerModal = function() {
+
+  //QUESTION ID & Body FOR answer Modal
+  // let questionid;
+  // const updateQuestionid = function (number) {
+  //   questionid = number
+  // }
+  // let questionBody;
+  // const updateQuestionBody = function (string) {
+  //   questionBody = string
+  // }
+  //Answer
+  const showAnswerModal = function () {
     updateAnswerModal(true);
   }
-  const hideAnswerModal = function() {
+  const hideAnswerModal = function () {
     updateAnswerModal(false);
   }
-  const submitAnswer = function(e) {
+  const submitAnswer = function (e) {
     e.preventDefault();
     const answer = newAnswer.current.value;
     const nickname = answererName.current.value;
     const email = answererEmail.current.value;
+    if (!answer.length || !nickname.length || !email.length) {
+      alert('All entries must be filled out')
+    }
+    if (email.indexOf('@') === -1) {
+      alert('Email must be in proper email format')
+    }
     //SEND axios request to API
+    ///qa/questions/:question_id/answers
+    let body = {
+      "body": answer,
+      "name": nickname,
+      "email": email,
+      "photos": []
+    }
+    Axios.post(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/qa/questions/${questionId}/answers`, body, { headers: {Authorization: token} })
+      .then(results => {
+        console.log(results)
+      })
+      .catch(err => {
+        console.log(err)
+      })
     newAnswer.current.value = '';
     answererName.current.value = '';
     answererEmail.current.value = '';
@@ -92,7 +143,7 @@ export default function Questions({id, name}) {
       <Modal show={addAnswerModal} handleClose={hideAnswerModal} >
         <form onSubmit={submitAnswer}>
           <h3>Submit your Answer</h3>
-          <p>"{name}": 'Question body"</p>
+          <p>"{name}": "{questionBody}"</p>
           <h5>Your Answer*</h5>
           <textarea ref={newAnswer} className="new_Answer" cols="20" rows="5" maxLength="1000" placeholder="Enter your answer"></textarea>
           <h5>Your nickname*</h5>
@@ -105,7 +156,7 @@ export default function Questions({id, name}) {
         </form>
       </Modal>
       <SearchBar />
-      <QuestionFeed id={id} showModal={showQuesModal} showAnswerModal={showAnswerModal}/>
+      <QuestionFeed id={id} showModal={showQuesModal} showAnswerModal={showAnswerModal} updateQuestionBody={updateQuestionBody} updateQuestionId={updateQuestionId}/>
     </section>
   )
 };

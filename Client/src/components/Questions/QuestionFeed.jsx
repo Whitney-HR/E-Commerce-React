@@ -7,15 +7,15 @@ import AddQuestion from './AddQuestion.jsx';
 import AddAnswer from './AddAnswer.jsx';
 import MoreAnsweredQuestions from './MoreAnsweredQuestions.jsx';
 import Axios from 'axios';
-import token from '../../env/config.js'
+import token from '../../env/config.js';
 
-export default function QuestionFeed({ id, showModal, showAnswerModal }) {
+export default function QuestionFeed({ id, showModal, showAnswerModal, updateQuestionBody = f => f, updateQuestionId = f => f}) {
   const [questions, setQuestions] = useState([])
   const [questionsShowing, setShowingQues] = useState(2)
 
 
   useEffect(() => {
-    Axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/qa/questions?product_id=${id}`, { headers: { Authorization: token } })
+    Axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/qa/questions?product_id=${id}&count=20`, { headers: { Authorization: token } })
       .then(data => {
         setQuestions(data.data.results)
       })
@@ -47,7 +47,10 @@ export default function QuestionFeed({ id, showModal, showAnswerModal }) {
   //Start of JSX
   if (!sortedQuestions.length) {
     return (
-      <p>Still Loading</p>
+      <>
+        <p>No Questions, Would you like to add one?</p>
+        <AddQuestion showModal={showModal} />
+      </>
     )
   }
 
@@ -57,12 +60,11 @@ export default function QuestionFeed({ id, showModal, showAnswerModal }) {
       <section style={feedstyle}>
         {sortedQuestions.map((question, index) =>
           <div key={index}>
-            <Question {...question} />
+            <Question {...question} showAnswerModal={showAnswerModal} updateQuestionBody={updateQuestionBody} updateQuestionId={updateQuestionId}/>
             <AnswerFeed {...question} />
-            <AddAnswer showAnswerModal={showAnswerModal} />
           </div>
         )}
-        <AddQuestion showModal={showModal}/>
+        <AddQuestion showModal={showModal} />
       </section>
     )
   }
@@ -75,9 +77,8 @@ export default function QuestionFeed({ id, showModal, showAnswerModal }) {
       break;
     }
     showing.push(<div key={x}>
-      <Question {...sortedQuestions[x]} />
+      <Question {...sortedQuestions[x]} showAnswerModal={showAnswerModal} updateQuestionBody={updateQuestionBody} updateQuestionId={updateQuestionId}/>
       <AnswerFeed {...sortedQuestions[x]} />
-      <AddAnswer showAnswerModal={showAnswerModal}/>
     </div>);
     x++;
   }
@@ -87,14 +88,14 @@ export default function QuestionFeed({ id, showModal, showAnswerModal }) {
     return (
       <section style={feedstyle} >
         {showing}
-        <AddQuestion showModal={showModal}/>
+        <AddQuestion showModal={showModal} />
       </section>
     )
   } else {
     return (
       <section style={feedstyle}>
         {showing}
-        <MoreAnsweredQuestions load={showTwoMore} /> <AddQuestion showModal={showModal}/>
+        <MoreAnsweredQuestions load={showTwoMore} /> <AddQuestion showModal={showModal} />
       </section>
     )
   }
