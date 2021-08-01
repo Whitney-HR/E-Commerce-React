@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import Images from './images';
 import Dropdowns from './Dropdowns';
-import { FaStar } from 'react-icons/fa'
+import { FaStar, FaFacebookSquare, FaTwitterSquare, FaPinterestSquare } from 'react-icons/fa';
+import Stars from '../Shared/StarRating.jsx';
 
 var Hub = (props) => {
   const [currentStyle, currentStyleUpdate] = useState(props.styles.results[0]);
@@ -17,8 +18,6 @@ var Hub = (props) => {
       }
     });
   }
-
-  // props.updateStyle(currentStyle);
 
   const styleSelect = {
     borderRadius: '100px',
@@ -46,6 +45,12 @@ var Hub = (props) => {
     margin: '10px'
   }
 
+  const linkStyle = {
+    margin: '10px',
+    float: 'left',
+    display: "table-cell"
+  }
+
   const pricePicker = () => {
     if (currentStyle.sale_price) {
       return (
@@ -61,14 +66,21 @@ var Hub = (props) => {
     }
   }
 
+  var seeAllReviews = (e) => {
+    document.getElementById("reviews").scrollIntoView();
+  }
+
   return (
-    <div>
+    <div style={{height: '750px'}}>
       <div style={moveToRight}>
         <div>
           <FaStar color="yellow" />
           <FaStar color="yellow" />
           <FaStar color="yellow" />
           <FaStar color="yellow" />
+          <div onClick={seeAllReviews}>
+            Read All {props.reviewCount} Reviews
+          </div>
         </div>
         <div>
           <h3>{props.category}</h3>
@@ -87,6 +99,17 @@ var Hub = (props) => {
         </div>
         <div>
           <Dropdowns currentStyle={currentStyle}/>
+        </div>
+        <div style={{maxWidth: '400px', maxHeight: '50px'}}>
+          <a style={linkStyle} href="https://www.facebook.com/" target="_blank">
+            <FaFacebookSquare size={30} color="black"/>
+          </a>
+          <a style={linkStyle} href="https://www.twitter.com/" target="_blank">
+            <FaTwitterSquare size={30} color="black"/>
+          </a>
+          <a style={linkStyle} href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">
+            <FaPinterestSquare size={30} color="black"/>
+          </a>
         </div>
       </div>
       <div>

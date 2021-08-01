@@ -25,7 +25,7 @@ class Review extends React.Component {
   render () {
     // console.log(props)
       return (
-        <div className='reviews'>
+        <div className='reviews' id="reviews">
           <h2>{`Ratings & Reviews`}</h2>
           <>
           <Rbreakdown id={this.state.productID}/>
