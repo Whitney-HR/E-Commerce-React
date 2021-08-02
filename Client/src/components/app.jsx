@@ -18,11 +18,7 @@ var App = () => {
       .then(data => {
         productsUpdate(data.data);
       });
-<<<<<<< HEAD
-  }, [productsUpdate]);
-=======
     }, []);
->>>>>>> 33dc52e25c6c289972e0bbd8bdc68eb985da2443
 
     var numRand = randomNumber(0, products.length);
 
