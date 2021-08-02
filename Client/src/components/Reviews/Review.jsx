@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-
 import SortR from './SubComponents/SortR.jsx';
 import Rbreakdown from './SubComponents/Rbreakdown.jsx';
 import Pbreakdown from './SubComponents/Pbreakdown.jsx';

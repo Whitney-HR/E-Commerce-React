@@ -5,7 +5,8 @@ var APIkey = require('../../../env/config.js')
 const axios = require('axios');
 
 
-var url = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/reviews/?product_id=';
+var reviewsUrl = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/reviews/?product_id=';
+var metaUrl = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/reviews/meta/?product_id='
 
 class SortR extends React.Component {
   constructor(props) {
@@ -14,6 +15,7 @@ class SortR extends React.Component {
         currentFilter: '',
         reviewCount: '0',
         comments: [],
+        meta: null,
         displayComments: 2,
         showReviewModal: false
       }
@@ -21,8 +23,6 @@ class SortR extends React.Component {
       this.clickHideNewReviewModal = this.clickHideNewReviewModal.bind(this);
       this.handleSortedChange = this.handleSortedChange.bind(this);
       this.handleMoreReviewClick = this.handleMoreReviewClick.bind(this);
-
-      // console.log(this.props)
   }
 
 
@@ -30,8 +30,9 @@ class SortR extends React.Component {
 
 
   componentDidMount() {
-    // console.log('test line 26', this.props.id1)
-    axios.get(url+this.props.id+'&sort=relevant', {
+
+    //Reviews
+    axios.get(reviewsUrl+this.props.id+'&sort=relevant', {
       headers: {
         Authorization: APIkey
       }
@@ -45,6 +46,21 @@ class SortR extends React.Component {
     })
     .catch((error)=> {
       throw(error);
+    })
+
+    //metadata
+    axios.get(metaUrl+this.props.id, {
+      headers: {
+        Authorization: APIkey
+      }
+    })
+    .then((data)=> {
+      this.setState({
+        meta: data.data
+      })
+    })
+    .catch((error)=> {
+      console.log('error at SortR,', error)
     })
   }
 
@@ -63,7 +79,7 @@ class SortR extends React.Component {
   handleSortedChange(event) {
     this.setState({currentFilter: event.target.value})
 
-    axios.get(url+this.props.id+'&sort='+event.target.value, {
+    axios.get(reviewsUrl+this.props.id+'&sort='+event.target.value, {
       headers: {
         Authorization: APIkey
       }
@@ -87,11 +103,17 @@ class SortR extends React.Component {
     render() {
       // console.log('props id # down in render', this.props.id1)
 
-      let MoreReviewButton = <div></div>;
-      if(this.state.displayComments < this.state.comments.length) {
-        MoreReviewButton =  <input type="submit" value="More Reviews" onClick={this.handleMoreReviewClick}/>
-      }
 
+
+      if(!this.state.meta) {
+        return (
+          <div>Loading...</div>
+        )
+      } else {
+        let MoreReviewButton = <div></div>;
+        if(this.state.displayComments < this.state.comments.length) {
+          MoreReviewButton =  <input type="submit" value="More Reviews" onClick={this.handleMoreReviewClick}/>
+        }
         return (
           <div className='SortR'>
             <form>
@@ -104,7 +126,7 @@ class SortR extends React.Component {
               </select>
             </label>
           </form>
-              <ReviewList displayComments={this.state.displayComments} comments={this.state.comments}/>
+              <ReviewList meta={this.state.meta} displayComments={this.state.displayComments} comments={this.state.comments}/>
               {MoreReviewButton}
               {<span>
                 <input
@@ -118,6 +140,11 @@ class SortR extends React.Component {
               </span>}
         </div>
         )
+
+
+      }
+
+
     }
 
 }
