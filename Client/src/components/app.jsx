@@ -13,7 +13,7 @@ import Modal from './Shared/SharedModal.jsx';
 var App = () => {
   const [products, productsUpdate] = useState([]);
 
-  useEffect (() => {
+  React.useEffect(() => {
     Axios.get('https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/products',   { headers: {  Authorization: token } })
       .then(data => {
         productsUpdate(data.data);

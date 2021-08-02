@@ -52,7 +52,7 @@ export default function Questions({ id, name }) {
     }
     Axios.post('https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/qa/questions', body, { headers: { Authorization: token } })
       .then(results => {
-        console.log(results)
+        alert('Thank you asking your question!')
       })
       .catch(err => {
         console.log(err)
@@ -89,8 +89,6 @@ export default function Questions({ id, name }) {
     if (email.indexOf('@') === -1) {
       alert('Email must be in proper email format')
     }
-    //SEND axios request to API
-    ///qa/questions/:question_id/answers
     let body = {
       "body": answer,
       "name": nickname,
@@ -99,7 +97,7 @@ export default function Questions({ id, name }) {
     }
     Axios.post(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/qa/questions/${questionId}/answers`, body, { headers: {Authorization: token} })
       .then(results => {
-        console.log(results)
+        alert('Thank you for submitting your answer!')
       })
       .catch(err => {
         console.log(err)

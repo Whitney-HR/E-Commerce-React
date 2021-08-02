@@ -12,6 +12,7 @@ import token from '../../env/config.js';
 export default function QuestionFeed({ id, showModal, showAnswerModal, updateQuestionBody = f => f, updateQuestionId = f => f}) {
   const [questions, setQuestions] = useState([])
   const [questionsShowing, setShowingQues] = useState(2)
+  const [productId, setProductId] = useState(id)
 
 
   useEffect(() => {
@@ -84,7 +85,7 @@ export default function QuestionFeed({ id, showModal, showAnswerModal, updateQue
   }
 
   //More than two questions
-  if (questionsShowing === questions.length) {
+  if (questionsShowing === questions.length || questionsShowing === questions.length - 1) {
     return (
       <section style={feedstyle} >
         {showing}
