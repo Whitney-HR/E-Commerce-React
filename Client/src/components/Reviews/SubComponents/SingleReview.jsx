@@ -6,7 +6,7 @@ import StarRating from '../../Shared/StarRating.jsx'
 import { BsStar, BsStarFill, BsStarHalf } from 'react-icons/bs';
 
 var divBoxStyle = {
-  width: '40%',
+  width: '500px',
   border: '1px',
   padding: '10px',
   borderStyle: 'solid',

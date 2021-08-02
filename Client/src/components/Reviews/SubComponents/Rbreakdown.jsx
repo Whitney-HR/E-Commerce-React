@@ -9,11 +9,12 @@ var metaUrl= 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/reviews/meta/?
 
 
 var RbreakdownStyle = {
-  width: '20%',
+  width: '250px',
   border: '1px',
   padding: '10px',
   borderStyle: 'solid',
-  borderColor: 'grey'
+  borderColor: 'grey',
+
 }
 
 
@@ -70,7 +71,7 @@ function Rbreakdown(props) {
 
 
 
-
+  // (Math.floor(rating[4]/ratingTotal*100))+'%'
 
   if(rating) {
     var uno = 0
@@ -79,19 +80,19 @@ function Rbreakdown(props) {
     var cuatro = 0
     var cinco = 0
     if(rating[1]) {
-      uno= rating[1];
+      uno= (Math.floor(rating[1]/ratingTotal*100))+'%';
     }
     if(rating[2]) {
-      dos= rating[2];
+      dos= (Math.floor(rating[2]/ratingTotal*100))+'%'
     }
     if(rating[3]) {
-      tres= rating[3];
+      tres= (Math.floor(rating[3]/ratingTotal*100))+'%'
     }
     if(rating[4]) {
-      cuatro= rating[4];
+      cuatro= (Math.floor(rating[4]/ratingTotal*100))+'%';
     }
     if(rating[5]) {
-      cinco= rating[5];
+      cinco= (Math.floor(rating[5]/ratingTotal*100))+'%';
     }
   }
 

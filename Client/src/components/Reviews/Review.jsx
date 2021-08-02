@@ -19,9 +19,12 @@ function Review(props) {
       <div className='reviews' id="reviews">
         <h2>{`Ratings & Reviews`}</h2>
         <>
+        <span style={{float: 'left'}}>
         <Rbreakdown id={productID}/>
         <Pbreakdown id={productID}/>
-        <SortR id={productID}/>
+        </span>
+        <span style={{float: 'left'}}><SortR id={productID}/> </span>
+
         </>
       </div>
     )
