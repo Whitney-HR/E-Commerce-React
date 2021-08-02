@@ -35,8 +35,6 @@ var Images = (props) => {
   }
 
   const expandButton = {
-    // clear: 'both',
-
     marginLeft: '30px',
     maxWidth: '40px'
   }

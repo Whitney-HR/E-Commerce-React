@@ -55,19 +55,13 @@ var Dropdowns = (props) => {
     axios.post (`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/cart`, {"sku_id": currentSku} , { headers: {  Authorization: token } })
     .then(data => {
       alert('Added to Cart!');
+    })
+    .catch(err => {
+      console.log(err)
     });
 
   }
 
-  // var showAddCart = () => {
-  //   if (stock === 'Out of Stock') {
-  //     return (
-  //       <button style={dropDown} disabled={!currentSku} onClick={addToCart}>
-  //         add to cart
-  //       </button>
-  //     )
-  //   }
-  // }
 
   return (
     <div >
