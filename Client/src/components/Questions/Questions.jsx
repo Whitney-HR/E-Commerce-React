@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import ReactDOM from 'react-dom';
 import App from '../App.jsx';
-import SearchBar from './SearchBar.jsx';
 import AddQuestion from './AddQuestion.jsx';
 import MoreAnsweredQuestion from './MoreAnsweredQuestions.jsx';
 import QuestionFeed from './QuestionFeed.jsx';
@@ -50,7 +49,7 @@ export default function Questions({ id, name }) {
       "email": email,
       "product_id": id
     }
-    Axios.post('https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/qa/questions', body, { headers: { Authorization: token } })
+    Axios.post('https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/qa/questions', body, { headers: { Authorization: token } })
       .then(results => {
         alert('Thank you asking your question!')
       })
@@ -95,7 +94,7 @@ export default function Questions({ id, name }) {
       "email": email,
       "photos": []
     }
-    Axios.post(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/qa/questions/${questionId}/answers`, body, { headers: {Authorization: token} })
+    Axios.post(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/qa/questions/${questionId}/answers`, body, { headers: {Authorization: token} })
       .then(results => {
         alert('Thank you for submitting your answer!')
       })
@@ -112,17 +111,17 @@ export default function Questions({ id, name }) {
     width: '200px'
   }
 
-  let style = {
-    width: '1000px',
-    height: '450px',
-    overflow: 'scroll',
-    border: '3px solid black'
-  }
+  // let style = {
+  //   width: '1000px',
+  //   height: '450px',
+  //   overflow: 'scroll',
+  //   border: '3px solid black'
+  // }
 
 
 
   return (
-    <section id="Q and A" style={style}>
+    <section id="Q and A" className="questions-container">
       <Modal show={addQuestionModal} handleClose={hideQuesModal}>
         <form onSubmit={submitQuestion}>
           <h3>Ask Your Question</h3>
@@ -153,7 +152,7 @@ export default function Questions({ id, name }) {
           <button onClick={hideAnswerModal}>Submit Answer</button>
         </form>
       </Modal>
-      <SearchBar />
+      <h2>Questions & Answers</h2>
       <QuestionFeed id={id} showModal={showQuesModal} showAnswerModal={showAnswerModal} updateQuestionBody={updateQuestionBody} updateQuestionId={updateQuestionId}/>
     </section>
   )

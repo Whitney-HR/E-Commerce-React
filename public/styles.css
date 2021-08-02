@@ -6,10 +6,21 @@ to-the-left {
 to-the-right {
   float: right;
 }
+/*
+===========================
+Q&A container
+===========================
+*/
+.questions-container {
+  height: 500px;
+  width: 1000px;
+  overflow: scroll;
+  border: 4px solid grey;
+}
 
 /*
 ===========================
-Question Styles
+Individual Question Styles
 ===========================
 */
 .question-Style {
@@ -32,7 +43,7 @@ Question Styles
   margin-top: 10px;
 }
 .right-Side-Style-Answer:hover {
-  color: rebeccapurple;
+  color: blueviolet;
 }
 .right-Side-no-Padding {
   color: blue;
@@ -41,7 +52,7 @@ Question Styles
   margin-top: 10px;
 }
 .right-Side-no-Padding:hover {
-  color: rebeccapurple;
+  color: blueviolet;
 }
 
 
@@ -57,5 +68,114 @@ Answer Styles
 }
 
 .report-Answer:hover {
-  color: rebeccapurple;
+  color: blueviolet;
+}
+.answerer-info {
+  color: grey
+}
+
+
+/*
+===========================
+Search Bar Styles
+===========================
+*/
+
+.visually-hidden {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+.question-search {
+  position: relative;
+  display: flex;
+}
+.qa-search-input {
+  width: 95%;
+  height: 20px;
+  border: 1px solid grey;
+  border-radius: 5px;
+  padding: 2px 23px 2px 30px;
+  outline: 0;
+  background-color: #f5f5f5;
+  position: relative;
+  /* float: right; */
+}
+
+.search-icon {
+  position: relative;
+}
+
+/*
+===========================
+Q & A Button Styles
+===========================
+*/
+
+.question-button {
+  background-color: white;
+  color: black;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-right: 10px;
+  padding-left: 10px;
+  border: 2px solid grey
+}
+
+.question-button:hover {
+  background-color: grey;
+  color: white
+}
+
+.more-questions {
+  background-color: white;
+  color: black;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-right: 10px;
+  padding-left: 10px;
+  border: 2px solid grey
+}
+
+.more-questions:hover {
+  background-color: grey;
+  color: white;
+}
+
+.load-more-answers {
+  background-color: white;
+  padding: 10px;
+  color: black;
+  border: 0px solid white;
+}
+
+.load-more-answers:hover {
+  color: blueviolet;
+}
+
+.collapse-answers {
+  background-color: white;
+  padding: 10px;
+  color: black;
+  border: 0px solid white;
+}
+
+.collapse-answers:hover {
+  color: blueviolet
+}
+
+/*
+===========================
+Q & A Feed Styles
+===========================
+*/
+
+
+.question-feed {
+  width: 900px;
+  height: 400px;
 }

@@ -14,7 +14,7 @@ var App = () => {
   const [products, productsUpdate] = useState([]);
 
   React.useEffect(() => {
-    Axios.get('https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/products',   { headers: {  Authorization: token } })
+    Axios.get('https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products',   { headers: {  Authorization: token } })
       .then(data => {
         productsUpdate(data.data);
       });
@@ -45,10 +45,10 @@ var App = () => {
           <h1>E-COMMERCE</h1>
         </div>
         <div style={margins}>
-          <Overview id={item.id}/>
+          {/* <Overview id={item.id}/> */}
           <br/>
           <Questions id={item.id} name={item.name} />
-          <Reviews id={item.id}/>
+          {/* <Reviews id={item.id}/> */}
         </div>
       </div>
     )

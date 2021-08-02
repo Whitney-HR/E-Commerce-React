@@ -12,7 +12,7 @@ export default function MoreAnsweredQuestions({load}) {
 
   return (
     <>
-     <button onClick={handleLoad}>More Answered Questions</button>
+     <button onClick={handleLoad} className="more-questions">More Answered Questions</button>
     </>
   )
 }

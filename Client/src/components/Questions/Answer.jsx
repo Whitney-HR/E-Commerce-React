@@ -11,7 +11,7 @@ export default function Answer({id, body, date, answerer_name, helpfulness, phot
 
   let addHelpfulness = function(e) {
     e.preventDefault();
-    Axios.put(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/qa/answers/${id}/helpful`, null, { headers: {Authorization: token}})
+    Axios.put(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/qa/answers/${id}/helpful`, null, { headers: {Authorization: token}})
       .then(results => {
         setHelpfulness(showingHelpfulness += 1)
       })
@@ -26,7 +26,7 @@ export default function Answer({id, body, date, answerer_name, helpfulness, phot
   return (
     <div>
       <h3>A: {body}</h3>
-      <span>By user: {answerer_name} {formatDate(date)}  | Helpful? </span><span className="report-Answer" onClick={addHelpfulness}> Yes </span><span> ({showingHelpfulness}) | </span><span className="report-Answer">Report</span>
+      <span className="answerer-info">By user: {answerer_name} {formatDate(date)}  | Helpful? </span><span className="report-Answer" onClick={addHelpfulness}> Yes </span><span className="answerer-info"> ({showingHelpfulness}) | </span><span className="report-Answer">Report</span>
     </div>
   )
 }

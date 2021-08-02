@@ -15,7 +15,7 @@ export default function LoadMoreAnswers({load}) {
 
   return (
     <>
-      <button onClick={handleLoad}>Load more answers</button>
+      <button onClick={handleLoad} className="load-more-answers">Load more answers</button>
     </>
   )
 }

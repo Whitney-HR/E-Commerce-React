@@ -20,7 +20,7 @@ export default function Question({ question_id, question_body, question_date, as
 
   let addHelpfulness = function(e) {
     e.preventDefault();
-    Axios.put(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/qa/questions/${question_id}/helpful`, null, { headers: {Authorization: token }})
+    Axios.put(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/qa/questions/${question_id}/helpful`, null, { headers: {Authorization: token }})
       .then(result => {
         setHelpfulness(helpfulness += 1)
       })
