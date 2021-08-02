@@ -17,16 +17,25 @@ var Overview = (props) => {
     Axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/products/${props.id}`,   { headers: {  Authorization: token } })
       .then(data => {
         productUpdate(data.data);
+      })
+      .catch(err => {
+        console.log(err)
       });
 
     Axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/products/${props.id}/styles`,   { headers: {  Authorization: token } })
       .then(data => {
         stylesUpdate(data.data);
+      })
+      .catch(err => {
+        console.log(err)
       });
 
     Axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/reviews/?product_id=${props.id}&sort=relevant`,   { headers: {  Authorization: token } })
       .then(data => {
         updateReviewCount(data.data.results.length);
+      })
+      .catch(err => {
+        console.log(err)
       });
 
   }, [props.id]);
