@@ -3,9 +3,10 @@ import moment from 'moment'
 import ImageModal from './reviewImageModal.jsx'
 import ImageThumbnail from './ImageThumbnail.jsx'
 import StarRating from '../../Shared/StarRating.jsx'
+import { BsStar, BsStarFill, BsStarHalf } from 'react-icons/bs';
 
 var divBoxStyle = {
-  width: '60%',
+  width: '500px',
   border: '1px',
   padding: '10px',
   borderStyle: 'solid',
@@ -90,9 +91,10 @@ class SingleReview extends React.Component{
         body = <div style={{textAlign: 'justify', textJustify: 'inter-word'}}>{this.state.body}</div>
       }
 
+
     return (
       <div style={divBoxStyle}>
-        <StarRating rating={this.props.comment.rating}/>
+        <span><StarRating rating={this.props.meta.ratings}/></span>
         <br></br>
         {moment(this.props.comment.date).format("MMMM DD YYYY")}
         <h3>{this.props.comment.summary}</h3>
