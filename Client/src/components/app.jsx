@@ -18,37 +18,45 @@ var App = () => {
       .then(data => {
         productsUpdate(data.data);
       });
-  }, []);
+    }, []);
 
-  var numRand = randomNumber(0, products.length);
+    var numRand = randomNumber(0, products.length);
 
-  var item = {
-    name: 'Loading please wait'
-  };
 
-  if (products.length) {
-    item = products[numRand];
-  }
+    var item = {
+      name: 'Loading please wait'
+    };
 
-  const margins = {
-    'marginLeft': '100px ',
-    'marginRight': '100px '
-  }
+    const margins = {
+      'marginLeft': '100px ',
+      'marginRight': '100px '
+    }
 
-  return (
-    <div >
-      <div style={{'marginLeft': '50px '}}>
-        <h1>E-COMMERCE</h1>
+    if (products.length) {
+      item = products[numRand];
+
+    }
+
+
+
+    return (
+      <div >
+        <div style={{'marginLeft': '50px '}}>
+          <h1>E-COMMERCE</h1>
+        </div>
+        <div style={margins}>
+          <Overview id={item.id}/>
+          <br/>
+          <Questions id={item.id} name={item.name} />
+          <Reviews id={item.id}/>
+        </div>
       </div>
-      <div style={margins}>
-        <Overview id={item.id}/>
-        <br/>
-        <Questions id={item.id} name={item.name} />
-        <Reviews id={item.id}/>
-      </div>
-    </div>
+    )
 
-  )
+
+
+
+
 };
 
 export default App;
