@@ -2,14 +2,14 @@ import React, { useState, useEffect } from 'react';
 var APIkey = require('../../../env/config.js')
 const axios = require('axios');
 import StarRating from '../../Shared/StarRating.jsx'
-import Characteristics from './Characteristics.jsx'
+
 
 
 var metaUrl= 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/reviews/meta/?product_id='
 
 
 var RbreakdownStyle = {
-  width: '60%',
+  width: '20%',
   border: '1px',
   padding: '10px',
   borderStyle: 'solid',
@@ -21,8 +21,6 @@ var RbreakdownStyle = {
 function Rbreakdown(props) {
   var [rating, ratingChange] = useState();
   var [recommend, recommendChange] = useState();
-
-
 
 
   useEffect(()=>{
@@ -54,10 +52,49 @@ function Rbreakdown(props) {
   }
   ratingAverage = (Math.round(ratingAverage * 100) / 100).toFixed(2);
 
-  // console.log(recommend)
-  // var recommendTotal = parseInt(recommend.true)+parseInt(recommend.false)
-  // console.log(recommendTotal)
-  // var recommendPercentage = `${recommend.}`
+  if (recommend) {
+    var yes, no;
+    if (recommend.true === undefined) {
+      yes = 0
+    } else {
+      yes = parseInt(recommend.true)
+    }
+    if (recommend.false === undefined) {
+      no = 0
+    } else {
+      no = parseInt(recommend.false)
+    }
+    var recommendTotal = yes+no;
+    var recommendPercentage = (Math.floor(yes/recommendTotal*100))+'%';
+  }
+
+
+
+
+
+  if(rating) {
+    var uno = 0
+    var dos = 0
+    var tres = 0
+    var cuatro = 0
+    var cinco = 0
+    if(rating[1]) {
+      uno= rating[1];
+    }
+    if(rating[2]) {
+      dos= rating[2];
+    }
+    if(rating[3]) {
+      tres= rating[3];
+    }
+    if(rating[4]) {
+      cuatro= rating[4];
+    }
+    if(rating[5]) {
+      cinco= rating[5];
+    }
+  }
+
 
 
   if (!rating || !recommend) {
@@ -66,21 +103,19 @@ function Rbreakdown(props) {
     )
   } else {
   return (
-
-
     <div className='Rbreakdown' style={RbreakdownStyle}>
       <span style={{fontSize: 'xxx-large'}}>{ratingAverage}</span><StarRating rating={rating}/>
       <div>Based on {ratingTotal} ratings</div>
+      <span>{`${recommendPercentage} of ratings recommend this product`}</span>
       <br></br>
-      <span>{`${''} of ratings recommend this product`}</span>
+      <br></br>
       <div>Rating Breakdown:</div>
-
-
+      <div>5 stars: {cinco}</div>
+      <div>4 stars: {cuatro}</div>
+      <div>3 stars: {tres}</div>
+      <div>2 stars: {dos}</div>
+      <div>1 stars: {uno}</div>
     </div>
-
-
-
-
   )
   }
 }
