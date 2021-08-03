@@ -12,6 +12,8 @@ import Modal from './Shared/SharedModal.jsx';
 
 var App = () => {
   const [products, productsUpdate] = useState([]);
+  const { search } = window.location
+  const query = new URLSearchParams(search).get('q')
 
   React.useEffect(() => {
     Axios.get('https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products',   { headers: {  Authorization: token } })
