@@ -5,7 +5,7 @@ import StarRating from '../../Shared/StarRating.jsx'
 
 
 
-var metaUrl= 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/reviews/meta/?product_id='
+var metaUrl= 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/reviews/meta/?product_id='
 
 
 var RbreakdownStyle = {
@@ -51,7 +51,7 @@ function Rbreakdown(props) {
   for (var keys in ratings) {
     ratingAverage += (ratings[keys])/ratingTotal*parseInt(keys)
   }
-  ratingAverage = (Math.round(ratingAverage * 100) / 100).toFixed(2);
+  ratingAverage = (Math.round(ratingAverage * 100) / 100).toFixed(1);
 
   if (recommend) {
     var yes, no;
@@ -71,7 +71,7 @@ function Rbreakdown(props) {
 
 
 
-  // (Math.floor(rating[4]/ratingTotal*100))+'%'
+
 
   if(rating) {
     var uno = 0

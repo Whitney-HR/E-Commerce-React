@@ -26,5 +26,3 @@ export default function SearchBar({searchQuery, setSearchQuery = f => f}) {
   )
 };
 
-
-{/* <button type="submit">Search</button> */}
