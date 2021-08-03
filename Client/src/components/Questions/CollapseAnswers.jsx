@@ -10,7 +10,7 @@ export default function CollapseAnswers({reload}) {
   }
   return (
     <>
-      <button onClick={handleReload}>Collapse Answers</button>
+      <button onClick={handleReload} className="collapse-answers">Collapse Answers</button>
     </>
   )
 }
