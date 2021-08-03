@@ -12,9 +12,10 @@ var Overview = (props) => {
   const [styles, stylesUpdate] = useState({});
   const [chosenStyle, updateChosenStyle] = useState({});
   const [reviewCount, updateReviewCount] = useState();
+  const [reviewMeta, updateReviewMeta] = useState();
 
   useEffect (() => {
-    Axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/products/${props.id}`,   { headers: {  Authorization: token } })
+    Axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/${props.id}`,   { headers: {  Authorization: token } })
       .then(data => {
         productUpdate(data.data);
       })
@@ -22,7 +23,7 @@ var Overview = (props) => {
         console.log(err)
       });
 
-    Axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/products/${props.id}/styles`,   { headers: {  Authorization: token } })
+    Axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/${props.id}/styles`,   { headers: {  Authorization: token } })
       .then(data => {
         stylesUpdate(data.data);
       })
@@ -30,13 +31,21 @@ var Overview = (props) => {
         console.log(err)
       });
 
-    Axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/reviews/?product_id=${props.id}&sort=relevant`,   { headers: {  Authorization: token } })
+    Axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/reviews/?product_id=${props.id}&sort=relevant`,   { headers: {  Authorization: token } })
       .then(data => {
         updateReviewCount(data.data.results.length);
       })
       .catch(err => {
         console.log(err)
       });
+
+    Axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/reviews/meta/?product_id=${props.id}`,   { headers: {  Authorization: token } })
+    .then(data => {
+      updateReviewMeta(data.data.ratings);
+    })
+    .catch(err => {
+      console.log(err)
+    });
 
   }, [props.id]);
 
@@ -62,20 +71,26 @@ var Overview = (props) => {
     float: 'left'
   }
 
-  return (
-    <div  style={style}>
-      <div >
-        <Hub styles={prodst} name={product.name} category={product.category} reviewCount={reviewCount}/>
+  if (reviewMeta && reviewCount && product && styles && chosenStyle) {
+    return (
+      <div  style={style}>
+        <div >
+          <Hub styles={prodst} name={product.name} category={product.category} reviewCount={reviewCount} reviewMeta={reviewMeta}/>
+        </div>
+        <div style={shrinkToLeft}>
+          <h3>{product.slogan}</h3>
+          <h5>{product.description}</h5>
+        </div>
+        <div >
+          <Features feat={prodft}/>
+        </div>
       </div>
-      <div style={shrinkToLeft}>
-        <h3>{product.slogan}</h3>
-        <h5>{product.description}</h5>
-      </div>
-      <div >
-        <Features feat={prodft}/>
-      </div>
-    </div>
-  )
+    )
+  } else {
+    return (
+      <div> Loading Please Wait</div>
+    )
+  }
 };
 
 export default Overview;
