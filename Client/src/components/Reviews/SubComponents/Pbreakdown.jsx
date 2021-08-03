@@ -11,7 +11,7 @@ var PbreakdownStyle = {
 
 }
 
-var metaUrl= 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/reviews/meta/?product_id='
+var metaUrl= 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/reviews/meta/?product_id='
 
 
 function Pbreakdown(props) {
