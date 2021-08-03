@@ -123,7 +123,7 @@ export default function Questions({ id, name }) {
   return (
     <section id="Q and A" className="questions-container">
       <Modal show={addQuestionModal} handleClose={hideQuesModal}>
-        <form onSubmit={submitQuestion}>
+        <form onSubmit={submitQuestion} className="question-form">
           <h3>Ask Your Question</h3>
           <p>About the "{name}"</p>
           <h5>Your Question*</h5>
@@ -138,7 +138,7 @@ export default function Questions({ id, name }) {
         </form>
       </Modal>
       <Modal show={addAnswerModal} handleClose={hideAnswerModal} >
-        <form onSubmit={submitAnswer}>
+        <form onSubmit={submitAnswer} className="answer-form">
           <h3>Submit your Answer</h3>
           <p>"{name}": "{questionBody}"</p>
           <h5>Your Answer*</h5>

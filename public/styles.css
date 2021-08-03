@@ -107,7 +107,7 @@ Search Bar Styles
 }
 
 .search-icon {
-  position: relative;
+  position: fixed;
 }
 
 /*
@@ -178,4 +178,14 @@ Q & A Feed Styles
 .question-feed {
   width: 900px;
   height: 400px;
+}
+
+/*
+===========================
+Q & A Form Styles
+===========================
+*/
+
+.question-form {
+  background-color: grey;
 }
