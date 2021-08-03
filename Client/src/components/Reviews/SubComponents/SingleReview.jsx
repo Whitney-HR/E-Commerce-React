@@ -94,7 +94,7 @@ class SingleReview extends React.Component{
 
     return (
       <div style={divBoxStyle}>
-        <span><StarRating rating={this.props.meta.ratings}/></span>
+        <span><StarRating rating={{[this.props.comment.rating]: 1}}/></span>
         <br></br>
         {moment(this.props.comment.date).format("MMMM DD YYYY")}
         <h3>{this.props.comment.summary}</h3>

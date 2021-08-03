@@ -5,8 +5,8 @@ var APIkey = require('../../../env/config.js')
 const axios = require('axios');
 
 
-var reviewsUrl = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/reviews/?product_id=';
-var metaUrl = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/reviews/meta/?product_id='
+var reviewsUrl = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/reviews/?product_id=';
+var metaUrl = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/reviews/meta/?product_id='
 
 class SortR extends React.Component {
   constructor(props) {
@@ -32,9 +32,10 @@ class SortR extends React.Component {
   componentDidMount() {
 
     //Reviews
-    axios.get(reviewsUrl+this.props.id+'&sort=relevant', {
+    axios.get(reviewsUrl+this.props.id+'&sort=relevant&count=100', {
       headers: {
         Authorization: APIkey
+
       }
     })
     .then((data)=> {
@@ -79,7 +80,7 @@ class SortR extends React.Component {
   handleSortedChange(event) {
     this.setState({currentFilter: event.target.value})
 
-    axios.get(reviewsUrl+this.props.id+'&sort='+event.target.value, {
+    axios.get(reviewsUrl+this.props.id+'&sort='+event.target.value+'&count=100', {
       headers: {
         Authorization: APIkey
       }
@@ -134,6 +135,7 @@ class SortR extends React.Component {
                   type="submit"
                   value="Add a Review"/>
                   <ReviewModal
+                    meta = {this.state.meta}
                     showReviewModal={this.state.showReviewModal}
                     HideNewReviewModal={this.clickHideNewReviewModal}
                   />
