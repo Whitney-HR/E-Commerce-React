@@ -12,7 +12,7 @@ export default function AddQuestion({showModal}) {
 
   return (
     <>
-    <button onClick={startModal}>Add A Question +</button>
+    <button onClick={startModal} className="question-button">Add A Question +</button>
     </>
   )
 }
