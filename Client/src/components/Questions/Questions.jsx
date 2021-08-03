@@ -62,14 +62,6 @@ export default function Questions({ id, name }) {
   }
 
   //QUESTION ID & Body FOR answer Modal
-  // let questionid;
-  // const updateQuestionid = function (number) {
-  //   questionid = number
-  // }
-  // let questionBody;
-  // const updateQuestionBody = function (string) {
-  //   questionBody = string
-  // }
   //Answer
   const showAnswerModal = function () {
     updateAnswerModal(true);
@@ -106,51 +98,48 @@ export default function Questions({ id, name }) {
     answererEmail.current.value = '';
   }
 
-  //Styles
+  // Styles
   let inputStyle = {
     width: '200px'
   }
 
-  // let style = {
-  //   width: '1000px',
-  //   height: '450px',
-  //   overflow: 'scroll',
-  //   border: '3px solid black'
-  // }
+
 
 
 
   return (
     <section id="Q and A" className="questions-container">
-      <Modal show={addQuestionModal} handleClose={hideQuesModal}>
+      <Modal show={addQuestionModal} handleClose={hideQuesModal} className="question-modal">
         <form onSubmit={submitQuestion} className="question-form">
-          <h3>Ask Your Question</h3>
-          <p>About the "{name}"</p>
-          <h5>Your Question*</h5>
-          <textarea ref={newQuestion} className="QuestionToBeAsked" cols="20" rows="5" maxLength="1000" placeholder="Enter your question"></textarea>
-          <h5>Your nickname*</h5>
-          <input ref={userNickname} type="text" placeholder="Example: jackson11!" maxLength="60" style={inputStyle}></input>
-          <p>For privacy reasons, do not use your full name or email address.</p>
-          <h5>Your Email*</h5>
-          <input ref={userEmail} type="text" maxLength="60" placeholder="ExampleEmail@fake.com" style={inputStyle}></input>
-          <p>For Authentication reasons, you will not be emailed.</p>
-          <button onClick={hideQuesModal}>Submit Question</button>
+          <h3 className="modal-header">Ask Your Question about the "{name}"</h3>
+          <h5 className="user-question-header">Your Question*</h5>
+          <textarea ref={newQuestion} className="question-tobe-asked" cols="30" rows="5" maxLength="1000" placeholder="Enter your question"></textarea>
+          <br />
+          <h5 className="user-question-nickname">Your nickname*</h5>
+          <input ref={userNickname} type="text" placeholder="Example: jackson11!" maxLength="60"  className="user-nickname-input"></input>
+          <p className="question-modal-advisary">For privacy reasons, do not use your full name or email address.</p>
+          <h5 className="user-question-email">Your Email*</h5>
+          <input ref={userEmail} type="text" maxLength="60" placeholder="ExampleEmail@fake.com"  className="user-email-input"></input>
+          <p className="question-modal-authentication">For Authentication reasons, you will not be emailed.</p>
+          <button onClick={hideQuesModal} className="modal-submit-button">Submit Question</button>
         </form>
+          <button onClick={hideQuesModal} className="modal-close-button">Close</button>
       </Modal>
       <Modal show={addAnswerModal} handleClose={hideAnswerModal} >
         <form onSubmit={submitAnswer} className="answer-form">
-          <h3>Submit your Answer</h3>
-          <p>"{name}": "{questionBody}"</p>
-          <h5>Your Answer*</h5>
-          <textarea ref={newAnswer} className="new_Answer" cols="20" rows="5" maxLength="1000" placeholder="Enter your answer"></textarea>
-          <h5>Your nickname*</h5>
-          <input ref={answererName} type="text" placeholder="Example: jack543!" maxLength="60" style={inputStyle}></input>
-          <p>For privacy reasons, do not use your full name or email address.</p>
-          <h5>Your Email*</h5>
-          <input ref={answererEmail} type="text" placeholder="Example: jack@email.com" maxLength="60" style={inputStyle}></input>
-          <p>For Authentication reasons, you will not be emailed.</p>
-          <button onClick={hideAnswerModal}>Submit Answer</button>
+          <h3 className="modal-header">Submit your Answer about {name}: "{questionBody}"</h3>
+          <h5 className="user-answer-header">Your Answer*</h5>
+          <textarea ref={newAnswer} className="user-answer-input" cols="30" rows="5" maxLength="1000" placeholder="Enter your answer"></textarea>
+          <br />
+          <h5 className="user-question-nickname">Your nickname*</h5>
+          <input ref={answererName} type="text" placeholder="Example: jack543!" maxLength="60" className="user-nickname-input"></input>
+          <p className="question-modal-advisary">For privacy reasons, do not use your full name or email address.</p>
+          <h5 className="user-question-email">Your Email*</h5>
+          <input ref={answererEmail} type="text" placeholder="Example: jack@email.com" maxLength="60" className="user-email-input"></input>
+          <p className="question-modal-authentication">For Authentication reasons, you will not be emailed.</p>
+          <button onClick={hideAnswerModal} className="modal-submit-button">Submit Answer</button>
         </form>
+          <button onClick={hideAnswerModal} className="modal-close-button">Close</button>
       </Modal>
       <h2>Questions & Answers</h2>
       <QuestionFeed id={id} showModal={showQuesModal} showAnswerModal={showAnswerModal} updateQuestionBody={updateQuestionBody} updateQuestionId={updateQuestionId}/>

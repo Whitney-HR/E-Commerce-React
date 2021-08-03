@@ -188,4 +188,117 @@ Q & A Form Styles
 
 .question-form {
   background-color: grey;
+  width: 400px
+}
+
+/*
+===========================
+Q & A AddQuestion Modal Styles
+===========================
+*/
+.question-modal {
+  border-radius: 8px;
+}
+
+.modal-header {
+  text-align: center;
+}
+.user-question-header {
+  float: left;
+  width: 90px;
+  margin-right: 10px;
+}
+
+.question-tobe-asked {
+  border-radius: 8px;
+  float: left;
+  display: block;
+}
+
+.user-question-nickname {
+  float: left;
+  width: 90px;
+  margin-right: 10px;
+}
+
+.user-nickname-input {
+  float: left;
+  display: block;
+  width: 200px;
+  margin-top: 22.178px;
+  margin-bottom: 22.178px;
+}
+
+.question-modal-advisary {
+  float: left;
+  display: block;
+  text-align: center;
+}
+.question-modal-authentication {
+  text-align: center;
+}
+.user-question-email {
+  float: left;
+  width: 90px;
+  margin-right: 10px;
+}
+
+.user-email-input {
+  display: block;
+  float: left;
+  width: 200px;
+  margin-top: 22.178px;
+  margin-bottom: 22.178px;
+}
+
+/*
+===========================
+Q & A Modal Button Styles
+===========================
+*/
+
+.modal-submit-button {
+  float: left;
+  background-color: white;
+  color: black;
+  padding: 10px 10px 10px 10px
+}
+
+.modal-close-button {
+  float: left;
+  background-color: white;
+  color: black;
+  padding: 10px 10px 10px 10px;
+  margin-left: 10px;
+}
+
+.modal-submit-button:hover {
+  background-color: black;
+  color: white;
+}
+
+.modal-close-button:hover {
+  background-color: black;
+  color: white;
+}
+
+/*
+===========================
+Q & A AddAnswer Modal Styles
+===========================
+*/
+
+.answer-form {
+  border-radius: 8px;
+  width: 400px
+}
+.user-answer-header {
+  float: left;
+  width: 90px;
+  margin-right: 10px;
+}
+.user-answer-input {
+  border-radius: 8px;
+  float: left;
+  display: block;
 }

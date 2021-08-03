@@ -51,12 +51,6 @@ export default function QuestionFeed({ id, showModal, showAnswerModal, updateQue
     })
   }
 
-  //STYLES
-  // let feedstyle = {
-  //   'width': '1000px',
-  //   'height': '400px'
-  // }
-
 
   //Setting Sorted and filtered Questions
   let filteredQuestions = filterQuestions(sortedQuestions, searchQuery)
