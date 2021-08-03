@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import Images from './images';
 import Dropdowns from './Dropdowns';
-import { FaStar, FaFacebookSquare, FaTwitterSquare, FaPinterestSquare } from 'react-icons/fa';
+import { FaStar, FaFacebookSquare, FaTwitterSquare, FaPinterestSquare, FaCheckCircle } from 'react-icons/fa';
 import Stars from '../Shared/StarRating.jsx';
+import Tracker from '../Shared/Tracker.jsx';
 
 var Hub = (props) => {
   const [currentStyle, currentStyleUpdate] = useState(props.styles.results[0]);
@@ -24,7 +25,7 @@ var Hub = (props) => {
     border: '2px solid black',
     height: '75px',
     width: '75px',
-    margin: '5px'
+    // position: 'relative',
   }
   const lineThrough = {
     textDecoration: 'line-through'
@@ -67,17 +68,16 @@ var Hub = (props) => {
   }
 
   var seeAllReviews = (e) => {
-    document.getElementById("reviews").scrollIntoView();
+    // document.getElementById("reviews").scrollIntoView();s
+
+    Tracker('seeAllReviews', 'OverView');
   }
 
   return (
     <div style={{height: '750px'}}>
       <div style={moveToRight}>
         <div>
-          <FaStar color="yellow" />
-          <FaStar color="yellow" />
-          <FaStar color="yellow" />
-          <FaStar color="yellow" />
+          <Stars rating={props.reviewMeta}/>
           <div onClick={seeAllReviews}>
             Read All {props.reviewCount} Reviews
           </div>
@@ -92,9 +92,22 @@ var Hub = (props) => {
         <h3>Styles > {currentStyle.name}</h3>
         <div style={styleFlex}>
           {props.styles.results.map((current, index) => {
-            return (
-              <img style={styleSelect} src={current.photos[0].thumbnail_url} key={index} onClick={() => { newCurrent(current) }}></img>
-            )
+            if (currentStyle.name === current.name) {
+              return (
+                <div style={{width: '90px', height: '90px', margin: '5px'}}>
+                  <div style={{float: 'left', maxHeight: '16px', maxHeight: '16px'}}>
+                    <FaCheckCircle />
+                  </div>
+                  <img style={styleSelect} src={current.photos[0].thumbnail_url} key={index} onClick={() => { newCurrent(current) }}></img>
+                </div>
+              )
+            } else {
+              return (
+                <div style={{width: '90px', height: '90px', margin: '5px'}}>
+                  <img style={styleSelect} src={current.photos[0].thumbnail_url} key={index} onClick={() => { newCurrent(current) }}></img>
+                </div>
+              )
+            }
           })}
         </div>
         <div>
