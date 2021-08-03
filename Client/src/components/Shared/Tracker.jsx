@@ -10,7 +10,7 @@ var Tracker = (element, widget) => {
 
   axios.post (`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/interactions`, body , { headers: {  Authorization: token } })
   .then(data => {
-    alert('GET PWND!');
+    console.log('Logged a click')
   })
   .catch(err => {
     console.log(err)
