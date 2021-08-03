@@ -52,7 +52,7 @@ var Dropdowns = (props) => {
   var addToCart = (e) => {
     e.preventDefault();
 
-    axios.post (`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/cart`, {"sku_id": currentSku} , { headers: {  Authorization: token } })
+    axios.post (`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/cart`, {"sku_id": currentSku} , { headers: {  Authorization: token } })
     .then(data => {
       alert('Added to Cart!');
     })

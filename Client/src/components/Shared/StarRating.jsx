@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect, useLayoutEffect } from 'react';
 import { BsStar, BsStarFill, BsStarHalf } from 'react-icons/bs';
 
 // BsStar empty star
@@ -7,21 +7,21 @@ import { BsStar, BsStarFill, BsStarHalf } from 'react-icons/bs';
 
 
 //this needs to receive as prop: props.rating (from metadata rating)
-
+// var StarRating = (props) => {
+//   const [] =
+// }
 
 class StarRating extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
       rating: null
-
     }
   }
 
   componentDidMount() {
     if (!this.props.rating) {
       this.setState({rating: 0})
-
     } else {
     var ratings = this.props.rating
     var ratingTotal = 0;
