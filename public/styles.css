@@ -376,3 +376,23 @@ Q & A AddAnswer Modal Styles
   float: left;
   display: block;
 }
+
+
+
+
+
+
+/*
+===========================
+Ratings & reviews
+===========================
+*/
+
+#starText {
+  left: 5px;
+  font: bold 17px 'Quicksand', sans-serif;
+  top: 10%;
+  color: rgb(77, 54, 54);
+  transform: 'translateY(-50%)';
+  position: absolute;
+}

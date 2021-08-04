@@ -32,10 +32,13 @@ function Pbreakdown(props) {
 
 
   if(characteristics) {
-    var fit = characteristics.Fit ? <li>Fit: {(Math.round(characteristics.Fit.value/5 * 100)).toFixed(0)+'%'}</li> : <></>
-    var length = characteristics.Length ? <li>Length {(Math.round(characteristics.Length.value/5 * 100)).toFixed(0)+'%'}</li> : <></>
-    var comfort = characteristics.Comfort ? <li>Comfort {(Math.round(characteristics.Comfort.value/5 * 100)).toFixed(0)+'%'}</li> : <></>
-    var quality = characteristics.Quality ? <li>Quality {(Math.round(characteristics.Quality.value/5 * 100)).toFixed(0)+'%'}</li> : <></>
+    var fit = (characteristics.Fit ? (
+      <div>
+        Fit: {(Math.round(characteristics.Fit.value/5 * 100)).toFixed(0)+'%'}
+      </div>) : <></>)
+    var length = characteristics.Length ? <div>Length {(Math.round(characteristics.Length.value/5 * 100)).toFixed(0)+'%'}</div> : <></>
+    var comfort = characteristics.Comfort ? <div>Comfort {(Math.round(characteristics.Comfort.value/5 * 100)).toFixed(0)+'%'}</div> : <></>
+    var quality = characteristics.Quality ? <div>Quality {(Math.round(characteristics.Quality.value/5 * 100)).toFixed(0)+'%'}</div> : <></>
   }
 
 // (Math.round(characteristics.Quality.value/5 * 100)).toFixed(2)+'%'
@@ -46,12 +49,12 @@ function Pbreakdown(props) {
     return (
       <div style={PbreakdownStyle} className='Pbreakdown'>
 
-        <ul>
+
           {fit}
           {length}
           {comfort}
           {quality}
-        </ul>
+
 
 
         </div>

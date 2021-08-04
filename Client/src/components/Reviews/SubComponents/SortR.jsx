@@ -17,7 +17,8 @@ class SortR extends React.Component {
         comments: [],
         meta: null,
         displayComments: 2,
-        showReviewModal: false
+        showReviewModal: false,
+        productName: ''
       }
       this.clickShowNewReviewModal = this.clickShowNewReviewModal.bind(this);
       this.clickHideNewReviewModal = this.clickHideNewReviewModal.bind(this);
@@ -39,10 +40,12 @@ class SortR extends React.Component {
       }
     })
     .then((data)=> {
+
       this.setState({
         currentFilter: 'relevant',
         reviewCount: data.data.results.length,
-        comments: data.data.results
+        comments: data.data.results,
+        productName: ''
       })
     })
     .catch((error)=> {
@@ -135,7 +138,8 @@ class SortR extends React.Component {
                   type="submit"
                   value="Add a Review"/>
                   <ReviewModal
-                    meta = {this.state.meta}
+                    id = {this.props.id}
+                    meta = {this.state.meta.characteristics}
                     showReviewModal={this.state.showReviewModal}
                     HideNewReviewModal={this.clickHideNewReviewModal}
                   />
