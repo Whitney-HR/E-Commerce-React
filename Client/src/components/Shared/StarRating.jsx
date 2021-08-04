@@ -1,5 +1,8 @@
 import React, { useState, useEffect, useLayoutEffect } from 'react';
 import { BsStar, BsStarFill, BsStarHalf } from 'react-icons/bs';
+// import fiveStars from '../../../../5stars.png'
+
+
 
 // BsStar empty star
 // BsStarHalf half star
@@ -39,6 +42,30 @@ class StarRating extends React.Component {
 
 
   render() {
+
+    var rating = this.state.rating/5*150;
+
+
+
+
+    return (
+
+      <div style={{width: `${rating}px`, background: 'gold', overflow: 'hidden'}}>
+
+        <img src="https://i.ibb.co/HCPH9M1/5stars.png"/>
+      </div>
+
+      )
+  }
+}
+
+
+export default StarRating;
+
+
+/*
+
+    render() {
     var toRender;
     var rating = this.state.rating;
     var toRender;
@@ -71,41 +98,4 @@ class StarRating extends React.Component {
     return (
       <span>{toRender}</span>
       )
-  }
-}
-
-
-export default StarRating;
-
-
-/*
-
-    var toRender;
-
-    var rating = this.state.rating;
-
-    if (rating < 0.5) {
-      toRender = <><BsStar/><BsStar/><BsStar/><BsStar/><BsStar/></>
-    } else if (rating >= 0.5 && rating < 1 ) {
-      toRender = <><BsStarHalf/><BsStar/><BsStar/><BsStar/><BsStar/></>
-    } else if (rating >= 1 && rating < 1.5) {
-      toRender = <><BsStarFill/><BsStar/><BsStar/><BsStar/><BsStar/></>
-    } else if (rating >= 1.5 && rating < 2) {
-      toRender = <><BsStarFill/><BsStarHalf/><BsStar/><BsStar/><BsStar/></>
-    } else if (rating >= 2 && rating < 2.5) {
-      toRender = <><BsStarFill/><BsStarFill/><BsStar/><BsStar/><BsStar/></>
-    } else if (rating >= 2.5 && rating < 3) {
-      toRender = <><BsStarFill/><BsStarFill/><BsStarHalf/><BsStar/><BsStar/></>
-    }else if (rating >= 3 && rating < 3.5) {
-      toRender = <><BsStarFill/><BsStarFill/><BsStarFill/><BsStar/><BsStar/></>
-    }else if (rating >= 3.5 && rating < 4) {
-      toRender = <><BsStarFill/><BsStarFill/><BsStarFill/><BsStarHalf/><BsStar/></>
-    }else if (rating >= 4 && rating < 4.5) {
-      toRender = <><BsStarFill/><BsStarFill/><BsStarFill/><BsStarFill/><BsStar/></>
-    } else if (rating >= 4.5 && rating < 5) {
-      toRender = <><BsStarFill/><BsStarFill/><BsStarFill/><BsStarFill/><BsStarHalf/></>
-    } else if (rating === 5) {
-      toRender = <><BsStarFill/><BsStarFill/><BsStarFill/><BsStarFill/><BsStarFill/></>
-    }
-
     */
