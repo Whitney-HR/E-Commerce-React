@@ -57,6 +57,24 @@ HEADER container
 
 /*
 ===========================
+Footer container
+===========================
+*/
+
+.footer-container {
+  margin-left: 100px;
+  margin-right: 100px;
+  background-color: cornflowerblue;
+  height: 90px;
+}
+
+.footer-title {
+  color: lightgreen;
+  text-align: center;
+}
+
+/*
+===========================
 MAIN container
 ===========================
 */
@@ -245,10 +263,10 @@ Q & A Button Styles
 }
 
 .load-more-answers {
-  background-color: white;
+  background-color: lightgray;
   padding: 10px;
   color: black;
-  border: 0px solid white;
+  border: 0px solid lightgray;
 }
 
 .load-more-answers:hover {
@@ -256,10 +274,10 @@ Q & A Button Styles
 }
 
 .collapse-answers {
-  background-color: white;
+  background-color: lightgray;
   padding: 10px;
   color: black;
-  border: 0px solid white;
+  border: 0px solid lightgray;
 }
 
 .collapse-answers:hover {
@@ -417,4 +435,36 @@ Ratings & reviews
   color: rgb(77, 54, 54);
   transform: 'translateY(-50%)';
   position: absolute;
+}
+
+/*
+===========================
+R&R container
+===========================
+*/
+
+.review-container {
+  height: 650px;
+  padding-left: 100px;
+}
+
+.rating-breakdown {
+  float: left;
+  height: 550px;
+  overflow: scroll;
+}
+
+.review-feed {
+  float: left;
+  width: 732.09px;
+  height: 550px;
+  background-color: lightgray;
+  overflow: scroll;
+}
+
+.review-list {
+  width: 600px;
+  border: 2px solid cornflowerblue;
+  padding: 10px;
+  border-radius: 5px;
 }
