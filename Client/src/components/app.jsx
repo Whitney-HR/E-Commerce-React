@@ -12,17 +12,6 @@ import Modal from './Shared/SharedModal.jsx';
 
 
 var App = () => {
-<<<<<<< HEAD
-  const [products, productsUpdate] = useState([]);
-
-  const margins = {
-    marginLeft: '5%',
-    marginRight: '5% '
-  }
-
-  useEffect(() => {
-    Axios.get('https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products',   { headers: {  Authorization: token } })
-=======
   let [products, productsUpdate] = useState([]);
   const { search } = window.location
   const query = new URLSearchParams(search).get('q')
@@ -39,7 +28,6 @@ var App = () => {
 
   useLayoutEffect(() => {
     Axios.get('https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products', { headers: { Authorization: token } })
->>>>>>> 460ad788adb13467a370256f958a1a4b41cf0665
       .then(data => {
         productsUpdate(data.data)
       })
@@ -49,30 +37,6 @@ var App = () => {
   }, []);
 
 
-<<<<<<< HEAD
-    var item = {
-      name: 'Loading please wait'
-    };
-
-    if (products.length) {
-      item = products[numRand];
-    }
-
-    return (
-      <div >
-        <div style={{'marginLeft': '50px '}}>
-          <h1>E-COMMERCE</h1>
-        </div>
-        <div style={margins}>
-          <Overview id={item.id}/>
-          <br/>
-          <Questions id={item.id} name={item.name} />
-          <Reviews id={item.id}/>
-        </div>
-      </div>
-    )
-};
-=======
 
   //Styles
   // const margins = {
@@ -154,7 +118,6 @@ export default App;
   // var item = {
   //   name: 'Loading please wait'
   // };
->>>>>>> 460ad788adb13467a370256f958a1a4b41cf0665
 
 
   // if (products.length) {
