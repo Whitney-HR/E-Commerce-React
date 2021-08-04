@@ -1,5 +1,5 @@
 import React from 'react';
-import ImageModal from './ReviewImageModal.jsx';
+import ImageModal from './reviewImageModal.jsx';
 
 const thumbnailStyle = {
   border: '2px solid black',

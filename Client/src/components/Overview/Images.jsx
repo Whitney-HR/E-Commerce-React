@@ -1,14 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import {FaExpand} from 'react-icons/fa';
 import Modal from '../Shared/SharedModal.jsx';
+import Tracker from '../Shared/Tracker.jsx';
 
 var Images = (props) => {
   const [bigPicture, updateBigPicture] = useState({})
   const [addBigPicModal, updateBigPicModal] = useState(false)
-
-  useEffect(() => {
-    updateBigPicture(props.chosenStyle.photos[0])
-  }, [props.chosenStyle]);
 
   const pictureSelect = {
     border: '2px solid black',
@@ -18,13 +15,11 @@ var Images = (props) => {
     marginBottom: '5px',
   }
   const pictureSelected = {
-    float: 'left',
-    border: '2px solid black',
     height: '600px',
-    maxWidth: '700px'
-
+    maxWidth: '45%',
+    paddingLeft: '5%',
+    paddingRight: '5%',
   }
-
   const carousel = {
     float: 'left',
     maxWidth: '110px',
@@ -33,21 +28,26 @@ var Images = (props) => {
     maxHeight: '600px',
     overflow: 'scroll',
   }
-
   const expandButton = {
     marginLeft: '30px',
     maxWidth: '40px'
   }
 
+  useEffect(() => {
+    updateBigPicture(props.chosenStyle.photos[0])
+  }, [props.chosenStyle]);
+
   var changeBigPic = (negatives) => {
     updateBigPicture(negatives);
+    Tracker('Selected Picture from Carousel', 'OverView');
   }
-
   const showBigPicModal = function() {
     updateBigPicModal(true);
+    Tracker('Expand Picture', 'OverView');
   }
   const hideBigPicModal = function() {
     updateBigPicModal(false);
+    Tracker('Close Expanded Picture', 'OverView');
   }
 
   return (
@@ -61,7 +61,7 @@ var Images = (props) => {
           })}
         </div>
       </div>
-      <div>
+      <div >
         <img style={pictureSelected} src={bigPicture.url} ></img>
       </div>
       <div>
