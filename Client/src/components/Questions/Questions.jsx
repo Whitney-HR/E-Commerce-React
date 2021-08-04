@@ -113,7 +113,7 @@ export default function Questions({ id, name }) {
         <form onSubmit={submitQuestion} className="question-form">
           <h3 className="modal-header">Ask Your Question about the "{name}"</h3>
           <h5 className="user-question-header">Your Question*</h5>
-          <textarea ref={newQuestion} className="question-tobe-asked" cols="30" rows="5" maxLength="1000" placeholder="Enter your question"></textarea>
+          <textarea ref={newQuestion} className="question-tobe-asked" cols="33" rows="5" maxLength="1000" placeholder="Enter your question"></textarea>
           <br />
           <h5 className="user-question-nickname">Your nickname*</h5>
           <input ref={userNickname} type="text" placeholder="Example: jackson11!" maxLength="60"  className="user-nickname-input"></input>
@@ -129,7 +129,7 @@ export default function Questions({ id, name }) {
         <form onSubmit={submitAnswer} className="answer-form">
           <h3 className="modal-header">Submit your Answer about {name}: "{questionBody}"</h3>
           <h5 className="user-answer-header">Your Answer*</h5>
-          <textarea ref={newAnswer} className="user-answer-input" cols="30" rows="5" maxLength="1000" placeholder="Enter your answer"></textarea>
+          <textarea ref={newAnswer} className="user-answer-input" cols="33" rows="5" maxLength="1000" placeholder="Enter your answer"></textarea>
           <br />
           <h5 className="user-question-nickname">Your nickname*</h5>
           <input ref={answererName} type="text" placeholder="Example: jack543!" maxLength="60" className="user-nickname-input"></input>

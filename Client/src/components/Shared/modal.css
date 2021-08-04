@@ -9,7 +9,7 @@
 
 .modal-main {
   position:fixed;
-  background: grey;
+  background: rgb(165, 172, 177);
   width: 80%;
   height: auto;
   top:50%;
