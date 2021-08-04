@@ -13,7 +13,6 @@ import Modal from './Shared/SharedModal.jsx';
 
 var App = () => {
   let [products, productsUpdate] = useState([]);
-  // let [selectedProduct, updateSelected] = useState({});
   const { search } = window.location
   const query = new URLSearchParams(search).get('q')
   let [searchQuery, setSearchQuery] = useState(query || '')
@@ -40,65 +39,61 @@ var App = () => {
 
 
   //Styles
-  const margins = {
-    'marginLeft': '100px ',
-    'marginRight': '100px '
-  }
+  // const margins = {
+  //   'marginLeft': '100px ',
+  //   'marginRight': '100px '
+  // }
 
 
-  console.log('True product', products)
-  // console.log('selected', selectedProduct)
-  // var numRand = randomNumber(0, products.length);
-  // updateSelected(products[numRand])
+
+
   let selected = {};
   let filteredProducts = filterProducts(products, searchQuery)
   console.log('FILTERED:', filteredProducts)
   if (filteredProducts.length === 1) {
-    console.log('In ONE filtered')
     return (
-      <div >
-        <div style={{ 'marginLeft': '50px ' }}>
-          <h1>E-COMMERCE</h1>
-        </div>
-        <HeaderSearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
-        <div style={margins}>
+      <>
+        <header className="header-container">
+          <h1 className="header-title">Whitney Technological Solutions</h1>
+          <HeaderSearchBar className="header-search" searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
+        </header>
+        <main className="main-container">
           <Overview id={filteredProducts[0].id} />
           <Questions id={filteredProducts[0].id} name={filteredProducts[0].name} />
           <Reviews id={filteredProducts[0].id} />
-        </div>
-      </div>
+        </main>
+      </>
     )
   } else if (filteredProducts.length !== 0) {
-    console.log('In MULTI filtered')
     var numRand = randomNumber(0, products.length);
     let showingProduct = products[numRand]
     return (
-      <div >
-        <div style={{ 'marginLeft': '50px ' }}>
-          <h1>E-COMMERCE</h1>
-        </div>
-        <HeaderSearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
-        <div style={margins}>
+      <>
+        <header className="header-container">
+          <h1 className="header-title">Whitney Technological Solutions</h1>
+          <HeaderSearchBar className="header-search" searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
+        </header>
+        <main className="main-container">
           <Overview id={showingProduct.id} />
           <Questions id={showingProduct.id} name={showingProduct.name} />
           <Reviews id={showingProduct.id} />
-        </div>
-      </div>
+        </main>
+      </>
     )
   } else if (products.length !== 0) {
     console.log('In Not filtered')
     return (
-      <div >
-        <div style={{ 'marginLeft': '50px ' }}>
-          <h1>E-COMMERCE</h1>
-        </div>
-        <HeaderSearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
-        <div style={margins}>
+      <>
+        <header className="header-container">
+          <h1 className="header-title">Whitney Technological Solutions</h1>
+          <HeaderSearchBar className="header-search" searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
+        </header>
+        <main className="main-container">
           <Overview id={showingProduct.id} />
           <Questions id={showingProduct.id} name={showingProduct.name} />
           <Reviews id={showingProduct.id} />
-        </div>
-      </div>
+        </main>
+      </>
     )
   }
 

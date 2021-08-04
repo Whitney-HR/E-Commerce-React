@@ -17,6 +17,7 @@ export default function HeaderSearchBar({searchQuery, setSearchQuery = f => f}) 
       <label htmlFor="header-search">
         <span className="visually-hidden">Search Products</span>
       </label>
+      <button type="submit" className="header-search-button" onClick={setSearch}>Search</button>
       <input
         // value={searchQuery}
         ref={query}
@@ -24,8 +25,8 @@ export default function HeaderSearchBar({searchQuery, setSearchQuery = f => f}) 
         id="header-search"
         placeholder="Search for products"
         name="q"
+        className="header-search-input"
       />
-      <button type="submit" onClick={setSearch}>Search</button>
     </form>
   )
 }
