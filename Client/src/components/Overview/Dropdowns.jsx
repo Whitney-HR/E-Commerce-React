@@ -63,45 +63,37 @@ var Dropdowns = (props) => {
     });
   }
 
-  useEffect (() => {
-    return (
-      <div >
-        <div>
-          <select style={dropDown} id="SizeSelector" onChange={selectHandler} >
-            <option hidden={true} value='apples' >{stock}</option>
-            {skus.map((sku, index) => {
-              if (skuStorage[sku]['quantity'] > 0) {
-                return (
-                  <option key={sku} value={sku} >{skuStorage[sku]['size']}</option>
-                )
-              }
-            })}
-          </select>
-        </div>
-        <div>
-          <select style={dropDown} onChange={(e)=> { Tracker('Quantity Selector', 'OverView');}}>
-            <option hidden={true}>{quantity}</option>
-            {stockQuantity.map((number, index) => {
-              if (number <= currentStockAtSize) {
-                return (
-                  <option key={index}>{number}</option>
-                )
-              }
-            })}
-          </select>
-        </div>
-        <div>
-          <button style={dropDown} disabled={!currentSku} onClick={addToCart}>
-            add to cart
-          </button>
-        </div>
-      </div>
-    )
-  }, [props]);
-
   return (
-    <div>
-      please wait
+    <div >
+      <div>
+        <select style={dropDown} id="SizeSelector" onChange={selectHandler} >
+          <option hidden={true} value='apples' >{stock}</option>
+          {skus.map((sku, index) => {
+            if (skuStorage[sku]['quantity'] > 0) {
+              return (
+                <option key={sku} value={sku} >{skuStorage[sku]['size']}</option>
+              )
+            }
+          })}
+        </select>
+      </div>
+      <div>
+        <select style={dropDown} onChange={(e)=> { Tracker('Quantity Selector', 'OverView');}}>
+          <option hidden={true}>{quantity}</option>
+          {stockQuantity.map((number, index) => {
+            if (number <= currentStockAtSize) {
+              return (
+                <option key={index}>{number}</option>
+              )
+            }
+          })}
+        </select>
+      </div>
+      <div>
+        <button style={dropDown} disabled={!currentSku} onClick={addToCart}>
+          add to cart
+        </button>
+      </div>
     </div>
   )
 };
