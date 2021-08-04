@@ -18,6 +18,27 @@ var RbreakdownStyle = {
 }
 
 
+var progress = {
+  position: "relative",
+  width: "210px",
+  height: "30px",
+  background: "rgb(140, 140, 140)",
+  borderRadius: '5px',
+  overflow: 'hidden'
+}
+
+
+
+var progress__text = {
+  position: 'absolute',
+  top: '50%',
+  right: '5px',
+  transform: 'translateY(-50%)',
+  font: 'bold 14px Quicksand, sans-serif',
+  color: 'white'
+}
+
+
 
 function Rbreakdown(props) {
   var [rating, ratingChange] = useState();
@@ -69,9 +90,8 @@ function Rbreakdown(props) {
     var recommendPercentage = (Math.floor(yes/recommendTotal*100))+'%';
   }
 
-
-
-
+  var ratingArray = []
+  var ratingCount = [0,0,0,0,0,0]
 
   if(rating) {
     var uno = 0
@@ -80,19 +100,37 @@ function Rbreakdown(props) {
     var cuatro = 0
     var cinco = 0
     if(rating[1]) {
-      uno= (Math.floor(rating[1]/ratingTotal*100))+'%';
+      uno= (Math.floor(rating[1]/ratingTotal*100));
+      ratingArray.push(uno);
+      ratingCount[1] = rating[1];
     }
     if(rating[2]) {
-      dos= (Math.floor(rating[2]/ratingTotal*100))+'%'
+      dos= (Math.floor(rating[2]/ratingTotal*100));
+      ratingArray.push(dos);
+      ratingCount[2] = rating[2];
     }
     if(rating[3]) {
-      tres= (Math.floor(rating[3]/ratingTotal*100))+'%'
+      tres= (Math.floor(rating[3]/ratingTotal*100));
+      ratingArray.push(tres);
+      ratingCount[3] = rating[3];
     }
     if(rating[4]) {
-      cuatro= (Math.floor(rating[4]/ratingTotal*100))+'%';
+      cuatro= (Math.floor(rating[4]/ratingTotal*100));
+      ratingArray.push(cuatro);
+      ratingCount[4] = rating[4];
     }
     if(rating[5]) {
-      cinco= (Math.floor(rating[5]/ratingTotal*100))+'%';
+      cinco= (Math.floor(rating[5]/ratingTotal*100));
+      ratingArray.push(cinco);
+      ratingCount[5] = rating[5];
+    }
+  }
+
+  var maxNum = uno;
+
+  for (var i =1; i<ratingArray.length; i++) {
+    if (maxNum < ratingArray[i]) {
+      maxNum = ratingArray[i]
     }
   }
 
@@ -105,17 +143,44 @@ function Rbreakdown(props) {
   } else {
   return (
     <div className='Rbreakdown' style={RbreakdownStyle}>
-      <span style={{fontSize: 'xxx-large'}}>{ratingAverage}</span><StarRating rating={rating}/>
+      <span style={{fontSize: 'xxx-large', float: 'left'}}>{ratingAverage}</span><StarRating rating={rating}/>
+
+      <br></br>
+      <br></br>
       <div>Based on {ratingTotal} ratings</div>
-      <span>{`${recommendPercentage} of ratings recommend this product`}</span>
+      <br></br>
+      <span style={{font: 'bold 22px Quicksand, sans-serif'}}>{recommendPercentage}</span><span> of ratings recommend this product</span>
       <br></br>
       <br></br>
       <div>Rating Breakdown:</div>
-      <div>5 stars: {cinco}</div>
-      <div>4 stars: {cuatro}</div>
-      <div>3 stars: {tres}</div>
-      <div>2 stars: {dos}</div>
-      <div>1 stars: {uno}</div>
+
+      <div style={progress}> <span id='starText'>5 star</span>
+        <div style={{width: (cinco/maxNum*100)+'%', height: '100%', background: 'gold'}}></div>
+        <span style={progress__text}>{ratingCount[5]} ratings</span>
+      </div>
+    <br></br>
+
+      <div style={progress}> <span id='starText'>4 star</span>
+        <div style={{width: (cuatro/maxNum*100)+'%', height: '100%', background: 'gold'}}></div>
+        <span style={progress__text}>{ratingCount[4]} ratings</span>
+      </div>
+    <br></br>
+
+      <div style={progress}> <span id='starText'>3 star</span>
+        <div style={{width: (tres/maxNum*100)+'%', height: '100%', background: 'gold'}}></div>
+        <span style={progress__text}>{ratingCount[3]} ratings</span>
+      </div>
+    <br></br>
+      <div style={progress}> <span id='starText'>2 star</span>
+        <div style={{width: (dos/maxNum*100)+'%', height: '100%', background: 'gold'}}></div>
+        <span style={progress__text}>{ratingCount[2]} ratings</span>
+      </div>
+    <br></br>
+      <div style={progress}> <span id='starText'>1 star</span>
+        <div style={{width: (uno/maxNum*100)+'%', height: '100%', background: 'gold'}}></div>
+        <span style={progress__text}>{ratingCount[1]} ratings</span>
+      </div>
+
     </div>
   )
   }

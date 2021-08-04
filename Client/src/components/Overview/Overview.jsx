@@ -78,7 +78,7 @@ var Overview = (props) => {
           <Hub styles={prodst} name={product.name} category={product.category} reviewCount={reviewCount} reviewMeta={reviewMeta}/>
         </div>
         <div style={shrinkToLeft}>
-          <h3>{product.slogan}</h3>
+          <h3 id='mainProductTitle'>{product.slogan}</h3>
           <h5>{product.description}</h5>
         </div>
         <div >

@@ -47,8 +47,8 @@ var App = () => {
         <div style={margins}>
           {/* <Overview id={item.id}/> */}
           <br/>
-          {/* <Questions id={item.id} name={item.name} />
-          <Reviews id={item.id}/> */}
+          {/* <Questions id={item.id} name={item.name} /> */}
+          <Reviews id={item.id}/>
         </div>
       </div>
     )
