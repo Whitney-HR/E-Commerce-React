@@ -1,10 +1,23 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import token from '/Client/src/env/config.js';
+import Tracker from '../Shared/Tracker.jsx';
 
 var Dropdowns = (props) => {
   const [currentStockAtSize, updateCurrentSAS] = useState();
   const [currentSku, updateCurrentSku] = useState();
+
+  const dropDown = {
+    'width': '300px',
+    'height': '50px',
+    'border': '1px solid black',
+    'fontSize': '18px',
+    'color': 'black',
+    'backgroundColor': '#eee',
+    'borderRadius': '5px',
+    'boxShadow': '4px 4px #ccc',
+    'margin': '10px'
+  }
 
   var skus = Object.keys(props.currentStyle.skus);
   var skuStorage = props.currentStyle.skus;
@@ -35,23 +48,12 @@ var Dropdowns = (props) => {
     var q = skuStorage[e.target.value]['quantity']
     updateCurrentSAS(q);
     updateCurrentSku(e.target.value);
-  }
-
-  const dropDown = {
-    'width': '300px',
-    'height': '50px',
-    'border': '1px solid black',
-    'fontSize': '18px',
-    'color': 'black',
-    'backgroundColor': '#eee',
-    'borderRadius': '5px',
-    'boxShadow': '4px 4px #ccc',
-    'margin': '10px'
+    Tracker('Size Select', 'OverView');
   }
 
   var addToCart = (e) => {
     e.preventDefault();
-
+    Tracker('Add to Cart', 'OverView');
     axios.post (`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/cart`, {"sku_id": currentSku} , { headers: {  Authorization: token } })
     .then(data => {
       alert('Added to Cart!');
@@ -59,9 +61,7 @@ var Dropdowns = (props) => {
     .catch(err => {
       console.log(err)
     });
-
   }
-
 
   return (
     <div >
@@ -78,7 +78,7 @@ var Dropdowns = (props) => {
         </select>
       </div>
       <div>
-        <select style={dropDown}>
+        <select style={dropDown} onChange={(e)=> { Tracker('Quantity Selector', 'OverView');}}>
           <option hidden={true}>{quantity}</option>
           {stockQuantity.map((number, index) => {
             if (number <= currentStockAtSize) {
@@ -95,10 +95,7 @@ var Dropdowns = (props) => {
         </button>
       </div>
     </div>
-
   )
-
-
 };
 
 export default Dropdowns;

@@ -4,6 +4,7 @@ import Axios from 'axios';
 import token from '/Client/src/env/config.js';
 import Features from './Features';
 import Hub from './Hub';
+import Tracker from '../Shared/Tracker.jsx';
 
 
 
@@ -31,7 +32,7 @@ var Overview = (props) => {
         console.log(err)
       });
 
-    Axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/reviews/?product_id=${props.id}&sort=relevant`,   { headers: {  Authorization: token } })
+    Axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/reviews/?product_id=${props.id}&sort=relevant&count=100`,   { headers: {  Authorization: token } })
       .then(data => {
         updateReviewCount(data.data.results.length);
       })
@@ -57,15 +58,11 @@ var Overview = (props) => {
 
   var prodst = {'results': [ { 'name': 'Patience', 'photos': [{'url':'a', 'thumbnail_url': 'b'}], 'skus': {'12345': {'quantity': 7, 'size': 'M'}} } ] } ;
 
-  var stylesKeys = Object.keys(styles)
+  var stylesKeys = Object.keys(styles);
   if (stylesKeys.length > 0 ) {
     prodst = styles;
   }
 
-  const style = {
-    'height': '1000px',
-
-  }
   const shrinkToLeft = {
     maxWidth: '800px',
     float: 'left'
@@ -73,7 +70,7 @@ var Overview = (props) => {
 
   if (reviewMeta && reviewCount && product && styles && chosenStyle) {
     return (
-      <div  style={style}>
+      <div  style={{'height': '1000px',}}>
         <div >
           <Hub styles={prodst} name={product.name} category={product.category} reviewCount={reviewCount} reviewMeta={reviewMeta}/>
         </div>
