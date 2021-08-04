@@ -36,8 +36,17 @@ var Hub = (props) => {
     display: "table-cell"
   }
 
+  useEffect (() => {
+    props.styles.results.forEach((aStyle) => {
+      if (aStyle['default?'] === true) {
+        currentStyleUpdate(aStyle);
+      }
+    });
+  }, [props.styles]);
+
   const newCurrent = (styleCurrent) => {
     currentStyleUpdate(styleCurrent);
+    Tracker('Select style', 'Overview')
   }
 
   if (currentStyle.name === 'Patience') {
@@ -64,7 +73,7 @@ var Hub = (props) => {
   }
 
   var seeAllReviews = (e) => {
-    document.getElementById("reviews").scrollIntoView();s
+    document.getElementById("reviews").scrollIntoView();
     Tracker('seeAllReviews', 'OverView');
   }
 
