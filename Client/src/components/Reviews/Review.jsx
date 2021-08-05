@@ -16,18 +16,18 @@ function Review(props) {
   if(productID) {
 
     return (
-      <div className='reviews' id="reviews">
+      <section className='review-container' id="reviews">
         <h2>{`Ratings & Reviews`}</h2>
         <>
         <br></br>
-        <span style={{float: 'left'}}>
+        <section className="rating-breakdown">
         <Rbreakdown id={productID}/>
         <Pbreakdown id={productID}/>
-        </span>
-        <span style={{float: 'left'}}><SortR id={productID}/> </span>
+        </section>
+        <section className="review-feed"><SortR id={productID}/> </section>
 
         </>
-      </div>
+      </section>
     )
 
   } else {

@@ -7,6 +7,7 @@ import QuestionFeed from './QuestionFeed.jsx';
 import Modal from '../Shared/SharedModal.jsx';
 import Axios from 'axios';
 import token from '../../env/config.js';
+import Tracker from '../Shared/Tracker.jsx';
 
 export default function Questions({ id, name }) {
   //State
@@ -28,12 +29,15 @@ export default function Questions({ id, name }) {
   //Question
   const showQuesModal = function () {
     updateQuesModal(true)
+    Tracker('Question Modal', " Q & A")
   }
   const hideQuesModal = function () {
     updateQuesModal(false)
+    Tracker('Question Modal', " Q & A")
   }
   const submitQuestion = function (e) {
     e.preventDefault();
+    Tracker('Question Modal', " Q & A")
     const quest = newQuestion.current.value;
     const nickname = userNickname.current.value;
     const email = userEmail.current.value;
@@ -68,9 +72,11 @@ export default function Questions({ id, name }) {
   }
   const hideAnswerModal = function () {
     updateAnswerModal(false);
+    Tracker('Answer Modal', " Q & A")
   }
   const submitAnswer = function (e) {
     e.preventDefault();
+    Tracker('Answer Modal', " Q & A")
     const answer = newAnswer.current.value;
     const nickname = answererName.current.value;
     const email = answererEmail.current.value;
@@ -113,7 +119,7 @@ export default function Questions({ id, name }) {
         <form onSubmit={submitQuestion} className="question-form">
           <h3 className="modal-header">Ask Your Question about the "{name}"</h3>
           <h5 className="user-question-header">Your Question*</h5>
-          <textarea ref={newQuestion} className="question-tobe-asked" cols="30" rows="5" maxLength="1000" placeholder="Enter your question"></textarea>
+          <textarea ref={newQuestion} className="question-tobe-asked" cols="33" rows="5" maxLength="1000" placeholder="Enter your question"></textarea>
           <br />
           <h5 className="user-question-nickname">Your nickname*</h5>
           <input ref={userNickname} type="text" placeholder="Example: jackson11!" maxLength="60"  className="user-nickname-input"></input>
@@ -129,7 +135,7 @@ export default function Questions({ id, name }) {
         <form onSubmit={submitAnswer} className="answer-form">
           <h3 className="modal-header">Submit your Answer about {name}: "{questionBody}"</h3>
           <h5 className="user-answer-header">Your Answer*</h5>
-          <textarea ref={newAnswer} className="user-answer-input" cols="30" rows="5" maxLength="1000" placeholder="Enter your answer"></textarea>
+          <textarea ref={newAnswer} className="user-answer-input" cols="33" rows="5" maxLength="1000" placeholder="Enter your answer"></textarea>
           <br />
           <h5 className="user-question-nickname">Your nickname*</h5>
           <input ref={answererName} type="text" placeholder="Example: jack543!" maxLength="60" className="user-nickname-input"></input>

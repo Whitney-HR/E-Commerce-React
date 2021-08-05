@@ -57,6 +57,24 @@ HEADER container
 
 /*
 ===========================
+Footer container
+===========================
+*/
+
+.footer-container {
+  margin-left: 100px;
+  margin-right: 100px;
+  background-color: cornflowerblue;
+  height: 90px;
+}
+
+.footer-title {
+  color: lightgreen;
+  text-align: center;
+}
+
+/*
+===========================
 MAIN container
 ===========================
 */
@@ -64,6 +82,7 @@ MAIN container
 .main-container {
   margin-left: 100px;
   margin-right: 100px;
+  background-color: lightgray;
 }
 
 /*
@@ -71,6 +90,18 @@ MAIN container
 Overview container
 ===========================
 */
+
+.dropdown-selecter {
+  width: 300px;
+  height: 50px;
+  border: 1px solid black;
+  font-size: 18px;
+  color: black;
+  background-color: cornflowerblue;
+  border-radius: 5px;
+  box-shadow: 4px 4px #ccc;
+  margin: 10px;
+}
 
 
 /*
@@ -82,8 +113,8 @@ Q&A container
   height: 600px;
   width: 100%;
   overflow: scroll;
-  border: 2px solid cornflowerblue;
   border-radius: 5px;
+  padding-left: 100px;
 }
 
 /*
@@ -93,7 +124,7 @@ Q & A Feed Styles
 */
 
 .question-feed {
-  width: 95%;
+  width: 85%;
   height: 600px;
   padding-left: 10px;
   padding-right: 10px;
@@ -182,7 +213,7 @@ Search Bar Styles
   border-radius: 5px;
   padding: 2px 23px 2px 30px;
   outline: 0;
-  background-color: lightskyblue;
+  background-color: rgb(201, 218, 223);
   position: relative;
   /* float: right; */
 }
@@ -232,10 +263,10 @@ Q & A Button Styles
 }
 
 .load-more-answers {
-  background-color: white;
+  background-color: lightgray;
   padding: 10px;
   color: black;
-  border: 0px solid white;
+  border: 0px solid lightgray;
 }
 
 .load-more-answers:hover {
@@ -243,10 +274,10 @@ Q & A Button Styles
 }
 
 .collapse-answers {
-  background-color: white;
+  background-color: lightgray;
   padding: 10px;
   color: black;
-  border: 0px solid white;
+  border: 0px solid lightgray;
 }
 
 .collapse-answers:hover {
@@ -261,7 +292,7 @@ Q & A Form Styles
 */
 
 .question-form {
-  background-color: grey;
+  background-color: rgb(165, 172, 177);
   width: 400px
 }
 
@@ -309,7 +340,11 @@ Q & A AddQuestion Modal Styles
   text-align: center;
 }
 .question-modal-authentication {
+  float: left;
+  display: block;
   text-align: center;
+  margin-left: 30px;
+
 }
 .user-question-email {
   float: left;
@@ -333,27 +368,32 @@ Q & A Modal Button Styles
 
 .modal-submit-button {
   float: left;
-  background-color: white;
-  color: black;
-  padding: 10px 10px 10px 10px
+  background-color: cornflowerblue;
+  color: lightgreen;
+  padding: 10px 10px 10px 10px;
+  border-radius: 15px;
+  margin-left: 60px;
+  border: 2px solid cornflowerblue;
 }
 
 .modal-close-button {
   float: left;
-  background-color: white;
-  color: black;
+  background-color: cornflowerblue;
+  color: lightgreen;
   padding: 10px 10px 10px 10px;
-  margin-left: 10px;
+  margin-left: 80px;
+  border-radius: 15px;
+  border: 2px solid cornflowerblue;
 }
 
 .modal-submit-button:hover {
-  background-color: black;
-  color: white;
+  background-color: lightgreen;
+  color: cornflowerblue;
 }
 
 .modal-close-button:hover {
-  background-color: black;
-  color: white;
+  background-color: lightgreen;
+  color: cornflowerblue;
 }
 
 /*
@@ -397,6 +437,7 @@ Ratings & reviews
   position: absolute;
 }
 
+<<<<<<< HEAD
 
 
 
@@ -407,3 +448,36 @@ Ratings & reviews
   border-right: 10px solid transparent;
   border-top: 12px solid gold;
 }
+=======
+/*
+===========================
+R&R container
+===========================
+*/
+
+.review-container {
+  height: 650px;
+  padding-left: 100px;
+}
+
+.rating-breakdown {
+  float: left;
+  height: 550px;
+  overflow: scroll;
+}
+
+.review-feed {
+  float: left;
+  width: 732.09px;
+  height: 550px;
+  background-color: lightgray;
+  overflow: scroll;
+}
+
+.review-list {
+  width: 600px;
+  border: 2px solid cornflowerblue;
+  padding: 10px;
+  border-radius: 5px;
+}
+>>>>>>> 70dbc2b0e900fcc231e9c27e57a644b471adb98d
