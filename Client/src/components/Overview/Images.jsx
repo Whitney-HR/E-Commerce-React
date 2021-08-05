@@ -4,35 +4,10 @@ import Modal from '../Shared/SharedModal.jsx';
 import Tracker from '../Shared/Tracker.jsx';
 
 var Images = (props) => {
-  const [bigPicture, updateBigPicture] = useState({})
-  const [addBigPicModal, updateBigPicModal] = useState(false)
-  const [BigPicIndex, updateBigPicIndex] = useState(0)
-
-  const pictureSelect = {
-    border: '2px solid black',
-    height: '80px',
-    width: '80px',
-    marginTop: '5px',
-    marginBottom: '5px',
-  }
-  const pictureSelected = {
-    height: '600px',
-    maxWidth: '45%',
-    paddingLeft: '5%',
-    paddingRight: '5%',
-  }
-  const carousel = {
-    float: 'left',
-    maxWidth: '110px',
-    display: 'flex',
-    flexDirection: 'column',
-    maxHeight: '600px',
-    overflow: 'scroll',
-  }
-  const expandButton = {
-    marginLeft: '30px',
-    width: '200px'
-  }
+  const [bigPicture, updateBigPicture] = useState({});
+  const [addBigPicModal, updateBigPicModal] = useState(false);
+  const [addZoomPicModal, updateZoomPicModal] = useState(false);
+  const [BigPicIndex, updateBigPicIndex] = useState(0);
 
   useEffect(() => {
     updateBigPicture(props.chosenStyle.photos[0]);
@@ -51,6 +26,14 @@ var Images = (props) => {
   const hideBigPicModal = function() {
     updateBigPicModal(false);
     Tracker('Close Expanded Picture', 'OverView');
+  }
+  const showZoomPicModal = function() {
+    updateZoomPicModal(true);
+    Tracker('Zoom Picture', 'OverView');
+  }
+  const hideZoomPicModal = function() {
+    updateZoomPicModal(false);
+    Tracker('Close Zoom Picture', 'OverView');
   }
 
   const onLeftArrowClick = (e) => {
@@ -78,24 +61,28 @@ var Images = (props) => {
     }
   }
 
+  const zoomIn = (e) => {
+
+  }
+
   return (
     <div>
       <div >
-        <div style={carousel}>
+        <div className='carousel'>
           {props.chosenStyle.photos.map((currentPicture, index) => {
             return (
-              <img style={pictureSelect} src={currentPicture.thumbnail_url} key={index} onClick={() => {changeBigPic(currentPicture, index) }}></img>
+              <img className='pictureSelect' src={currentPicture.thumbnail_url} key={index} onClick={() => {changeBigPic(currentPicture, index) }}></img>
             )
           })}
         </div>
       </div>
       <div >
-        <img style={pictureSelected} src={bigPicture.url} ></img>
+        <img className="bigPic" src={bigPicture.url} onClick={showBigPicModal}></img>
       </div>
       <div>
-        <div style={expandButton} >
+        <div className='expandButton' >
             <FaExpand size={30} onClick={showBigPicModal}/>
-          <div style= {{float: 'right'}}>
+          <div className='makeRight'>
             {buttonLRender()}
             {buttonRRender()}
           </div>
@@ -103,9 +90,20 @@ var Images = (props) => {
       </div>
       <div>
         <Modal show={addBigPicModal}>
-          <img src={bigPicture.url}  onClick={hideBigPicModal} ></img>
+          <button onClick={hideBigPicModal}>collapse</button>
+          <div className='expandedPicContainer' >
+            <img className='expandedPic' src={bigPicture.url} ></img>
+          </div>
         </Modal>
       </div>
+      {/* <div>
+        <Modal show={addZoomPicModal}>
+          <button onClick={hideZoomPicModal}>collapse</button>
+          <div className='expandedPicContainer' onClick={zoomIn()} >
+            <img className='expandedPic' src={bigPicture.url} ></img>
+          </div>
+        </Modal>
+      </div> */}
     </div>
   )
 };

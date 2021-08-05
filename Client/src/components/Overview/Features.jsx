@@ -2,13 +2,8 @@ import React, { useState, useEffect } from 'react';
 
 var Features = (props) => {
 
-  const moveToRight = {
-    float: 'left',
-    paddingLeft: '20px'
-  }
-
   return (
-    <div style={moveToRight}>
+    <div className='moveToRightLeft'>
       <h3> Features </h3>
       <ul >
         {props.feat.map((ft, index) => {
@@ -28,7 +23,6 @@ var Features = (props) => {
         })}
       </ul>
     </div>
-
   )
 };
 
