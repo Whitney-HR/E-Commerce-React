@@ -103,8 +103,7 @@ Q&A container
 */
 .questions-container {
   height: 600px;
-  width: 100%;
-  overflow: scroll;
+  width: 94%;
   border-radius: 5px;
   padding-left: 100px;
 }
@@ -117,9 +116,11 @@ Q & A Feed Styles
 
 .question-feed {
   width: 85%;
-  height: 600px;
+  height: 550px;
   padding-left: 10px;
   padding-right: 10px;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 /*
@@ -412,8 +413,6 @@ Q & A AddAnswer Modal Styles
 
 
 
-
-
 /*
 ===========================
 Ratings & reviews
@@ -429,6 +428,7 @@ Ratings & reviews
   position: absolute;
 }
 
+
 .arrow-down {
   width: 0;
   height: 0;
@@ -443,26 +443,30 @@ R&R container
 */
 
 .review-container {
-  height: 650px;
+  height: 800px;
   padding-left: 100px;
 }
 
 .rating-breakdown {
   float: left;
-  height: 550px;
-  overflow: scroll;
+  height: 700px;
+  width: 25%;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 .review-feed {
   float: left;
-  width: 732.09px;
-  height: 550px;
+  width: 74%;
+  height: 700px;
   background-color: lightgray;
-  overflow: scroll;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 .review-list {
-  width: 600px;
+  width: 90%;
+  max-width: 90%;
   border: 2px solid cornflowerblue;
   padding: 10px;
   border-radius: 5px;
@@ -470,6 +474,41 @@ R&R container
 
 /*
 ===========================
+R&R buttons
+===========================
+*/
+
+.more-reviews-button {
+  background-color: cornflowerblue;
+  color: lightgreen;
+  padding: 10px 10px 10px 10px;
+  border-radius: 15px;
+  border: 2px solid cornflowerblue;
+  margin-top: 10px;
+  margin-left: 40px;
+}
+
+.more-reviews-button:hover {
+  background-color: lightgreen;
+  color: cornflowerblue;
+}
+
+.add-review-button {
+  background-color: cornflowerblue;
+  color: lightgreen;
+  padding: 10px 10px 10px 10px;
+  border-radius: 15px;
+  border: 2px solid cornflowerblue;
+  margin-top: 10px;
+  margin-left: 50px;
+}
+
+.add-review-button:hover {
+  background-color: lightgreen;
+  color: cornflowerblue;
+}
+
+ /*
 OverView Images
 ===========================
 */

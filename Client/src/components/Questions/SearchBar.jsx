@@ -1,6 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import { BsSearch } from 'react-icons/bs'
 import Questions from './Questions.jsx';
 import App from '../App.jsx';
 
@@ -12,7 +10,6 @@ export default function SearchBar({searchQuery, setSearchQuery = f => f}) {
       <label htmlFor="questions-search">
         <span className="visually-hidden">Search questions</span>
       </label>
-      {/* <BsSearch className="search-icon"/> */}
       <input
         value={searchQuery}
         onInput={e => setSearchQuery(e.target.value)}
