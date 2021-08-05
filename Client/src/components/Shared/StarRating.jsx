@@ -49,12 +49,9 @@ class StarRating extends React.Component {
 
 
     return (
-
       <div style={{width: `${rating}px`, background: 'gold', overflow: 'hidden'}}>
-
         <img src="https://i.ibb.co/HCPH9M1/5stars.png"/>
       </div>
-
       )
   }
 }

@@ -10,10 +10,10 @@ var metaUrl= 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/reviews/meta/?
 
 var RbreakdownStyle = {
   width: '250px',
-  border: '1px',
+  border: '2px',
   padding: '10px',
   borderStyle: 'solid',
-  borderColor: 'grey',
+  borderColor: 'cornflowerblue',
 
 }
 

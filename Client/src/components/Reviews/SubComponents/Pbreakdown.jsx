@@ -4,10 +4,10 @@ const axios = require('axios');
 
 var PbreakdownStyle = {
   width: '250px',
-  border: '1px',
+  border: '2px',
   padding: '10px',
   borderStyle: 'solid',
-  borderColor: 'grey'
+  borderColor: 'cornflowerblue'
 
 }
 
