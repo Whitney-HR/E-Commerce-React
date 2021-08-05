@@ -119,13 +119,13 @@ var Hub = (props) => {
         </div>
         <div style={{maxWidth: '400px', maxHeight: '50px'}} key="fb">
           <a style={linkStyle} href="https://www.facebook.com/" target="_blank">
-            <FaFacebookSquare size={30} color="black"/>
+            <FaFacebookSquare size={30} color="cornflowerblue"/>
           </a>
           <a style={linkStyle} href="https://www.twitter.com/" target="_blank" key="twtr">
-            <FaTwitterSquare size={30} color="black"/>
+            <FaTwitterSquare size={30} color="cornflowerblue"/>
           </a>
           <a style={linkStyle} href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" key="pin">
-            <FaPinterestSquare size={30} color="black"/>
+            <FaPinterestSquare size={30} color="cornflowerblue"/>
           </a>
         </div>
       </div>

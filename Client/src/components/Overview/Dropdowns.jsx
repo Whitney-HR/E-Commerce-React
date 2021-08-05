@@ -7,17 +7,17 @@ var Dropdowns = (props) => {
   const [currentStockAtSize, updateCurrentSAS] = useState();
   const [currentSku, updateCurrentSku] = useState();
 
-  const dropDown = {
-    'width': '300px',
-    'height': '50px',
-    'border': '1px solid black',
-    'fontSize': '18px',
-    'color': 'black',
-    'backgroundColor': '#eee',
-    'borderRadius': '5px',
-    'boxShadow': '4px 4px #ccc',
-    'margin': '10px'
-  }
+  // const dropDown = {
+  //   'width': '300px',
+  //   'height': '50px',
+  //   'border': '1px solid black',
+  //   'fontSize': '18px',
+  //   'color': 'black',
+  //   'backgroundColor': '#eee',
+  //   'borderRadius': '5px',
+  //   'boxShadow': '4px 4px #ccc',
+  //   'margin': '10px'
+  // }
 
   var skus = Object.keys(props.currentStyle.skus);
   var skuStorage = props.currentStyle.skus;
@@ -66,7 +66,7 @@ var Dropdowns = (props) => {
   return (
     <div >
       <div>
-        <select style={dropDown} id="SizeSelector" onChange={selectHandler} >
+        <select className="dropdown-selecter" id="SizeSelector" onChange={selectHandler} >
           <option hidden={true} value='apples' >{stock}</option>
           {skus.map((sku, index) => {
             if (skuStorage[sku]['quantity'] > 0) {
@@ -78,7 +78,7 @@ var Dropdowns = (props) => {
         </select>
       </div>
       <div>
-        <select style={dropDown} onChange={(e)=> { Tracker('Quantity Selector', 'OverView');}}>
+        <select className="dropdown-selecter" onChange={(e)=> { Tracker('Quantity Selector', 'OverView');}}>
           <option hidden={true}>{quantity}</option>
           {stockQuantity.map((number, index) => {
             if (number <= currentStockAtSize) {
@@ -90,7 +90,7 @@ var Dropdowns = (props) => {
         </select>
       </div>
       <div>
-        <button style={dropDown} disabled={!currentSku} onClick={addToCart}>
+        <button className="dropdown-selecter" disabled={!currentSku} onClick={addToCart}>
           add to cart
         </button>
       </div>

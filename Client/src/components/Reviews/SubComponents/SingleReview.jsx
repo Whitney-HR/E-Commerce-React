@@ -93,7 +93,7 @@ class SingleReview extends React.Component{
 
 
     return (
-      <div style={divBoxStyle}>
+      <section className="review-list" >
         <span><StarRating rating={{[this.props.comment.rating]: 1}}/></span>
         <br></br>
         {moment(this.props.comment.date).format("MMMM DD YYYY")}
@@ -112,7 +112,7 @@ class SingleReview extends React.Component{
         <div>
           Was it helpful?  <span onClick={this.clickHandlerYesHelpful}>Yes({this.state.yesCount})</span><span> / </span><span onClick={this.clickHandlerNoHelpful}>No ({this.state.noCount})</span>
         </div>
-      </div>
+      </section>
     )
     }
 }

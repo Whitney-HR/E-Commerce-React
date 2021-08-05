@@ -38,18 +38,9 @@ var App = () => {
 
 
 
-  //Styles
-  // const margins = {
-  //   'marginLeft': '100px ',
-  //   'marginRight': '100px '
-  // }
-
-
-
 
   let selected = {};
   let filteredProducts = filterProducts(products, searchQuery)
-  console.log('FILTERED:', filteredProducts)
   if (filteredProducts.length === 1) {
     return (
       <>
@@ -62,6 +53,9 @@ var App = () => {
           <Questions id={filteredProducts[0].id} name={filteredProducts[0].name} />
           <Reviews id={filteredProducts[0].id} />
         </main>
+        <footer className="footer-container">
+          <h2 className="footer-title">Please Visit our store in person!!</h2>
+        </footer>
       </>
     )
   } else if (filteredProducts.length !== 0) {
@@ -78,10 +72,12 @@ var App = () => {
           <Questions id={showingProduct.id} name={showingProduct.name} />
           <Reviews id={showingProduct.id} />
         </main>
+        <footer className="footer-container">
+          <h2 className="footer-title">Please Visit our store in person!!</h2>
+        </footer>
       </>
     )
   } else if (products.length !== 0) {
-    console.log('In Not filtered')
     return (
       <>
         <header className="header-container">
@@ -93,6 +89,9 @@ var App = () => {
           <Questions id={showingProduct.id} name={showingProduct.name} />
           <Reviews id={showingProduct.id} />
         </main>
+        <footer className="footer-container">
+          <h2 className="footer-title">Please Visit our store in person!!</h2>
+        </footer>
       </>
     )
   }
