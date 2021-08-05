@@ -437,6 +437,18 @@ Ratings & reviews
   position: absolute;
 }
 
+<<<<<<< HEAD
+
+
+
+.arrow-down {
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 12px solid gold;
+}
+=======
 /*
 ===========================
 R&R container
@@ -468,3 +480,4 @@ R&R container
   padding: 10px;
   border-radius: 5px;
 }
+>>>>>>> 70dbc2b0e900fcc231e9c27e57a644b471adb98d

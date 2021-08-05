@@ -11,6 +11,20 @@ var PbreakdownStyle = {
 
 }
 
+var progress = {
+  position: "relative",
+  width: "250px",
+  height: "8px",
+  background: "rgb(140, 140, 140)",
+  borderRadius: '5px',
+  overflow: 'visible'
+}
+
+var letters = {
+  fontSize: "small"
+}
+
+
 var metaUrl= 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/reviews/meta/?product_id='
 
 
@@ -33,12 +47,122 @@ function Pbreakdown(props) {
 
   if(characteristics) {
     var fit = (characteristics.Fit ? (
-      <div>
-        Fit: {(Math.round(characteristics.Fit.value/5 * 100)).toFixed(0)+'%'}
-      </div>) : <></>)
-    var length = characteristics.Length ? <div>Length {(Math.round(characteristics.Length.value/5 * 100)).toFixed(0)+'%'}</div> : <></>
-    var comfort = characteristics.Comfort ? <div>Comfort {(Math.round(characteristics.Comfort.value/5 * 100)).toFixed(0)+'%'}</div> : <></>
-    var quality = characteristics.Quality ? <div>Quality {(Math.round(characteristics.Quality.value/5 * 100)).toFixed(0)+'%'}</div> : <></>
+
+      <div> Fit
+      <div style={progress}>
+        <div style={{position: 'relative', left: (characteristics.Fit.value/5)*240+'px'}}><div className="arrow-down"></div></div>
+      </div>
+      <div className='descriptionChars' style={{display: "flex", justifyContent: 'space-between'}}>
+          <div style={letters}>runs tight</div>
+          <div style={letters}>perfect</div>
+          <div style={letters}>runs long</div>
+        </div>
+        <br></br>
+      </div>
+
+    )
+      : <></>)
+
+    var length = (characteristics.Length ? (
+
+
+      <div> Length
+
+      <div style={progress}>
+        <div style={{position: 'relative', left: (characteristics.Length.value/5)*240+'px'}}><div className="arrow-down"></div></div>
+
+      </div>
+      <div className='descriptionChars' style={{display: "flex", justifyContent: 'space-between'}}>
+          <div style={letters}>Runs Short</div>
+          <div style={letters}>Perfect</div>
+          <div style={letters}>runs long</div>
+        </div>
+        <br></br>
+      </div>
+    )
+      : <></>)
+
+    var comfort = (characteristics.Comfort ? (
+
+
+      <div> Comfort
+
+      <div style={progress}>
+      <div style={{position: 'relative', left: (characteristics.Comfort.value/5)*240+'px', overflow: 'visible'}}><div className="arrow-down"></div></div>
+      </div>
+      <div className='descriptionChars' style={{display: "flex", justifyContent: 'space-between'}}>
+          <div style={letters}>Uncomfortable</div>
+          <div style={letters}>Ok</div>
+          <div style={letters}>Perfect</div>
+        </div>
+        <br></br>
+      </div>
+    )
+      : <></>)
+
+    var quality = (characteristics.Quality ? (
+
+
+      <div> Quality
+      <div style={progress}>
+        <div style={{position: 'relative', left: (characteristics.Quality.value/5)*240+'px'}}><div className="arrow-down"></div></div>
+
+      </div>
+      <div className='descriptionChars' style={{display: "flex", justifyContent: 'space-between'}}>
+          <div style={letters}>Poor</div>
+          <div style={letters}>What I expected</div>
+          <div style={letters}>Perfect</div>
+        </div>
+        <br></br>
+      </div>
+    )
+      : <></>)
+
+
+      var size = (characteristics.Size ? (
+
+
+        <div> Size
+        <div style={progress}>
+
+          <div style={{position: 'relative', left: (characteristics.Size.value/5)*240+'px'}}><div className="arrow-down"></div></div>
+        </div>
+        <div className='descriptionChars' style={{display: "flex", justifyContent: 'space-between'}}>
+            <div style={letters}>A size too small</div>
+            <div style={letters}>Perfect</div>
+            <div style={letters}>A size too wide</div>
+          </div>
+          <br></br>
+        </div>
+      )
+        : <></>)
+
+
+      var width = (characteristics.Width ? (
+
+
+        <div> Width
+        <div style={progress}>
+
+          <div style={{position: 'relative', left: (characteristics.Width.value/5)*240+'px'}}><div className="arrow-down"></div></div>
+        </div>
+        <div className='descriptionChars' style={{display: "flex", justifyContent: 'space-between'}}>
+            <div style={letters}>Too narrow</div>
+            <div style={letters}>Perfect</div>
+            <div style={letters}>Too wide</div>
+          </div>
+          <br></br>
+        </div>
+      )
+        : <></>)
+
+
+
+
+
+
+
+
   }
 
 // (Math.round(characteristics.Quality.value/5 * 100)).toFixed(2)+'%'
@@ -47,13 +171,20 @@ function Pbreakdown(props) {
   if(characteristics) {
 
     return (
-      <div style={PbreakdownStyle} className='Pbreakdown'>
+      <div style={PbreakdownStyle} className='Pbreakdown'> <h2>Customer experience:</h2>
 
 
           {fit}
+
           {length}
+
           {comfort}
+
           {quality}
+
+          {size}
+
+          {width}
 
 
 
