@@ -115,7 +115,7 @@ Q & A Feed Styles
 */
 
 .question-feed {
-  width: 85%;
+  width: 91%;
   height: 550px;
   padding-left: 10px;
   padding-right: 10px;
@@ -572,8 +572,9 @@ OverView
 }
 
 .shrinkToLeft {
-  max-width: 800px;
-  float: left
+  max-width: 600px;
+  float: left;
+  margin-left: 100px;
 }
 
 /*
