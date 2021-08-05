@@ -7,18 +7,6 @@ var Dropdowns = (props) => {
   const [currentStockAtSize, updateCurrentSAS] = useState();
   const [currentSku, updateCurrentSku] = useState();
 
-  // const dropDown = {
-  //   'width': '300px',
-  //   'height': '50px',
-  //   'border': '1px solid black',
-  //   'fontSize': '18px',
-  //   'color': 'black',
-  //   'backgroundColor': '#eee',
-  //   'borderRadius': '5px',
-  //   'boxShadow': '4px 4px #ccc',
-  //   'margin': '10px'
-  // }
-
   var skus = Object.keys(props.currentStyle.skus);
   var skuStorage = props.currentStyle.skus;
 
@@ -55,11 +43,8 @@ var Dropdowns = (props) => {
     e.preventDefault();
     Tracker('Add to Cart', 'OverView');
     axios.post (`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/cart`, {"sku_id": currentSku} , { headers: {  Authorization: token } })
-    .then(data => {
-      alert('Added to Cart!');
-    })
     .catch(err => {
-      console.log(err)
+      throw (err)
     });
   }
 
