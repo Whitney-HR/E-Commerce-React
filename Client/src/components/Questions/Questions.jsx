@@ -7,6 +7,7 @@ import QuestionFeed from './QuestionFeed.jsx';
 import Modal from '../Shared/SharedModal.jsx';
 import Axios from 'axios';
 import token from '../../env/config.js';
+import Tracker from '../Shared/Tracker.jsx';
 
 export default function Questions({ id, name }) {
   //State
@@ -28,12 +29,15 @@ export default function Questions({ id, name }) {
   //Question
   const showQuesModal = function () {
     updateQuesModal(true)
+    Tracker('Question Modal', " Q & A")
   }
   const hideQuesModal = function () {
     updateQuesModal(false)
+    Tracker('Question Modal', " Q & A")
   }
   const submitQuestion = function (e) {
     e.preventDefault();
+    Tracker('Question Modal', " Q & A")
     const quest = newQuestion.current.value;
     const nickname = userNickname.current.value;
     const email = userEmail.current.value;
@@ -65,12 +69,15 @@ export default function Questions({ id, name }) {
   //Answer
   const showAnswerModal = function () {
     updateAnswerModal(true);
+    Tracker('Answer Modal', " Q & A")
   }
   const hideAnswerModal = function () {
     updateAnswerModal(false);
+    Tracker('Answer Modal', " Q & A")
   }
   const submitAnswer = function (e) {
     e.preventDefault();
+    Tracker('Answer Modal', " Q & A")
     const answer = newAnswer.current.value;
     const nickname = answererName.current.value;
     const email = answererEmail.current.value;

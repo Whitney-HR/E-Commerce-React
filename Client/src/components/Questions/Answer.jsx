@@ -5,6 +5,7 @@ import QuestionFeed from './QuestionFeed.jsx';
 import AnswerFeed from './AnswerFeed.jsx';
 import Axios from 'axios';
 import token from '../../env/config.js';
+import Tracker from '../Shared/Tracker.jsx';
 
 export default function Answer({ id, body, date, answerer_name, helpfulness, photos }) {
   let [showingHelpfulness, setHelpfulness] = useState(helpfulness);
@@ -13,6 +14,7 @@ export default function Answer({ id, body, date, answerer_name, helpfulness, pho
 
   let addHelpfulness = function (e) {
     e.preventDefault();
+    Tracker('Helpfulness in answer', 'Q & A');
     Axios.put(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/qa/answers/${id}/helpful`, null, { headers: { Authorization: token } })
       .then(results => {
         setHelpfulness(showingHelpfulness += 1)
@@ -25,6 +27,7 @@ export default function Answer({ id, body, date, answerer_name, helpfulness, pho
 
   const reportAnswer = function (e) {
     e.preventDefault();
+    Tracker('Reported answer', 'Q & A');
     Axios.put(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/qa/answers/${id}/report`, null, { headers: { Authorization: token } })
       .then(results => {
         updateReported(true)
@@ -64,4 +67,3 @@ export default function Answer({ id, body, date, answerer_name, helpfulness, pho
     </div>
   )
 }
-{/* <span>By user: {answerer_name} {formatDate(date)} <span>| Helpful? ({helpfulness})</span> | report</span> */ }
