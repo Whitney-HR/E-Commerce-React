@@ -55,11 +55,13 @@ var Images = (props) => {
 
   const onLeftArrowClick = (e) => {
     updateBigPicture(props.chosenStyle.photos[BigPicIndex - 1]);
-    updateBigPicIndex(BigPicIndex - 1)
+    updateBigPicIndex(BigPicIndex - 1);
+    Tracker('onLeftArrowClick', 'Overview');
   }
   const onRightArrowClick = (e) => {
     updateBigPicture(props.chosenStyle.photos[BigPicIndex + 1]);
-    updateBigPicIndex(BigPicIndex + 1)
+    updateBigPicIndex(BigPicIndex + 1);
+    Tracker('onRightArrowClick', 'Overview');
   }
   const buttonLRender = () => {
     if(BigPicIndex === 0) {
