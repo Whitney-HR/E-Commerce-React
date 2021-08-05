@@ -19,7 +19,7 @@ export default function QuestionFeed({ id, showModal, showAnswerModal, updateQue
   const [searchQuery, setSearchQuery] = useState(query || '');
 
   useEffect(() => {
-    Axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/qa/questions?product_id=${id}&count=20`, { headers: { Authorization: token } })
+    Axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/qa/questions?product_id=${id}&count=100`, { headers: { Authorization: token } })
       .then(data => {
         setQuestions(data.data.results)
       })
