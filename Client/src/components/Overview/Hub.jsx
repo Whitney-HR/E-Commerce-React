@@ -74,13 +74,13 @@ var Hub = (props) => {
                   <div className='checkmark'>
                     <FaCheckCircle />
                   </div>
-                  <img className='styleSelect' src={current.photos[0].thumbnail_url}  onClick={() => { newCurrent(current) }}></img>
+                  <img className='styleSelect' src={current.photos[0].thumbnail_url} alt={current.name} onClick={() => { newCurrent(current) }}></img>
                 </div>
               )
             } else {
               return (
                 <div className='styleSelectorIndividual' key={index}>
-                  <img className='styleSelect' src={current.photos[0].thumbnail_url}  onClick={() => { newCurrent(current) }}></img>
+                  <img className='styleSelect' src={current.photos[0].thumbnail_url} alt={current.name} onClick={() => { newCurrent(current) }}></img>
                 </div>
               )
             }
