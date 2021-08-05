@@ -21,7 +21,7 @@ var Overview = (props) => {
         productUpdate(data.data);
       })
       .catch(err => {
-        console.log(err)
+        throw (err)
       });
 
     Axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/${props.id}/styles`,   { headers: {  Authorization: token } })
@@ -29,7 +29,7 @@ var Overview = (props) => {
         stylesUpdate(data.data);
       })
       .catch(err => {
-        console.log(err)
+        throw (err)
       });
 
     Axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/reviews/?product_id=${props.id}&sort=relevant&count=100`,   { headers: {  Authorization: token } })
@@ -37,7 +37,7 @@ var Overview = (props) => {
         updateReviewCount(data.data.results.length);
       })
       .catch(err => {
-        console.log(err)
+        throw (err)
       });
 
     Axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/reviews/meta/?product_id=${props.id}`,   { headers: {  Authorization: token } })
@@ -45,9 +45,8 @@ var Overview = (props) => {
       updateReviewMeta(data.data.ratings);
     })
     .catch(err => {
-      console.log(err)
+      throw (err)
     });
-
   }, [props.id]);
 
   var prodft = [{'feature': 'loading please wait'}];
@@ -63,18 +62,13 @@ var Overview = (props) => {
     prodst = styles;
   }
 
-  const shrinkToLeft = {
-    maxWidth: '800px',
-    float: 'left'
-  }
-
   if (reviewMeta && reviewCount && product && styles && chosenStyle) {
     return (
-      <div  style={{'height': '1000px',}}>
+      <div  className='overViewHolder'>
         <div >
           <Hub styles={prodst} name={product.name} category={product.category} reviewCount={reviewCount} reviewMeta={reviewMeta}/>
         </div>
-        <div style={shrinkToLeft}>
+        <div className='shrinkToLeft'>
           <h3 id='mainProductTitle'>{product.slogan}</h3>
           <h5>{product.description}</h5>
         </div>
