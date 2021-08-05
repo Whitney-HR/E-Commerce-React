@@ -71,13 +71,13 @@ var Images = (props) => {
         <div className='carousel'>
           {props.chosenStyle.photos.map((currentPicture, index) => {
             return (
-              <img className='pictureSelect' src={currentPicture.thumbnail_url} key={index} onClick={() => {changeBigPic(currentPicture, index) }}></img>
+              <img className='pictureSelect' src={currentPicture.thumbnail_url} alt="product small picture" key={index} onClick={() => {changeBigPic(currentPicture, index) }}></img>
             )
           })}
         </div>
       </div>
       <div >
-        <img className="bigPic" src={bigPicture.url} onClick={showBigPicModal}></img>
+        <img className="bigPic" src={bigPicture.url} alt="big pic goes here" onClick={showBigPicModal}></img>
       </div>
       <div>
         <div className='expandButton' >
@@ -92,7 +92,7 @@ var Images = (props) => {
         <Modal show={addBigPicModal}>
           <button onClick={hideBigPicModal}>collapse</button>
           <div className='expandedPicContainer' >
-            <img className='expandedPic' src={bigPicture.url} ></img>
+            <img className='expandedPic' src={bigPicture.url} alt="pic modal goes here"></img>
           </div>
         </Modal>
       </div>
