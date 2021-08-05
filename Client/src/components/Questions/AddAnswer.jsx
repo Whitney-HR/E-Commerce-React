@@ -8,7 +8,6 @@ import Tracker from '../Shared/Tracker.jsx';
 export default function AddAnswer({showAnswerModal}) {
   const startAnswerModal = function(e) {
     e.preventDefault();
-    Tracker('Answer modal', 'Q & A');
     showAnswerModal();
   }
 

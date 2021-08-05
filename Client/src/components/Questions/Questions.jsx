@@ -69,7 +69,6 @@ export default function Questions({ id, name }) {
   //Answer
   const showAnswerModal = function () {
     updateAnswerModal(true);
-    Tracker('Answer Modal', " Q & A")
   }
   const hideAnswerModal = function () {
     updateAnswerModal(false);

@@ -8,7 +8,6 @@ export default function AddQuestion({showModal}) {
 
   const startModal = function(e) {
     e.preventDefault();
-    Tracker('Question Modal', 'Q & A');
     showModal();
   }
 
