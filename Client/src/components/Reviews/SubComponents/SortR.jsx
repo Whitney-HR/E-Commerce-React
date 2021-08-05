@@ -3,6 +3,7 @@ import ReviewList from './ReviewList.jsx'
 import ReviewModal from './NewReviewModal.jsx'
 var APIkey = require('../../../env/config.js')
 const axios = require('axios');
+import Tracker from '../../Shared/Tracker.jsx';
 
 
 var reviewsUrl = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/reviews/?product_id=';
@@ -75,6 +76,8 @@ class SortR extends React.Component {
   }
 
   clickHideNewReviewModal() {
+    Tracker('clickHideNewReviewModal', 'Review')
+
     this.setState({
       showReviewModal: false
     })
