@@ -19,12 +19,13 @@
 
 .modal-main-NewReview {
   position:fixed;
-  background: white;
+  background: rgb(165, 172, 177);
   width: 'auto';
   height: 'auto';
   top:50%;
   left:50%;
   transform: translate(-50%,-50%);
+  border-radius: 10px;
 }
 
 

@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useLayoutEffect } from 'react';
-import App from '../App.jsx';
+import App from '../app.jsx';
 import Questions from './Questions.jsx';
 import Question from './Question.jsx';
 import SearchBar from './SearchBar.jsx';
