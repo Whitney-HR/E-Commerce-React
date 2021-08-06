@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useLayoutEffect } from 'react';
+import React, { useState, useEffect, useLayoutEffect, useRef } from 'react';
 import ReactDOM from 'react-dom';
 import Overview from './Overview/Overview.jsx';
 import Questions from './Questions/Questions.jsx';
@@ -7,46 +7,105 @@ import Axios from 'axios';
 import token from '../env/config.js'
 import randomNumber from './Shared/randomNumberInator.js'
 import SearchBar from './Questions/SearchBar.jsx';
+import HeaderSearchBar from './Shared/HeaderSearchBar.jsx'
+import Modal from './Shared/SharedModal.jsx';
 
 
 var App = () => {
-  const [products, productsUpdate] = useState([]);
+  let [products, productsUpdate] = useState([]);
+  const { search } = window.location
+  const query = new URLSearchParams(search).get('q')
+  let [searchQuery, setSearchQuery] = useState(query || '')
+  const filterProducts = (products, query) => {
+    if (!query) {
+      return products
+    }
+    return products.filter((product) => {
+      const productName = product.name.toLowerCase();
+      return productName.includes(query);
+    })
+  }
 
-  useLayoutEffect (() => {
-    Axios.get('https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/products',   { headers: {  Authorization: token } })
+  useLayoutEffect(() => {
+    Axios.get('https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products', { headers: { Authorization: token } })
       .then(data => {
-        productsUpdate(data.data);
-      });
+        productsUpdate(data.data)
+      })
+      .catch(err => {
+        console.log('ERROR!!:', err)
+      })
   }, []);
 
-  var numRand = randomNumber(0, products.length);
 
-  var item = {
-    name: 'Loading please wait'
-  };
 
-  if (products.length) {
-    item = products[numRand];
+
+  let selected = {};
+  let filteredProducts = filterProducts(products, searchQuery)
+  if (filteredProducts.length === 1) {
+    return (
+      <>
+        <header className="header-container">
+          <h1 className="header-title">Whitney Technological Solutions</h1>
+          <HeaderSearchBar className="header-search" searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
+        </header>
+        <main className="main-container">
+          <Overview id={filteredProducts[0].id} />
+          <Questions id={filteredProducts[0].id} name={filteredProducts[0].name} />
+          <Reviews id={filteredProducts[0].id} />
+        <footer className="footer-container">
+          <h2 className="footer-title">Please Visit our store in person!!</h2>
+        </footer>
+        </main>
+      </>
+    )
+  } else if (filteredProducts.length !== 0) {
+    var numRand = randomNumber(0, products.length);
+    let showingProduct = products[numRand]
+    return (
+      <>
+        <header className="header-container">
+          <h1 className="header-title">Whitney Technological Solutions</h1>
+          <HeaderSearchBar className="header-search" searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
+        </header>
+        <main className="main-container">
+          <Overview id={showingProduct.id} />
+          <Questions id={showingProduct.id} name={showingProduct.name} />
+          <Reviews id={showingProduct.id} />
+        <footer className="footer-container">
+          <h2 className="footer-title">Please Visit our store in person!!</h2>
+        </footer>
+        </main>
+      </>
+    )
+  } else if (products.length !== 0) {
+    return (
+      <>
+        <header className="header-container">
+          <h1 className="header-title">Whitney Technological Solutions</h1>
+          <HeaderSearchBar className="header-search" searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
+        </header>
+        <main className="main-container">
+          <Overview id={showingProduct.id} />
+          <Questions id={showingProduct.id} name={showingProduct.name} />
+          <Reviews id={showingProduct.id} />
+        <footer className="footer-container">
+          <h2 className="footer-title">Please Visit our store in person!!</h2>
+        </footer>
+        </main>
+      </>
+    )
   }
+
+
 
   return (
     <div>
-      <h1>E-COMMERCE</h1>
-      {/* <div>{item.category}</div>
-      <div><h3>{item.name}</h3></div>
-      <div>{item.default_price}</div>
-      <div>
-        <p>{item.slogan}</p>
-        <p>{item.description}</p>
+      <div style={{ 'marginLeft': '50px' }}>
+        <h1>E-Commerce</h1>
+        <p>Still loading</p>
       </div>
-        {/* <h2>{item.id}</h2> */}
-      <Overview id={item.id}/>
-      <Questions id={item.id}/>
-      <Reviews id={item.id}/>
     </div>
-
   )
 };
 
 export default App;
-

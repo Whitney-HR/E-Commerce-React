@@ -1,20 +1,25 @@
 import React, { useState, useEffect, useLayoutEffect } from 'react';
-import App from '../App.jsx';
+import App from '../app.jsx';
 import Questions from './Questions.jsx';
 import Question from './Question.jsx';
+import SearchBar from './SearchBar.jsx';
 import AnswerFeed from './AnswerFeed.jsx';
 import AddQuestion from './AddQuestion.jsx';
+import AddAnswer from './AddAnswer.jsx';
 import MoreAnsweredQuestions from './MoreAnsweredQuestions.jsx';
 import Axios from 'axios';
-import token from '../../env/config.js'
+import token from '../../env/config.js';
 
-export default function QuestionFeed({ id }) {
+export default function QuestionFeed({ id, showModal, showAnswerModal, updateQuestionBody = f => f, updateQuestionId = f => f}) {
   const [questions, setQuestions] = useState([])
   const [questionsShowing, setShowingQues] = useState(2)
-
+  const [productId, setProductId] = useState(id)
+  const { search } = window.location;
+  const query = new URLSearchParams(search).get('s');
+  const [searchQuery, setSearchQuery] = useState(query || '');
 
   useEffect(() => {
-    Axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/qa/questions?product_id=${id}`, { headers: { Authorization: token } })
+    Axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/qa/questions?product_id=${id}&count=100`, { headers: { Authorization: token } })
       .then(data => {
         setQuestions(data.data.results)
       })
@@ -29,37 +34,50 @@ export default function QuestionFeed({ id }) {
   }
 
 
-  //Sorting function
+  //Helper functions
   let compareHelpfulness = function (question1, question2) {
     return question2.question_helpfulness - question1.question_helpfulness
   }
   let sortedQuestions = questions.sort(compareHelpfulness)
 
-  //STYLES
-  let feedstyle = {
-    'width': '600px',
-    'height': '400px'
+  const filterQuestions = (questions, query) => {
+    if (!query) {
+      return questions;
+    }
+
+    return questions.filter((question) => {
+      const quesName = question.question_body.toLowerCase();
+      return quesName.includes(query)
+    })
   }
 
 
-  //Nothing loaded
-  if (!sortedQuestions.length) {
+  //Setting Sorted and filtered Questions
+  let filteredQuestions = filterQuestions(sortedQuestions, searchQuery)
+
+  //Start of JSX
+  if (!filteredQuestions.length) {
     return (
-      <p>Still Loading</p>
+      <>
+        <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery}/>
+        <p>No Questions, Would you like to add one?</p>
+        <AddQuestion showModal={showModal} />
+      </>
     )
   }
 
   //Total questions is less than 2
-  if (sortedQuestions.length <= 2) {
+  if (filteredQuestions.length <= 2) {
     return (
-      <section style={feedstyle}>
-        {sortedQuestions.map((question, index) =>
+      <section className="question-feed">
+        <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery}/>
+        {filteredQuestions.map((question, index) =>
           <div key={index}>
-            <Question {...question} />
+            <Question {...question} showAnswerModal={showAnswerModal} updateQuestionBody={updateQuestionBody} updateQuestionId={updateQuestionId}/>
             <AnswerFeed {...question} />
           </div>
         )}
-        <AddQuestion />
+        <AddQuestion showModal={showModal} />
       </section>
     )
   }
@@ -72,25 +90,27 @@ export default function QuestionFeed({ id }) {
       break;
     }
     showing.push(<div key={x}>
-      <Question {...sortedQuestions[x]} />
-      <AnswerFeed {...sortedQuestions[x]} />
+      <Question {...filteredQuestions[x]} showAnswerModal={showAnswerModal} updateQuestionBody={updateQuestionBody} updateQuestionId={updateQuestionId}/>
+      <AnswerFeed {...filteredQuestions[x]} />
     </div>);
     x++;
   }
 
   //More than two questions
-  if (questionsShowing === questions.length) {
+  if (questionsShowing === questions.length || questionsShowing === questions.length - 1) {
     return (
-      <section style={feedstyle} >
+      <section className="question-feed">
+        <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery}/>
         {showing}
-        <AddQuestion />
+        <AddQuestion showModal={showModal} />
       </section>
     )
   } else {
     return (
-      <section style={feedstyle}>
+      <section className="question-feed">
+        <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery}/>
         {showing}
-        <MoreAnsweredQuestions load={showTwoMore} /> <AddQuestion />
+        <MoreAnsweredQuestions load={showTwoMore} /> <AddQuestion showModal={showModal} />
       </section>
     )
   }

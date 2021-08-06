@@ -1,29 +1,18 @@
 import React from 'react';
-
 import SingleReview from './SingleReview.jsx'
 
 
 
-class ReviewList extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-
-
-
-    }
-  };
-
-  render () {
-    var comments = this.props.comments.slice(0, this.props.displayComments)
+function ReviewList(props) {
+    var comments = props.comments.slice(0, props.displayComments)
     return (
-      <div>
+      <div className='ReviewList'>
       {comments.map((comment)=>
-        <SingleReview key={comment.review_id} comment={comment}/>
+        <SingleReview meta={props.meta} key={comment.review_id} comment={comment}/>
       )}
       </div>
     )
-  }
+
 }
 
 

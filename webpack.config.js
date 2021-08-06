@@ -17,11 +17,20 @@ module.exports = {
         use: { //origina: use: 'babel-loader'
           loader: 'babel-loader'
         }
+      },
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader']
       }
     ]
   },
   mode: 'development',
   resolve: {
     extensions: ['.js', '.jsx']
+  },
+
+  watchOptions: {
+    poll: 500,
+    ignored: ['./node_modules']
   }
 };

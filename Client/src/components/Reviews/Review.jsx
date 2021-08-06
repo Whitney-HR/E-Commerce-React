@@ -1,40 +1,77 @@
-import React from 'react';
-
+import React, { useState, useEffect } from 'react';
 import SortR from './SubComponents/SortR.jsx';
 import Rbreakdown from './SubComponents/Rbreakdown.jsx';
 import Pbreakdown from './SubComponents/Pbreakdown.jsx';
 
 
 
-class Review extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      // productID: '19093'// this.props.id 5 reviews
-      productID: '19093'// this.props.id 5 reviews
-    };
-
-  };
+function Review(props) {
+  const [productID, setProductID] = useState(null);
 
 
-  //all products id: 19089 19090 19091 19092 19093
+  useEffect(() => {
+    setProductID(props.id)
+  }, [props.id])
 
-  render () {
-      return (
-        <div>
-          Ratings Reviews
-          <SortR id={this.state.productID}/>
-          <br></br>
-          <br></br>
-          <Rbreakdown id={this.state.productID}/>
-          <br></br>
-          <br></br>
-          <Pbreakdown id={this.state.productID}/>
-        </div>
-      )
+  if(productID) {
+
+    return (
+      <section className='review-container' id="reviews">
+        <h2>{`Ratings & Reviews`}</h2>
+        <>
+        <br></br>
+        <section className="rating-breakdown">
+        <Rbreakdown id={productID}/>
+        <Pbreakdown id={productID}/>
+        </section>
+        <section className="review-feed"><SortR id={productID}/> </section>
+
+        </>
+      </section>
+    )
+
+  } else {
+
+    return (
+      <div>Loading...</div>
+
+    )
   }
 
 }
 
 
 export default Review;
+
+
+
+/*
+
+
+class Review extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      productID: '19093'// this.props.id 5 reviews
+    };
+  };
+
+  render () {
+    console.log(this.props.id)
+    // this.setState({productID: this.props.id})
+
+      return (
+        <div className='reviews' id="reviews">
+          <h2>{`Ratings & Reviews`}</h2>
+          <>
+          <Rbreakdown id={this.state.productID}/>
+          <Pbreakdown id={this.state.productID}/>
+          <SortR id={this.state.productID}/>
+          </>
+        </div>
+      )
+  }
+
+}
+
+*/

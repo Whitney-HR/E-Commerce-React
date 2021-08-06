@@ -1,8 +1,649 @@
+/*
+===========================
+APP container
+===========================
+*/
 
-to-the-left {
-  float: left;
+#app {
+  margin-right: 100px;
+  margin-left: 100px;
+  width: 90%;
 }
 
-to-the-right {
+
+/*
+===========================
+HEADER container
+===========================
+*/
+.header-container {
+  margin-left: 100px;
+  margin-right: 100px;
+  background-color: cornflowerblue;
+  height: 90px;
+}
+
+.header-title {
+  color: lightgreen;
+  text-align: center;
+}
+
+.header-search {
   float: right;
 }
+
+.header-search-input {
+  width: 200px;
+  height: 20px;
+  background-color: whitesmoke;
+  float: right;
+
+}
+.header-search-button {
+  border-radius: 5px;
+  background-color: lightgreen;
+  padding: 4px 5px 3px 5px;
+  color: lightslategray;
+  float: right;
+}
+
+/*
+===========================
+Footer container
+===========================
+*/
+
+.footer-container {
+  margin-left: 100px;
+  margin-right: 100px;
+  background-color: cornflowerblue;
+  height: 90px;
+}
+
+.footer-title {
+  color: lightgreen;
+  text-align: center;
+}
+
+/*
+===========================
+MAIN container
+===========================
+*/
+
+.main-container {
+  margin-left: 100px;
+  margin-right: 100px;
+  background-color: lightgray;
+}
+
+/*
+===========================
+Overview container
+===========================
+*/
+
+.dropdown-selecter {
+  width: 300px;
+  height: 50px;
+  border: 1px solid black;
+  font-size: 18px;
+  color: black;
+  background-color: cornflowerblue;
+  border-radius: 5px;
+  box-shadow: 4px 4px #ccc;
+  margin: 10px;
+}
+
+
+/*
+===========================
+Q&A container
+===========================
+*/
+.questions-container {
+  height: 600px;
+  width: 94%;
+  border-radius: 5px;
+  padding-left: 100px;
+}
+
+/*
+===========================
+Q & A Feed Styles
+===========================
+*/
+
+.question-feed {
+  width: 85%;
+  height: 550px;
+  padding-left: 10px;
+  padding-right: 10px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+/*
+===========================
+Individual Question Styles
+===========================
+*/
+.question-Style {
+  display: inline-block;
+  text-align: left;
+  margin-bottom: 0px;
+  margin-top: 10px;
+}
+
+.right-Side-Style {
+  float: right;
+  padding-right: 10px;
+  margin-top: 10px;
+}
+.right-Side-Style-Answer {
+  color: blue;
+  text-decoration: underline;
+  float: right;
+  padding-right: 10px;
+  margin-top: 10px;
+}
+.right-Side-Style-Answer:hover {
+  color: blueviolet;
+  cursor: pointer
+}
+.right-Side-no-Padding {
+  color: blue;
+  float: right;
+  text-decoration: underline;
+  margin-top: 10px;
+}
+.right-Side-no-Padding:hover {
+  color: blueviolet;
+  cursor: pointer
+}
+
+
+/*
+===========================
+Answer Styles
+===========================
+*/
+
+.report-Answer {
+  color: blue;
+  text-decoration: underline;
+}
+
+.report-Answer:hover {
+  color: blueviolet;
+  cursor: pointer;
+}
+.answerer-info {
+  color: grey
+}
+
+
+/*
+===========================
+Search Bar Styles
+===========================
+*/
+
+.visually-hidden {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+.question-search {
+  position: relative;
+  display: flex;
+}
+.qa-search-input {
+  width: 95%;
+  height: 20px;
+  border: 1px solid grey;
+  border-radius: 5px;
+  padding: 2px 23px 2px 30px;
+  outline: 0;
+  background-color: rgb(201, 218, 223);
+  position: relative;
+  /* float: right; */
+}
+
+.search-icon {
+  position: fixed;
+}
+
+/*
+===========================
+Q & A Button Styles
+===========================
+*/
+
+.question-button {
+  background-color: cornflowerblue;
+  color: lightgreen;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-right: 10px;
+  padding-left: 10px;
+  border: 2px solid cornflowerblue;
+  border-radius: 15px;
+  margin: 0 10px 0 10px;
+}
+
+.question-button:hover {
+  background-color: lightgreen;
+  color: cornflowerblue;
+  cursor: pointer
+}
+
+.more-questions {
+  background-color: cornflowerblue;
+  color: lightgreen;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-right: 10px;
+  padding-left: 10px;
+  border: 2px solid cornflowerblue;
+  border-radius: 15px;
+  margin: 0 10px 0 10px;
+}
+
+.more-questions:hover {
+  background-color: lightgreen;
+  color: cornflowerblue;
+  cursor: pointer;
+}
+
+.load-more-answers {
+  background-color: lightgray;
+  padding: 10px;
+  color: black;
+  border: 0px solid lightgray;
+}
+
+.load-more-answers:hover {
+  color: blueviolet;
+  cursor: pointer;
+}
+
+.collapse-answers {
+  background-color: lightgray;
+  padding: 10px;
+  color: black;
+  border: 0px solid lightgray;
+}
+
+.collapse-answers:hover {
+  color: blueviolet
+}
+
+
+/*
+===========================
+Q & A Form Styles
+===========================
+*/
+
+.question-form {
+  background-color: rgb(165, 172, 177);
+  width: 400px
+}
+
+/*
+===========================
+Q & A AddQuestion Modal Styles
+===========================
+*/
+.question-modal {
+  border-radius: 8px;
+}
+
+.modal-header {
+  text-align: center;
+}
+.user-question-header {
+  float: left;
+  width: 90px;
+  margin-right: 10px;
+}
+
+.question-tobe-asked {
+  border-radius: 8px;
+  float: left;
+  display: block;
+}
+
+.user-question-nickname {
+  float: left;
+  width: 90px;
+  margin-right: 10px;
+}
+
+.user-nickname-input {
+  float: left;
+  display: block;
+  width: 200px;
+  margin-top: 22.178px;
+  margin-bottom: 22.178px;
+}
+
+.question-modal-advisary {
+  float: left;
+  display: block;
+  text-align: center;
+}
+.question-modal-authentication {
+  float: left;
+  display: block;
+  text-align: center;
+  margin-left: 30px;
+
+}
+.user-question-email {
+  float: left;
+  width: 90px;
+  margin-right: 10px;
+}
+
+.user-email-input {
+  display: block;
+  float: left;
+  width: 200px;
+  margin-top: 22.178px;
+  margin-bottom: 22.178px;
+}
+
+/*
+===========================
+Q & A Modal Button Styles
+===========================
+*/
+
+.modal-submit-button {
+  float: left;
+  background-color: cornflowerblue;
+  color: lightgreen;
+  padding: 10px 10px 10px 10px;
+  border-radius: 15px;
+  margin-left: 60px;
+  border: 2px solid cornflowerblue;
+}
+
+.modal-close-button {
+  float: left;
+  background-color: cornflowerblue;
+  color: lightgreen;
+  padding: 10px 10px 10px 10px;
+  margin-left: 80px;
+  border-radius: 15px;
+  border: 2px solid cornflowerblue;
+}
+
+.modal-submit-button:hover {
+  background-color: lightgreen;
+  color: cornflowerblue;
+  cursor: pointer;
+}
+
+.modal-close-button:hover {
+  background-color: lightgreen;
+  color: cornflowerblue;
+  cursor: pointer;
+}
+
+/*
+===========================
+Q & A AddAnswer Modal Styles
+===========================
+*/
+
+.answer-form {
+  border-radius: 8px;
+  width: 400px
+}
+.user-answer-header {
+  float: left;
+  width: 90px;
+  margin-right: 10px;
+}
+.user-answer-input {
+  border-radius: 8px;
+  float: left;
+  display: block;
+}
+
+
+
+
+/*
+===========================
+Ratings & reviews
+===========================
+*/
+
+#starText {
+  left: 5px;
+  font: bold 17px 'Quicksand', sans-serif;
+  top: 10%;
+  color: rgb(77, 54, 54);
+  transform: 'translateY(-50%)';
+  position: absolute;
+}
+
+.arrow-down {
+  width: 0;
+  height: 0;
+  border-left: 12px solid transparent;
+  border-right: 12px solid transparent;
+
+  border-top: 12px solid gold;
+}
+/*
+===========================
+R&R container
+===========================
+*/
+
+.review-container {
+  height: 800px;
+  padding-left: 100px;
+}
+
+.rating-breakdown {
+  float: left;
+  height: 700px;
+  width: 25%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.review-feed {
+  float: left;
+  width: 74%;
+  height: 700px;
+  background-color: lightgray;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.review-list {
+  width: 90%;
+  max-width: 90%;
+  border: 2px solid cornflowerblue;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+/*
+===========================
+R&R buttons
+===========================
+*/
+
+.more-reviews-button {
+  background-color: cornflowerblue;
+  color: lightgreen;
+  padding: 10px 10px 10px 10px;
+  border-radius: 15px;
+  border: 2px solid cornflowerblue;
+  margin-top: 10px;
+  margin-left: 40px;
+}
+
+.more-reviews-button:hover {
+  background-color: lightgreen;
+  color: cornflowerblue;
+}
+
+.add-review-button {
+  background-color: cornflowerblue;
+  color: lightgreen;
+  padding: 10px 10px 10px 10px;
+  border-radius: 15px;
+  border: 2px solid cornflowerblue;
+  margin-top: 10px;
+  margin-left: 50px;
+}
+
+.add-review-button:hover {
+  background-color: lightgreen;
+  color: cornflowerblue;
+}
+
+ /*
+OverView Images
+===========================
+*/
+.makeRight {
+  float: right;
+}
+
+.pictureSelect {
+  border: 2px solid black;
+  height: 80px;
+  width: 80px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.carousel {
+  float: left;
+  max-width: 110px;
+  display: flex;
+  flex-direction: column;
+  max-height: 600px;
+  overflow: scroll;
+}
+
+.expandButton {
+  margin-left: 30px;
+  width: 200px
+}
+
+img.bigPic {
+  cursor: zoom-in;
+  height: 600px;
+  max-width: 45%;
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+.img-expandedPicContainer {
+  box-sizing: border-box;
+  position: relative;
+}
+
+.img-magnifier-glass {
+  box-sizing: border-box;
+  position: absolute;
+  border: 3px solid #000;
+  border-radius: 50%;
+  cursor: none;
+  width: 200px;
+  height: 200px;
+}
+
+/*
+===========================
+OverView
+===========================
+*/
+
+.overViewHolder {
+  height: 1000px
+}
+
+.shrinkToLeft {
+  max-width: 800px;
+  float: left
+}
+
+/*
+===========================
+OverView Hub
+===========================
+*/
+
+.styleSelect {
+  border-radius: 100px;
+  border: 2px solid black;
+  height: 75px;
+  width: 75px;
+}
+.lineThrough {
+  text-decoration: line-through
+}
+.redText {
+  color: red
+}
+.moveToRight {
+  max-width: 500px;
+  float: right
+}
+.styleFlex {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 400px;
+  margin: 10px
+}
+.linkStyle {
+  margin: 10px;
+  float: left;
+  display: table-cell
+}
+.shareContainer {
+  max-width: 400px;
+  max-height: 50px
+}
+.styleSelectorIndividual {
+  width: 90px;
+  height: 90px;
+  margin: 5px
+}
+.checkmark {
+  float: left;
+  max-width: 16px;
+  max-height: 16px
+}
+.productInfoContainer {
+  height: 770px
+}
+
+/*
+===========================
+OverView Features
+===========================
+*/
+
+.moveToRightLeft  {
+  float: left;
+  padding-left: 20px
+}
+
+

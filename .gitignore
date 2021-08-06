@@ -113,3 +113,7 @@ bundle.js
 
 #config
 config.js
+
+.cer
+
+AWS key.cer
