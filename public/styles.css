@@ -1,11 +1,3 @@
-
-to-the-left {
-  float: left;
-}
-
-to-the-right {
-  float: right;
-}
 /*
 ===========================
 APP container
@@ -111,8 +103,7 @@ Q&A container
 */
 .questions-container {
   height: 600px;
-  width: 100%;
-  overflow: scroll;
+  width: 94%;
   border-radius: 5px;
   padding-left: 100px;
 }
@@ -125,9 +116,11 @@ Q & A Feed Styles
 
 .question-feed {
   width: 85%;
-  height: 600px;
+  height: 550px;
   padding-left: 10px;
   padding-right: 10px;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 /*
@@ -428,8 +421,6 @@ Q & A AddAnswer Modal Styles
 
 
 
-
-
 /*
 ===========================
 Ratings & reviews
@@ -453,21 +444,6 @@ Ratings & reviews
 
   border-top: 12px solid gold;
 }
-
-.thumbnailStyle{
-  border: 2px solid black;
-  height: 50px;
-  width: 50px;
-}
-
-.thumbnailStyle:hover {
-  border: 5px solid gold;
-  height: 60px;
-  width: 60px;
-  cursor: pointer;
-}
-
-
 /*
 ===========================
 R&R container
@@ -475,70 +451,199 @@ R&R container
 */
 
 .review-container {
-  height: 650px;
+  height: 800px;
   padding-left: 100px;
 }
 
 .rating-breakdown {
   float: left;
-  height: 550px;
-  overflow: scroll;
+  height: 700px;
+  width: 25%;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 .review-feed {
   float: left;
-  width: 732.09px;
-  height: 550px;
+  width: 74%;
+  height: 700px;
   background-color: lightgray;
-  overflow: scroll;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 .review-list {
-  width: 600px;
+  width: 90%;
+  max-width: 90%;
   border: 2px solid cornflowerblue;
   padding: 10px;
   border-radius: 5px;
 }
 
+/*
+===========================
+R&R buttons
+===========================
+*/
 
+.more-reviews-button {
+  background-color: cornflowerblue;
+  color: lightgreen;
+  padding: 10px 10px 10px 10px;
+  border-radius: 15px;
+  border: 2px solid cornflowerblue;
+  margin-top: 10px;
+  margin-left: 40px;
+}
 
-#star-five {
-  margin: 50px 0;
+.more-reviews-button:hover {
+  background-color: lightgreen;
+  color: cornflowerblue;
+}
+
+.add-review-button {
+  background-color: cornflowerblue;
+  color: lightgreen;
+  padding: 10px 10px 10px 10px;
+  border-radius: 15px;
+  border: 2px solid cornflowerblue;
+  margin-top: 10px;
+  margin-left: 50px;
+}
+
+.add-review-button:hover {
+  background-color: lightgreen;
+  color: cornflowerblue;
+}
+
+ /*
+OverView Images
+===========================
+*/
+.makeRight {
+  float: right;
+}
+
+.pictureSelect {
+  border: 2px solid black;
+  height: 80px;
+  width: 80px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.carousel {
+  float: left;
+  max-width: 110px;
+  display: flex;
+  flex-direction: column;
+  max-height: 600px;
+  overflow: scroll;
+}
+
+.expandButton {
+  margin-left: 30px;
+  width: 200px
+}
+
+img.bigPic {
+  cursor: zoom-in;
+  height: 600px;
+  max-width: 45%;
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+.img-expandedPicContainer {
+  box-sizing: border-box;
   position: relative;
-  display: block;
-  color: red;
-  width: 0px;
-  height: 0px;
-  border-right: 100px solid transparent;
-  border-bottom: 70px solid red;
-  border-left: 100px solid transparent;
-  transform: rotate(35deg);
 }
 
-#star-five:before {
-  border-bottom: 80px solid red;
-  border-left: 30px solid transparent;
-  border-right: 30px solid transparent;
+.img-magnifier-glass {
+  box-sizing: border-box;
   position: absolute;
-  height: 0;
-  width: 0;
-  top: -45px;
-  left: -65px;
-  display: block;
-  content: '';
-  transform: rotate(-35deg);
+  border: 3px solid #000;
+  border-radius: 50%;
+  cursor: none;
+  width: 200px;
+  height: 200px;
 }
-#star-five:after {
-  position: absolute;
-  display: block;
-  color: red;
-  top: 3px;
-  left: -105px;
-  width: 0px;
-  height: 0px;
-  border-right: 100px solid transparent;
-  border-bottom: 70px solid red;
-  border-left: 100px solid transparent;
-  transform: rotate(-70deg);
-  content: '';
+
+/*
+===========================
+OverView
+===========================
+*/
+
+.overViewHolder {
+  height: 1000px
 }
+
+.shrinkToLeft {
+  max-width: 800px;
+  float: left
+}
+
+/*
+===========================
+OverView Hub
+===========================
+*/
+
+.styleSelect {
+  border-radius: 100px;
+  border: 2px solid black;
+  height: 75px;
+  width: 75px;
+}
+.lineThrough {
+  text-decoration: line-through
+}
+.redText {
+  color: red
+}
+.moveToRight {
+  max-width: 500px;
+  float: right
+}
+.styleFlex {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 400px;
+  margin: 10px
+}
+.linkStyle {
+  margin: 10px;
+  float: left;
+  display: table-cell
+}
+.shareContainer {
+  max-width: 400px;
+  max-height: 50px
+}
+.styleSelectorIndividual {
+  width: 90px;
+  height: 90px;
+  margin: 5px
+}
+.checkmark {
+  float: left;
+  max-width: 16px;
+  max-height: 16px
+}
+.productInfoContainer {
+  height: 770px
+}
+
+/*
+===========================
+OverView Features
+===========================
+*/
+
+.moveToRightLeft  {
+  float: left;
+  padding-left: 20px
+}
+
+

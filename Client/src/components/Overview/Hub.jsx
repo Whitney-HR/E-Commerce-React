@@ -8,34 +8,6 @@ import Tracker from '../Shared/Tracker.jsx';
 var Hub = (props) => {
   const [currentStyle, currentStyleUpdate] = useState(props.styles.results[0]);
 
-  const styleSelect = {
-    borderRadius: '100px',
-    border: '2px solid black',
-    height: '75px',
-    width: '75px',
-  }
-  const lineThrough = {
-    textDecoration: 'line-through'
-  }
-  const redText = {
-    color: 'red'
-  }
-  const moveToRight = {
-    maxWidth: '500px',
-    float: 'right'
-  }
-  const styleFlex = {
-    display: 'flex',
-    flexWrap: 'wrap',
-    maxWidth: '400px',
-    margin: '10px'
-  }
-  const linkStyle = {
-    margin: '10px',
-    float: 'left',
-    display: "table-cell"
-  }
-
   useEffect (() => {
     props.styles.results.forEach((aStyle) => {
       if (aStyle['default?'] === true) {
@@ -61,8 +33,8 @@ var Hub = (props) => {
     if (currentStyle.sale_price) {
       return (
         <div>
-          <div style={redText}>{currentStyle.sale_price}</div>
-          <div style={lineThrough}>{currentStyle.original_price}</div>
+          <div className='redText'>{currentStyle.sale_price}</div>
+          <div className='lineThrough'>{currentStyle.original_price}</div>
         </div>
       )
     } else {
@@ -78,8 +50,8 @@ var Hub = (props) => {
   }
 
   return (
-    <div style={{height: '770px'}}>
-      <div style={moveToRight}>
+    <div className='productInfoContainer'>
+      <div className='moveToRight'>
         <div>
           <Stars rating={props.reviewMeta}/>
           <div onClick={seeAllReviews}>
@@ -94,21 +66,21 @@ var Hub = (props) => {
           {pricePicker()}
         </div>
         <h3>Styles > {currentStyle.name}</h3>
-        <div style={styleFlex}>
+        <div className='styleFlex'>
           {props.styles.results.map((current, index) => {
             if (currentStyle.name === current.name) {
               return (
-                <div style={{width: '90px', height: '90px', margin: '5px'}} key={index}>
-                  <div style={{float: 'left', maxHeight: '16px', maxHeight: '16px'}}>
+                <div className='styleSelectorIndividual' key={index}>
+                  <div className='checkmark'>
                     <FaCheckCircle />
                   </div>
-                  <img style={styleSelect} src={current.photos[0].thumbnail_url}  onClick={() => { newCurrent(current) }}></img>
+                  <img className='styleSelect' src={current.photos[0].thumbnail_url} alt={current.name} onClick={() => { newCurrent(current) }}></img>
                 </div>
               )
             } else {
               return (
-                <div style={{width: '90px', height: '90px', margin: '5px'}} key={index}>
-                  <img style={styleSelect} src={current.photos[0].thumbnail_url}  onClick={() => { newCurrent(current) }}></img>
+                <div className='styleSelectorIndividual' key={index}>
+                  <img className='styleSelect' src={current.photos[0].thumbnail_url} alt={current.name} onClick={() => { newCurrent(current) }}></img>
                 </div>
               )
             }
@@ -117,14 +89,14 @@ var Hub = (props) => {
         <div>
           <Dropdowns currentStyle={currentStyle}/>
         </div>
-        <div style={{maxWidth: '400px', maxHeight: '50px'}} key="fb">
-          <a style={linkStyle} href="https://www.facebook.com/" target="_blank">
+        <div className='shareContainer' key="fb">
+          <a className='linkStyle' href="https://www.facebook.com/" target="_blank">
             <FaFacebookSquare size={30} color="cornflowerblue"/>
           </a>
-          <a style={linkStyle} href="https://www.twitter.com/" target="_blank" key="twtr">
+          <a className='linkStyle' href="https://www.twitter.com/" target="_blank" key="twtr">
             <FaTwitterSquare size={30} color="cornflowerblue"/>
           </a>
-          <a style={linkStyle} href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" key="pin">
+          <a className='linkStyle' href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" key="pin">
             <FaPinterestSquare size={30} color="cornflowerblue"/>
           </a>
         </div>

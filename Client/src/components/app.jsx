@@ -52,10 +52,10 @@ var App = () => {
           <Overview id={filteredProducts[0].id} />
           <Questions id={filteredProducts[0].id} name={filteredProducts[0].name} />
           <Reviews id={filteredProducts[0].id} />
-        </main>
         <footer className="footer-container">
           <h2 className="footer-title">Please Visit our store in person!!</h2>
         </footer>
+        </main>
       </>
     )
   } else if (filteredProducts.length !== 0) {
@@ -71,10 +71,10 @@ var App = () => {
           <Overview id={showingProduct.id} />
           <Questions id={showingProduct.id} name={showingProduct.name} />
           <Reviews id={showingProduct.id} />
-        </main>
         <footer className="footer-container">
           <h2 className="footer-title">Please Visit our store in person!!</h2>
         </footer>
+        </main>
       </>
     )
   } else if (products.length !== 0) {
@@ -88,10 +88,10 @@ var App = () => {
           <Overview id={showingProduct.id} />
           <Questions id={showingProduct.id} name={showingProduct.name} />
           <Reviews id={showingProduct.id} />
-        </main>
         <footer className="footer-container">
           <h2 className="footer-title">Please Visit our store in person!!</h2>
         </footer>
+        </main>
       </>
     )
   }
@@ -109,29 +109,3 @@ var App = () => {
 };
 
 export default App;
-
-
-  // var numRand = randomNumber(0, products.length);
-
-
-  // var item = {
-  //   name: 'Loading please wait'
-  // };
-
-
-  // if (products.length) {
-  //   item = products[numRand];
-
-
-  // useEffect(() => {
-  //   console.log('PRODUCTS:', products)
-  //   console.log('SELECTED PRODUCTS:', selectedProduct)
-  //   var numRand = randomNumber(0, products.length);
-  //   updateSelected(products[numRand])
-  // }, [])
-
-  // console.log(selectedProduct)
-
-  // if (filteredProducts.length === 1) {
-  //   updateSelected(filteredProducts[0])
-  // }

@@ -120,7 +120,7 @@ class SortR extends React.Component {
       } else {
         let MoreReviewButton = <div></div>;
         if(this.state.displayComments < this.state.comments.length) {
-          MoreReviewButton =  <input type="submit" value="More Reviews" onClick={this.handleMoreReviewClick}/>
+          MoreReviewButton =  <input className="more-reviews-button"type="submit" value="More Reviews" onClick={this.handleMoreReviewClick}/>
         }
         return (
           <div className='SortR'>
@@ -138,6 +138,7 @@ class SortR extends React.Component {
               {MoreReviewButton}
               {<span>
                 <input
+                  className="add-review-button"
                   onClick={this.clickShowNewReviewModal}
                   type="submit"
                   value="Add a Review"/>
