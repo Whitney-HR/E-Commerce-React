@@ -149,6 +149,7 @@ Individual Question Styles
 }
 .right-Side-Style-Answer:hover {
   color: blueviolet;
+  cursor: pointer
 }
 .right-Side-no-Padding {
   color: blue;
@@ -158,6 +159,7 @@ Individual Question Styles
 }
 .right-Side-no-Padding:hover {
   color: blueviolet;
+  cursor: pointer
 }
 
 
@@ -174,6 +176,7 @@ Answer Styles
 
 .report-Answer:hover {
   color: blueviolet;
+  cursor: pointer;
 }
 .answerer-info {
   color: grey
@@ -235,7 +238,8 @@ Q & A Button Styles
 
 .question-button:hover {
   background-color: lightgreen;
-  color: cornflowerblue
+  color: cornflowerblue;
+  cursor: pointer
 }
 
 .more-questions {
@@ -253,6 +257,7 @@ Q & A Button Styles
 .more-questions:hover {
   background-color: lightgreen;
   color: cornflowerblue;
+  cursor: pointer;
 }
 
 .load-more-answers {
@@ -264,6 +269,7 @@ Q & A Button Styles
 
 .load-more-answers:hover {
   color: blueviolet;
+  cursor: pointer;
 }
 
 .collapse-answers {
@@ -382,11 +388,13 @@ Q & A Modal Button Styles
 .modal-submit-button:hover {
   background-color: lightgreen;
   color: cornflowerblue;
+  cursor: pointer;
 }
 
 .modal-close-button:hover {
   background-color: lightgreen;
   color: cornflowerblue;
+  cursor: pointer;
 }
 
 /*
@@ -428,12 +436,12 @@ Ratings & reviews
   position: absolute;
 }
 
-
 .arrow-down {
   width: 0;
   height: 0;
-  border-left: 10px solid transparent;
-  border-right: 10px solid transparent;
+  border-left: 12px solid transparent;
+  border-right: 12px solid transparent;
+
   border-top: 12px solid gold;
 }
 /*
