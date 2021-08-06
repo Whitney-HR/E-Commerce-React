@@ -50,8 +50,8 @@ var App = () => {
         </header>
         <main className="main-container">
           <Overview id={filteredProducts[0].id} />
-          {/* <Questions id={filteredProducts[0].id} name={filteredProducts[0].name} />
-          <Reviews id={filteredProducts[0].id} /> */}
+          <Questions id={filteredProducts[0].id} name={filteredProducts[0].name} />
+          <Reviews id={filteredProducts[0].id} />
         <footer className="footer-container">
           <h2 className="footer-title">Please Visit our store in person!!</h2>
         </footer>
@@ -69,8 +69,8 @@ var App = () => {
         </header>
         <main className="main-container">
           <Overview id={showingProduct.id} />
-          {/* <Questions id={showingProduct.id} name={showingProduct.name} />
-          <Reviews id={showingProduct.id} /> */}
+          <Questions id={showingProduct.id} name={showingProduct.name} />
+          <Reviews id={showingProduct.id} />
         <footer className="footer-container">
           <h2 className="footer-title">Please Visit our store in person!!</h2>
         </footer>
@@ -86,8 +86,8 @@ var App = () => {
         </header>
         <main className="main-container">
           <Overview id={showingProduct.id} />
-          {/* <Questions id={showingProduct.id} name={showingProduct.name} />
-          <Reviews id={showingProduct.id} /> */}
+          <Questions id={showingProduct.id} name={showingProduct.name} />
+          <Reviews id={showingProduct.id} />
         <footer className="footer-container">
           <h2 className="footer-title">Please Visit our store in person!!</h2>
         </footer>
