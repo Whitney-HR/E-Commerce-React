@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import ReactDOM from 'react-dom';
-import App from '../App.jsx';
+import App from '../app.jsx';
 import AddQuestion from './AddQuestion.jsx';
 import MoreAnsweredQuestion from './MoreAnsweredQuestions.jsx';
 import QuestionFeed from './QuestionFeed.jsx';

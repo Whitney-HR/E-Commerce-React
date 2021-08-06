@@ -1,7 +1,7 @@
 import React, {useState, useRef} from 'react';
 import ReactDOM from 'react-dom';
 import { BsSearch } from 'react-icons/bs'
-import App from '../App.jsx';
+import App from '../app.jsx';
 
 export default function HeaderSearchBar({searchQuery, setSearchQuery = f => f}) {
   // let [query, setQuery] = useState('')

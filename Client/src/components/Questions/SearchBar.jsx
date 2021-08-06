@@ -1,6 +1,6 @@
 import React from 'react';
 import Questions from './Questions.jsx';
-import App from '../App.jsx';
+import App from '../app.jsx';
 
 
 
