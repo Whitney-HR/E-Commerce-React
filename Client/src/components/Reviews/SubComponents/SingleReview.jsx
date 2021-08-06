@@ -3,7 +3,9 @@ import moment from 'moment'
 import ImageModal from './reviewImageModal.jsx'
 import ImageThumbnail from './ImageThumbnail.jsx'
 import StarRating from '../../Shared/StarRating.jsx'
-import { BsStar, BsStarFill, BsStarHalf } from 'react-icons/bs';
+import Tracker from '../../Shared/Tracker.jsx';
+var APIkey = require('../../../env/config.js')
+const axios = require('axios');
 
 var divBoxStyle = {
   width: '500px',
@@ -25,7 +27,7 @@ class SingleReview extends React.Component{
     this.state = {
       hideBody: null,
       body: null,
-      yesCount: Math.floor(Math.random()*10), // random initial value
+      yesCount: this.props.comment.helpfulness, // random initial value
       noCount: Math.floor(Math.random()*10), // random initial value
       yesNoSelected: false,
       photos: this.props.comment.photos
@@ -33,6 +35,7 @@ class SingleReview extends React.Component{
     this.handleBodyClick = this.handleBodyClick.bind(this);
     this.clickHandlerYesHelpful = this.clickHandlerYesHelpful.bind(this);
     this.clickHandlerNoHelpful = this.clickHandlerNoHelpful.bind(this);
+    this.reportOnClickHandler = this.reportOnClickHandler.bind(this);
   }
 
   componentDidMount() {
@@ -49,6 +52,7 @@ class SingleReview extends React.Component{
   }
 
   handleBodyClick() {
+    Tracker('handleBodyClick', 'Reviews')
     this.setState({
       hideBody: false,
       body: this.props.comment.body
@@ -56,24 +60,52 @@ class SingleReview extends React.Component{
   }
 
   clickHandlerYesHelpful(){
+    Tracker('clickHandlerYesHelpful', 'Reviews')
     if (!this.state.yesNoSelected) {
       var newYes = this.state.yesCount + 1;
       this.setState({
         yesCount: newYes,
         yesNoSelected: true
       })
+      axios.put(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/reviews/${this.props.comment.review_id}/helpful`, {}, {
+        headers: {
+          Authorization: APIkey
+        }
+      })
+      .then((data)=> {
+      })
+      .catch((error)=> {
+        console.log('error in singleReviewPutRequest: ', error)
+      })
     }
   }
 
   clickHandlerNoHelpful(){
-    if (!this.state.yesNoSelected) {
-    var newNo = this.state.noCount + 1;
-    this.setState({
-      noCount: newNo,
-      yesNoSelected: true
-    })
+    Tracker('clickHandlerNoHelpful', 'Reviews')
+      if (!this.state.yesNoSelected) {
+        var newNo = this.state.noCount + 1;
+        this.setState({
+          noCount: newNo,
+          yesNoSelected: true
+        })
+      }
     }
-  }
+
+
+    reportOnClickHandler() {
+      Tracker('ReportOnClickHandler', 'Reviews')
+      axios.put(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/reviews/${this.props.comment.review_id}/report`, {}, {
+        headers: {
+          Authorization: APIkey
+        }
+      })
+      .catch((error)=> {
+        console.log('error in singleReviewPutRequest: ', error)
+      })
+
+
+    }
+
 
     render () {
       let sellerResponse = <div></div>
@@ -86,7 +118,7 @@ class SingleReview extends React.Component{
       }
       var body;
       if (this.state.hideBody) {
-        body = <div style={{textAlign: 'justify', textJustify: 'inter-word'}}>{`${this.state.body}...`}<div onClick={this.handleBodyClick} style={{color: 'blue'}}>...Show More</div></div>
+        body = <div style={{textAlign: 'justify', textJustify: 'inter-word'}}>{`${this.state.body}...`}<div onClick={this.handleBodyClick} className='report-Answer'>...Show More</div></div>
       } else {
         body = <div style={{textAlign: 'justify', textJustify: 'inter-word'}}>{this.state.body}</div>
       }
@@ -110,7 +142,9 @@ class SingleReview extends React.Component{
         {sellerResponse}
         <br></br>
         <div>
-          Was it helpful?  <span onClick={this.clickHandlerYesHelpful}>Yes({this.state.yesCount})</span><span> / </span><span onClick={this.clickHandlerNoHelpful}>No ({this.state.noCount})</span>
+          <span className='answerer-info'>Was it helpful?</span>
+          <span className='report-Answer' onClick={this.clickHandlerYesHelpful}>Yes({this.state.yesCount})</span><span> / </span><span className='report-Answer' onClick={this.clickHandlerNoHelpful}>No ({this.state.noCount})</span>
+          <span className='answerer-info' onClick={this.reportOnClickHandler} style={{position: 'relative', left: '50%'}}> Report</span>
         </div>
       </section>
     )

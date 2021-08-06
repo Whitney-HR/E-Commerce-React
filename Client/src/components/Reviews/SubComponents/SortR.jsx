@@ -70,6 +70,7 @@ class SortR extends React.Component {
   }
 
   clickShowNewReviewModal() {
+    Tracker('clickShowNewReviewModal', 'Review')
     this.setState({
       showReviewModal: true
     })

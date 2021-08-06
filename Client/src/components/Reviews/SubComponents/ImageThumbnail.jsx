@@ -1,11 +1,6 @@
 import React from 'react';
 import ImageModal from './reviewImageModal.jsx';
-
-const thumbnailStyle = {
-  border: '2px solid black',
-  height: '50px',
-  width: '50px'
-}
+import Tracker from '../../Shared/Tracker.jsx';
 
 class ImageThumbnail extends React.Component {
   constructor(props){
@@ -20,12 +15,14 @@ class ImageThumbnail extends React.Component {
   }
 
   clickShowImageModal() {
+    Tracker('clickShowImageModal', 'Reviews')
     this.setState({
       showImageModal: true
     })
   }
 
   clickHideImageModal() {
+    Tracker('clickHideImageModal', 'Reviews')
     this.setState({
       showImageModal: false
     })
@@ -34,7 +31,7 @@ class ImageThumbnail extends React.Component {
   render () {
     return(
       <span>
-        <img onClick={this.clickShowImageModal} style={thumbnailStyle} src={`${this.state.image}`}/>
+        <img onClick={this.clickShowImageModal} className="thumbnailStyle" src={`${this.state.image}`}/>
         <ImageModal
           image={this.state.image}
           showImageModal={this.state.showImageModal}

@@ -155,29 +155,29 @@ function Rbreakdown(props) {
       <div>Rating Breakdown:</div>
 
       <div style={progress}> <span id='starText'>5 star</span>
-        <div style={{width: (cinco/maxNum*100)+'%', height: '100%', background: 'gold'}}></div>
+        <div style={{width: (cinco)+'%', height: '100%', background: 'green'}}></div>
         <span style={progress__text}>{ratingCount[5]} ratings</span>
       </div>
     <br></br>
 
       <div style={progress}> <span id='starText'>4 star</span>
-        <div style={{width: (cuatro/maxNum*100)+'%', height: '100%', background: 'gold'}}></div>
+        <div style={{width: (cuatro)+'%', height: '100%', background: 'green'}}></div>
         <span style={progress__text}>{ratingCount[4]} ratings</span>
       </div>
     <br></br>
 
       <div style={progress}> <span id='starText'>3 star</span>
-        <div style={{width: (tres/maxNum*100)+'%', height: '100%', background: 'gold'}}></div>
+        <div style={{width: (tres)+'%', height: '100%', background: 'green'}}></div>
         <span style={progress__text}>{ratingCount[3]} ratings</span>
       </div>
     <br></br>
       <div style={progress}> <span id='starText'>2 star</span>
-        <div style={{width: (dos/maxNum*100)+'%', height: '100%', background: 'gold'}}></div>
+        <div style={{width: (dos)+'%', height: '100%', background: 'green'}}></div>
         <span style={progress__text}>{ratingCount[2]} ratings</span>
       </div>
     <br></br>
       <div style={progress}> <span id='starText'>1 star</span>
-        <div style={{width: (uno/maxNum*100)+'%', height: '100%', background: 'gold'}}></div>
+        <div style={{width: (uno)+'%', height: '100%', background: 'green'}}></div>
         <span style={progress__text}>{ratingCount[1]} ratings</span>
       </div>
 
