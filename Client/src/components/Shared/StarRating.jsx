@@ -1,4 +1,5 @@
 import React from 'react';
+import star from './5-stars.png'
 
 class StarRating extends React.Component {
   constructor(props) {
@@ -29,7 +30,7 @@ class StarRating extends React.Component {
     var rating = this.state.rating/5*100;
     return (
       <div>
-        <img style={{overflow: 'hidden', background: `linear-gradient(90deg, gold ${rating}%, grey ${rating}%)`}}src='https://svgshare.com/i/Zu6.svg'/>
+        <img alt='starRatingImage' style={{height: '27px', width: '150px', overflow: 'hidden', background: `linear-gradient(90deg, gold ${rating}%, grey ${rating}%)`}} src={`${star}`}/>
       </div>
       )
   }

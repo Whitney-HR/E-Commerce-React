@@ -15,7 +15,9 @@ class SortR extends React.Component {
       this.state = {
         currentFilter: '',
         reviewCount: '0',
+        filterByReviewStars: this.props.renderStarRating,
         comments: [],
+        commentsToRender: [],
         meta: null,
         displayComments: 2,
         showReviewModal: false,
@@ -37,15 +39,14 @@ class SortR extends React.Component {
     axios.get(reviewsUrl+this.props.id+'&sort=relevant&count=100', {
       headers: {
         Authorization: APIkey
-
       }
     })
     .then((data)=> {
-
       this.setState({
         currentFilter: 'relevant',
         reviewCount: data.data.results.length,
         comments: data.data.results,
+        commentsToRender: data.data.results,
         productName: ''
       })
     })
@@ -67,6 +68,32 @@ class SortR extends React.Component {
     .catch((error)=> {
       console.log('error at SortR,', error)
     })
+  }
+
+  componentDidUpdate() {
+    if(this.props.renderStarRating !== this.state.filterByReviewStars) {
+      var currentComments = this.state.comments.slice()
+      var newComments = [];
+
+      for (var i = 0; i<currentComments.length; i++) {
+
+        if(this.props.renderStarRating[currentComments[i].rating-1]) {
+          newComments.push(currentComments[i])
+        }
+      }
+
+
+
+
+
+      this.setState({
+        filterByReviewStars: this.props.renderStarRating,
+        commentsToRender: newComments
+
+      })
+    }
+
+
   }
 
   clickShowNewReviewModal() {
@@ -95,7 +122,7 @@ class SortR extends React.Component {
     .then((data)=> {
       this.setState({
         currentFilter: event.target.value,
-        comments: data.data.results
+        commentsToRender: data.data.results
       })
     })
     .catch((error)=> {
@@ -109,17 +136,13 @@ class SortR extends React.Component {
   }
 
     render() {
-      // console.log('props id # down in render', this.props.id1)
-
-
-
       if(!this.state.meta) {
         return (
           <div>Loading...</div>
         )
       } else {
         let MoreReviewButton = <div></div>;
-        if(this.state.displayComments < this.state.comments.length) {
+        if(this.state.displayComments < this.state.commentsToRender.length) {
           MoreReviewButton =  <input className="more-reviews-button"type="submit" value="More Reviews" onClick={this.handleMoreReviewClick}/>
         }
         return (
@@ -134,7 +157,7 @@ class SortR extends React.Component {
               </select>
             </label>
           </form>
-              <ReviewList meta={this.state.meta} displayComments={this.state.displayComments} comments={this.state.comments}/>
+              <ReviewList meta={this.state.meta} displayComments={this.state.displayComments} comments={this.state.commentsToRender}/>
               {MoreReviewButton}
               {<span>
                 <input

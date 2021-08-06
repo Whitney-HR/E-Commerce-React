@@ -7,6 +7,27 @@ import Pbreakdown from './SubComponents/Pbreakdown.jsx';
 
 function Review(props) {
   const [productID, setProductID] = useState(null);
+  const [renderStarRating, setrenderStarRating] = useState([true,true,true,true,true]);
+
+
+
+
+
+  var filterReviewClickHandler = (value) => {
+    let newArray = [false,false,false,false,false]
+    newArray[value] = !newArray[value]
+    setrenderStarRating(newArray)
+  }
+
+
+  var resetFiltersClick = () => {
+    let newArray = [true,true,true,true,true]
+    setrenderStarRating(newArray)
+  }
+
+
+
+
 
 
   useEffect(() => {
@@ -21,10 +42,10 @@ function Review(props) {
         <>
         <br></br>
         <section className="rating-breakdown">
-        <Rbreakdown id={productID}/>
+        <Rbreakdown id={productID} filterReviewClickHandler={filterReviewClickHandler} resetFiltersClick={resetFiltersClick} renderStarRating={renderStarRating}/>
         <Pbreakdown id={productID}/>
         </section>
-        <section className="review-feed"><SortR id={productID}/> </section>
+        <section className="review-feed"><SortR id={productID} renderStarRating={renderStarRating}/> </section>
 
         </>
       </section>
