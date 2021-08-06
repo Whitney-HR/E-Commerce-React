@@ -517,6 +517,7 @@ R&R buttons
 }
 
  /*
+===========================
 OverView Images
 ===========================
 */
@@ -554,21 +555,44 @@ img.bigPic {
   padding-right: 5%;
 }
 
-.img-expandedPicContainer {
-  box-sizing: border-box;
-  position: relative;
-}
-
 .img-magnifier-glass {
   box-sizing: border-box;
   position: absolute;
-  border: 3px solid #000;
-  border-radius: 50%;
-  cursor: none;
+  border: 3px solid black;
+  /* cursor: none; */
   width: 200px;
   height: 200px;
 }
 
+.expandedPic {
+  width: 2000px;
+  height: 1800px;
+}
+
+#expandedPicture {
+  max-width: 1000px;
+  max-height: 900px;
+  cursor: crosshair;
+}
+
+.crossHair {
+  cursor: crosshair;
+}
+
+.expandedPicContainer {
+  box-sizing: border-box;
+  position: relative;
+  max-width: 1000px;
+  max-height: 900px;
+  overflow: hidden;
+}
+.expandedPicContainerZoom {
+  box-sizing: border-box;
+  position: relative;
+  max-width: 1500px;
+  max-height: 1400px;
+  overflow: hidden;
+}
 /*
 ===========================
 OverView

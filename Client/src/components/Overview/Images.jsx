@@ -61,10 +61,6 @@ var Images = (props) => {
     }
   }
 
-  const zoomIn = (e) => {
-
-  }
-
   return (
     <div>
       <div >
@@ -91,19 +87,18 @@ var Images = (props) => {
       <div>
         <Modal show={addBigPicModal}>
           <button onClick={hideBigPicModal}>collapse</button>
-          <div className='expandedPicContainer' >
-            <img className='expandedPic' src={bigPicture.url} alt="pic modal goes here"></img>
+          <div className='expandedPicContainer' onMouseEnter={showZoomPicModal} >
+            <img id='expandedPicture' src={bigPicture.url} alt="pic modal goes here"></img>
           </div>
         </Modal>
       </div>
-      {/* <div>
+      <div>
         <Modal show={addZoomPicModal}>
-          <button onClick={hideZoomPicModal}>collapse</button>
-          <div className='expandedPicContainer' onClick={zoomIn()} >
-            <img className='expandedPic' src={bigPicture.url} ></img>
+          <div className='expandedPicContainerZoom' onMouseLeave={hideZoomPicModal}>
+            <img id='expandedPic' src={bigPicture.url} alt="pic modal goes here"></img>
           </div>
         </Modal>
-      </div> */}
+      </div>
     </div>
   )
 };
