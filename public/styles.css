@@ -115,8 +115,8 @@ Q & A Feed Styles
 */
 
 .question-feed {
-  width: 85%;
-  height: 550px;
+  width: 92%;
+  height: 500px;
   padding-left: 10px;
   padding-right: 10px;
   overflow-y: scroll;
@@ -516,6 +516,43 @@ R&R buttons
   color: cornflowerblue;
 }
 
+.submit-review-modal-button {
+  background-color: cornflowerblue;
+  color: lightgreen;
+  padding: 10px 10px 10px 10px;
+  border-radius: 15px;
+  border: 2px solid cornflowerblue;
+  margin-left: 200px;
+}
+.submit-review-modal-button:hover {
+  background-color: lightgreen;
+  color: cornflowerblue;
+}
+
+.hide-review-modal-button {
+  background-color: cornflowerblue;
+  color: lightgreen;
+  padding: 10px 10px 10px 10px;
+  border-radius: 15px;
+  border: 2px solid cornflowerblue;
+  margin-left: 200px;
+}
+.hide-review-modal-button:hover {
+  background-color: lightgreen;
+  color: cornflowerblue;
+}
+
+/*
+===========================
+R&R Modal
+===========================
+*/
+
+
+.modal-main-NewReview {
+  background: cornflowerblue;
+}
+
  /*
 ===========================
 OverView Images
@@ -604,8 +641,9 @@ OverView
 }
 
 .shrinkToLeft {
-  max-width: 800px;
-  float: left
+  max-width: 600px;
+  float: left;
+  margin-left: 100px;
 }
 
 /*

@@ -357,8 +357,8 @@ class ReviewModal extends React.Component {
             {`Image 5 (Url):`} <input type="text" name='url5' value={this.state.name} onChange={this.selectOnChange}/>
             <br></br>
           </label>
-          <input type="submit" value="submit" />
-          <input  onClick={this.props.HideNewReviewModal} type="submit" value="hide" />
+          <input className="submit-review-modal-button"type="submit" value="submit" />
+          <input  className="hide-review-modal-button"onClick={this.props.HideNewReviewModal} type="submit" value="hide" />
         </form>
 
       </section>
