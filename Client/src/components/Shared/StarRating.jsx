@@ -30,7 +30,7 @@ class StarRating extends React.Component {
     var rating = this.state.rating/5*100;
     return (
       <div>
-        <img alt='starRatingImage' style={{height: '27px', width: '150px', overflow: 'hidden', background: `linear-gradient(90deg, gold ${rating}%, grey ${rating}%)`}} src={`${star}`}/>
+        <img alt='starRatingImage' style={{height: '27px', width: '150px', overflow: 'hidden', background: `linear-gradient(90deg, gold ${rating}%, white ${rating}%)`}} src={`${star}`}/>
       </div>
       )
   }

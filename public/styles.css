@@ -5,9 +5,10 @@ APP container
 */
 
 #app {
-  margin-right: 100px;
-  margin-left: 100px;
+  margin-right: 50px;
+  margin-left: 50px;
   width: 90%;
+  font-family: 'Roboto', sans-serif;
 }
 
 
@@ -19,12 +20,12 @@ HEADER container
 .header-container {
   margin-left: 100px;
   margin-right: 100px;
-  background-color: cornflowerblue;
+  background-color: #852acd;
   height: 90px;
 }
 
 .header-title {
-  color: lightgreen;
+  color: white;
   text-align: center;
 }
 
@@ -41,7 +42,7 @@ HEADER container
 }
 .header-search-button {
   border-radius: 5px;
-  background-color: lightgreen;
+  background-color: white;
   padding: 4px 5px 3px 5px;
   color: lightslategray;
   float: right;
@@ -56,12 +57,12 @@ Footer container
 .footer-container {
   margin-left: 100px;
   margin-right: 100px;
-  background-color: cornflowerblue;
+  background-color: #852acd;
   height: 90px;
 }
 
 .footer-title {
-  color: lightgreen;
+  color: white;
   text-align: center;
 }
 
@@ -74,7 +75,8 @@ MAIN container
 .main-container {
   margin-left: 100px;
   margin-right: 100px;
-  background-color: lightgray;
+  background-color: #f2f3f2;
+
 }
 
 /*
@@ -89,7 +91,7 @@ Overview container
   border: 1px solid black;
   font-size: 18px;
   color: black;
-  background-color: cornflowerblue;
+  background-color: #852acd;
   border-radius: 5px;
   box-shadow: 4px 4px #ccc;
   margin: 10px;
@@ -225,38 +227,38 @@ Q & A Button Styles
 */
 
 .question-button {
-  background-color: cornflowerblue;
-  color: lightgreen;
+  background-color: #852acd;
+  color: white;
   padding-top: 15px;
   padding-bottom: 15px;
   padding-right: 10px;
   padding-left: 10px;
-  border: 2px solid cornflowerblue;
+  border: 2px solid #852acd;
   border-radius: 15px;
   margin: 0 10px 0 10px;
 }
 
 .question-button:hover {
-  background-color: lightgreen;
-  color: cornflowerblue;
+  background-color: white;
+  color: #852acd;
   cursor: pointer
 }
 
 .more-questions {
-  background-color: cornflowerblue;
-  color: lightgreen;
+  background-color: #852acd;
+  color: white;
   padding-top: 15px;
   padding-bottom: 15px;
   padding-right: 10px;
   padding-left: 10px;
-  border: 2px solid cornflowerblue;
+  border: 2px solid #852acd;
   border-radius: 15px;
   margin: 0 10px 0 10px;
 }
 
 .more-questions:hover {
-  background-color: lightgreen;
-  color: cornflowerblue;
+  background-color: white;
+  color: #852acd;
   cursor: pointer;
 }
 
@@ -367,33 +369,33 @@ Q & A Modal Button Styles
 
 .modal-submit-button {
   float: left;
-  background-color: cornflowerblue;
-  color: lightgreen;
+  background-color: #852acd;
+  color: white;
   padding: 10px 10px 10px 10px;
   border-radius: 15px;
   margin-left: 60px;
-  border: 2px solid cornflowerblue;
+  border: 2px solid #852acd;
 }
 
 .modal-close-button {
   float: left;
-  background-color: cornflowerblue;
-  color: lightgreen;
+  background-color: #852acd;
+  color: white;
   padding: 10px 10px 10px 10px;
   margin-left: 80px;
   border-radius: 15px;
-  border: 2px solid cornflowerblue;
+  border: 2px solid #852acd;
 }
 
 .modal-submit-button:hover {
-  background-color: lightgreen;
-  color: cornflowerblue;
+  background-color: white;
+  color: #852acd;
   cursor: pointer;
 }
 
 .modal-close-button:hover {
-  background-color: lightgreen;
-  color: cornflowerblue;
+  background-color: white;
+  color: #852acd;
   cursor: pointer;
 }
 
@@ -505,7 +507,7 @@ R&R container
   float: left;
   width: 74%;
   height: 700px;
-  background-color: lightgray;
+  background-color: #f5f5f5;
   overflow-y: scroll;
   overflow-x: hidden;
 }
@@ -513,7 +515,7 @@ R&R container
 .review-list {
   width: 90%;
   max-width: 90%;
-  border: 2px solid cornflowerblue;
+  border: 2px solid #852acd;
   padding: 10px;
   border-radius: 5px;
 }
@@ -525,59 +527,59 @@ R&R buttons
 */
 
 .more-reviews-button {
-  background-color: cornflowerblue;
-  color: lightgreen;
+  background-color: #852acd;
+  color: white;
   padding: 10px 10px 10px 10px;
   border-radius: 15px;
-  border: 2px solid cornflowerblue;
+  border: 2px solid #852acd;
   margin-top: 10px;
   margin-left: 40px;
 }
 
 .more-reviews-button:hover {
-  background-color: lightgreen;
-  color: cornflowerblue;
+  background-color: white;
+  color: #852acd;
 }
 
 .add-review-button {
-  background-color: cornflowerblue;
-  color: lightgreen;
+  background-color: #852acd;
+  color: white;
   padding: 10px 10px 10px 10px;
   border-radius: 15px;
-  border: 2px solid cornflowerblue;
+  border: 2px solid #852acd;
   margin-top: 10px;
   margin-left: 50px;
 }
 
 .add-review-button:hover {
-  background-color: lightgreen;
-  color: cornflowerblue;
+  background-color: white;
+  color: #852acd;
 }
 
 .submit-review-modal-button {
-  background-color: cornflowerblue;
-  color: lightgreen;
+  background-color: #852acd;
+  color: white;
   padding: 10px 10px 10px 10px;
   border-radius: 15px;
-  border: 2px solid cornflowerblue;
+  border: 2px solid #852acd;
   margin-left: 200px;
 }
 .submit-review-modal-button:hover {
-  background-color: lightgreen;
-  color: cornflowerblue;
+  background-color: white;
+  color: #852acd;
 }
 
 .hide-review-modal-button {
-  background-color: cornflowerblue;
-  color: lightgreen;
+  background-color: #852acd;
+  color: white;
   padding: 10px 10px 10px 10px;
   border-radius: 15px;
-  border: 2px solid cornflowerblue;
+  border: 2px solid #852acd;
   margin-left: 200px;
 }
 .hide-review-modal-button:hover {
-  background-color: lightgreen;
-  color: cornflowerblue;
+  background-color: white;
+  color: #852acd;
 }
 
 /*
@@ -588,7 +590,7 @@ R&R Modal
 
 
 .modal-main-NewReview {
-  background: cornflowerblue;
+  background: #852acd;
 }
 
  /*
