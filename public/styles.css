@@ -115,8 +115,8 @@ Q & A Feed Styles
 */
 
 .question-feed {
-  width: 85%;
-  height: 550px;
+  width: 92%;
+  height: 500px;
   padding-left: 10px;
   padding-right: 10px;
   overflow-y: scroll;
@@ -444,6 +444,44 @@ Ratings & reviews
 
   border-top: 12px solid gold;
 }
+
+.thumbnailStyle {
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  border: 3px solid black;
+}
+
+.thumbnailStyle:hover {
+  width: 70px;
+  height: 70px;
+  text-align: center;
+  border: 8px solid gold;
+  cursor: pointer;
+
+}
+
+.ratingBars {
+  position: relative;
+  width: 210px;
+  height: 30px;
+  background: rgb(140, 140, 140);
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.ratingBars:hover {
+  position: relative;
+  width: 210px;
+  height: 30px;
+  background: blue;
+  border-radius: 20px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+
+
 /*
 ===========================
 R&R container
@@ -516,7 +554,45 @@ R&R buttons
   color: cornflowerblue;
 }
 
+.submit-review-modal-button {
+  background-color: cornflowerblue;
+  color: lightgreen;
+  padding: 10px 10px 10px 10px;
+  border-radius: 15px;
+  border: 2px solid cornflowerblue;
+  margin-left: 200px;
+}
+.submit-review-modal-button:hover {
+  background-color: lightgreen;
+  color: cornflowerblue;
+}
+
+.hide-review-modal-button {
+  background-color: cornflowerblue;
+  color: lightgreen;
+  padding: 10px 10px 10px 10px;
+  border-radius: 15px;
+  border: 2px solid cornflowerblue;
+  margin-left: 200px;
+}
+.hide-review-modal-button:hover {
+  background-color: lightgreen;
+  color: cornflowerblue;
+}
+
+/*
+===========================
+R&R Modal
+===========================
+*/
+
+
+.modal-main-NewReview {
+  background: cornflowerblue;
+}
+
  /*
+===========================
 OverView Images
 ===========================
 */
@@ -554,21 +630,44 @@ img.bigPic {
   padding-right: 5%;
 }
 
-.img-expandedPicContainer {
-  box-sizing: border-box;
-  position: relative;
-}
-
 .img-magnifier-glass {
   box-sizing: border-box;
   position: absolute;
-  border: 3px solid #000;
-  border-radius: 50%;
-  cursor: none;
+  border: 3px solid black;
+  /* cursor: none; */
   width: 200px;
   height: 200px;
 }
 
+.expandedPic {
+  width: 2000px;
+  height: 1800px;
+}
+
+#expandedPicture {
+  max-width: 1000px;
+  max-height: 900px;
+  cursor: crosshair;
+}
+
+.crossHair {
+  cursor: crosshair;
+}
+
+.expandedPicContainer {
+  box-sizing: border-box;
+  position: relative;
+  max-width: 1000px;
+  max-height: 900px;
+  overflow: hidden;
+}
+.expandedPicContainerZoom {
+  box-sizing: border-box;
+  position: relative;
+  max-width: 1500px;
+  max-height: 1400px;
+  overflow: hidden;
+}
 /*
 ===========================
 OverView
@@ -580,8 +679,9 @@ OverView
 }
 
 .shrinkToLeft {
-  max-width: 800px;
-  float: left
+  max-width: 600px;
+  float: left;
+  margin-left: 100px;
 }
 
 /*

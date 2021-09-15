@@ -14,17 +14,6 @@ var RbreakdownStyle = {
   padding: '10px',
   borderStyle: 'solid',
   borderColor: 'cornflowerblue',
-
-}
-
-
-var progress = {
-  position: "relative",
-  width: "210px",
-  height: "30px",
-  background: "rgb(140, 140, 140)",
-  borderRadius: '5px',
-  overflow: 'hidden'
 }
 
 
@@ -38,15 +27,23 @@ var progress__text = {
   color: 'white'
 }
 
+var progress = {
+  borderStyle: "solid",
+  borderWidth: '5px',
+  borderColor: 'black',
+}
 
+var progressNoShow = {
+}
 
 function Rbreakdown(props) {
   var [rating, ratingChange] = useState();
   var [recommend, recommendChange] = useState();
+  var [ratingOutline, setRetingOutline] = useState(props.renderStarRating);
+
 
 
   useEffect(()=>{
-
     axios.get(metaUrl+props.id, {
       headers: {
         Authorization: APIkey
@@ -59,9 +56,20 @@ function Rbreakdown(props) {
     .catch((error)=> {
       console.log('error in Rbreakdown: ', error)
     })
-
-
   }, [props.id])
+
+  var anyFalse = (currentVal) => currentVal === false;
+  var resetFilters = ratingOutline.every(anyFalse) ? (<div onClick={props.resetFiltersClick}>Reset filters</div>) : <></>
+
+  useEffect(()=>{
+    setRetingOutline(props.renderStarRating)
+
+  }, [props.renderStarRating])
+
+
+
+
+
 
   var ratings = rating
   var ratingTotal = 0;
@@ -134,6 +142,9 @@ function Rbreakdown(props) {
     }
   }
 
+  var anyFalse = (currentVal) => currentVal === true;
+  var resetFilters = ratingOutline.every(anyFalse) ? <></> : (<div className='report-Answer' onClick={props.resetFiltersClick}>Remove all filters</div>)
+
 
 
   if (!rating || !recommend) {
@@ -153,30 +164,31 @@ function Rbreakdown(props) {
       <br></br>
       <br></br>
       <div>Rating Breakdown:</div>
+      {resetFilters}
 
-      <div style={progress}> <span id='starText'>5 star</span>
+      <div className='ratingBars' style={ratingOutline[4] ? progress : progressNoShow} onClick={()=>props.filterReviewClickHandler(4)}> <span id='starText'>5 star</span>
         <div style={{width: (cinco)+'%', height: '100%', background: 'green'}}></div>
         <span style={progress__text}>{ratingCount[5]} ratings</span>
       </div>
     <br></br>
 
-      <div style={progress}> <span id='starText'>4 star</span>
+      <div className='ratingBars' style={ratingOutline[3] ? progress : progressNoShow} onClick={()=>props.filterReviewClickHandler(3)}> <span id='starText'>4 star</span>
         <div style={{width: (cuatro)+'%', height: '100%', background: 'green'}}></div>
         <span style={progress__text}>{ratingCount[4]} ratings</span>
       </div>
     <br></br>
 
-      <div style={progress}> <span id='starText'>3 star</span>
+      <div className='ratingBars' style={ratingOutline[2] ? progress : progressNoShow} onClick={()=>props.filterReviewClickHandler(2)}> <span id='starText'>3 star</span>
         <div style={{width: (tres)+'%', height: '100%', background: 'green'}}></div>
         <span style={progress__text}>{ratingCount[3]} ratings</span>
       </div>
     <br></br>
-      <div style={progress}> <span id='starText'>2 star</span>
+      <div className='ratingBars' style={ratingOutline[1] ? progress : progressNoShow} onClick={()=>props.filterReviewClickHandler(1)}> <span id='starText'>2 star</span>
         <div style={{width: (dos)+'%', height: '100%', background: 'green'}}></div>
         <span style={progress__text}>{ratingCount[2]} ratings</span>
       </div>
     <br></br>
-      <div style={progress}> <span id='starText'>1 star</span>
+      <div className='ratingBars' style={ratingOutline[0] ? progress : progressNoShow} onClick={()=>props.filterReviewClickHandler(0)}> <span id='starText'>1 star</span>
         <div style={{width: (uno)+'%', height: '100%', background: 'green'}}></div>
         <span style={progress__text}>{ratingCount[1]} ratings</span>
       </div>

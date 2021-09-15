@@ -31,7 +31,7 @@ class ImageThumbnail extends React.Component {
   render () {
     return(
       <span>
-        <img onClick={this.clickShowImageModal} className="thumbnailStyle" src={`${this.state.image}`}/>
+        <img alt='userReviewPicture' onClick={this.clickShowImageModal} className="thumbnailStyle" src={`${this.state.image}`}/>
         <ImageModal
           image={this.state.image}
           showImageModal={this.state.showImageModal}
