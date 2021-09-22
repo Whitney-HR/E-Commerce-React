@@ -180,7 +180,7 @@ class ReviewModal extends React.Component {
   render() {
   const showHideClassName = this.props.showReviewModal ? "modal display-block" : "modal display-none";
   const redRequiredBody = this.state.requiredBody ? <span style={{color: 'red', fontSize: 'large'}}>*</span> : <span></span>;
-  const minBody = this.state.body.length < 50 ? <span style={{fontSize: '10px'}}>{` Minimum required characters left: [${50-this.state.body.length}].:`}</span> : <span style={{fontSize: '10px'}}>Minimum reached</span>
+  const minBody = this.state.body.length < 50 ? <span style={{fontSize: '10px'}}>{` Characters left to reach minimun length: [${50-this.state.body.length}].:`}</span> : <span style={{fontSize: '10px'}}>Minimum reached</span>
   const emailFormat = this.state.properEmail ?  <span></span> : <span style={{color: 'red', fontSize: 'large'}}>incorrect Email Format</span>
   var starDescription;
   switch (this.state.stars) {
@@ -317,7 +317,7 @@ class ReviewModal extends React.Component {
               <input type="radio" value={false} name="youRecommend" /> No
             </div>
             <br></br>
-            <div style={{textAlign: 'center', fontSize: 'large',}}>Please describe the following:</div>
+            <div style={{textAlign: 'center', fontSize: 'large',}}>Please choose the option that best describe the product:</div>
             <br></br>
             {renderSize}
             {renderWidth}
@@ -331,7 +331,7 @@ class ReviewModal extends React.Component {
             <br></br>
             <br></br>
             <span>Write your review</span><span style={{fontSize: '10px'}}/>  {minBody}     {redRequiredBody}
-            <textarea rows="5" cols="98" maxLength='1000' name='body' placeholder={'Why did you like the product or not?'} value={this.state.body} onChange={this.selectOnChange}/>
+            <textarea rows="5" style={{width: '90%', align: 'middle'}} cols="98" maxLength='1000' name='body' placeholder={'Why did you like the product or not?'} value={this.state.body} onChange={this.selectOnChange}/>
             <br></br>
 
             <div>What is your nickname:{redRequiredBody}

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import SortR from './SubComponents/SortR.jsx';
 import Rbreakdown from './SubComponents/Rbreakdown.jsx';
 import Pbreakdown from './SubComponents/Pbreakdown.jsx';
+import {ReviewContainer, RatingProductReviewContainer, RatingProduct} from './Review.styled.js'
 
 
 
@@ -37,18 +38,22 @@ function Review(props) {
   if(productID) {
 
     return (
-      <section className='review-container' id="reviews">
-        <h2>{`Ratings & Reviews`}</h2>
-        <>
-        <br></br>
-        <section className="rating-breakdown">
-        <Rbreakdown id={productID} filterReviewClickHandler={filterReviewClickHandler} resetFiltersClick={resetFiltersClick} renderStarRating={renderStarRating}/>
-        <Pbreakdown id={productID}/>
-        </section>
-        <section className="review-feed"><SortR id={productID} renderStarRating={renderStarRating}/> </section>
-
-        </>
-      </section>
+      <ReviewContainer>
+        <section className='review-container' id="reviews">
+          <h2>{`Ratings & Reviews`}</h2>
+          </section>
+          <RatingProductReviewContainer>
+          <>
+            <RatingProduct>
+              <section className="rating-breakdown">
+              <Rbreakdown id={productID} filterReviewClickHandler={filterReviewClickHandler} resetFiltersClick={resetFiltersClick} renderStarRating={renderStarRating}/>
+              <Pbreakdown id={productID}/>
+              </section>
+            </RatingProduct>
+            <section className="review-feed"><SortR id={productID} renderStarRating={renderStarRating}/> </section>
+            </>
+        </RatingProductReviewContainer>
+      </ReviewContainer>
     )
 
   } else {

@@ -4,6 +4,7 @@ import ReviewModal from './NewReviewModal.jsx'
 var APIkey = require('../../../env/config.js')
 const axios = require('axios');
 import Tracker from '../../Shared/Tracker.jsx';
+import {SortAndList, SortedBy, ReviewListPlusButtons} from './SortR.styled.js';
 
 
 var reviewsUrl = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/reviews/?product_id=';
@@ -146,17 +147,21 @@ class SortR extends React.Component {
           MoreReviewButton =  <input className="more-reviews-button"type="submit" value="More Reviews" onClick={this.handleMoreReviewClick}/>
         }
         return (
-          <div className='SortR'>
-            <form>
-            <label>
-              {this.state.reviewCount} reviews, sorted by
-              <select value={this.state.currentFilter} onChange={this.handleSortedChange}>
-                <option value="relevant">Relevant</option>
-                <option value="helpful">Helpful</option>
-                <option value="newest">Newest</option>
-              </select>
-            </label>
-          </form>
+          <SortAndList>
+            <SortedBy>
+              {/* <div className='SortR'> */}
+                <form>
+                <label>
+                  {this.state.reviewCount} reviews, sorted by
+                  <select value={this.state.currentFilter} onChange={this.handleSortedChange}>
+                    <option value="relevant">Relevant</option>
+                    <option value="helpful">Helpful</option>
+                    <option value="newest">Newest</option>
+                  </select>
+                </label>
+              </form>
+            </SortedBy>
+            <ReviewListPlusButtons>
               <ReviewList meta={this.state.meta} displayComments={this.state.displayComments} comments={this.state.commentsToRender}/>
               {MoreReviewButton}
               {<span>
@@ -172,7 +177,10 @@ class SortR extends React.Component {
                     HideNewReviewModal={this.clickHideNewReviewModal}
                   />
               </span>}
-        </div>
+        {/* </div> */}
+          </ReviewListPlusButtons>
+
+        </SortAndList>
         )
 
 
