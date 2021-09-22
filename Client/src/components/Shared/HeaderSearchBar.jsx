@@ -13,20 +13,22 @@ export default function HeaderSearchBar({searchQuery, setSearchQuery = f => f}) 
     query.current.value = ''
   }
   return (
-    <form action="/" method="get" >
-      <label htmlFor="header-search">
-        <span className="visually-hidden">Search Products</span>
-      </label>
-      <button type="submit" className="header-search-button" onClick={setSearch}>Search</button>
-      <input
-        // value={searchQuery}
-        ref={query}
-        type="text"
-        id="header-search"
-        placeholder="Search for products"
-        name="q"
-        className="header-search-input"
-      />
-    </form>
+    <div>
+      <form action="/" method="get" >
+        <label htmlFor="header-search">
+          <span className="visually-hidden">Search Products</span>
+        </label>
+        <input
+          // value={searchQuery}
+          ref={query}
+          type="text"
+          id="header-search"
+          placeholder="Search for products"
+          name="q"
+          className="header-search-input"
+        />
+        <button type="submit" className="header-search-button" onClick={setSearch}>Search</button>
+      </form>
+    </div>
   )
 }
