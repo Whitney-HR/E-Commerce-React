@@ -4,10 +4,10 @@ const axios = require('axios');
 
 var PbreakdownStyle = {
   width: '250px',
-  border: '2px',
   padding: '10px',
-  borderStyle: 'solid',
-  borderColor: 'cornflowerblue'
+  // border: '2px',
+  // borderStyle: 'solid',
+  // borderColor: 'cornflowerblue'
 
 }
 
@@ -165,7 +165,6 @@ function Pbreakdown(props) {
 
   }
 
-// (Math.round(characteristics.Quality.value/5 * 100)).toFixed(2)+'%'
 
 
   if(characteristics) {
