@@ -7,7 +7,7 @@ APP container
 #app {
   margin-right: 50px;
   margin-left: 50px;
-  width: 90%;
+  /* width: 90%; */
   font-family: 'Roboto', sans-serif;
 }
 
@@ -18,34 +18,41 @@ HEADER container
 ===========================
 */
 .header-container {
-  margin-left: 100px;
-  margin-right: 100px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   background-color: #852acd;
   height: 90px;
 }
 
 .header-title {
+  margin-left: 3%;
   color: white;
+  font-size: 2.2em;
+  font-weight: 900;
   text-align: center;
 }
 
 .header-search {
-  float: right;
+  display: flex;
+  flex-direction: row;
+  margin-right: 3%;
 }
 
 .header-search-input {
+  margin-top: 35px;
   width: 200px;
   height: 20px;
   background-color: whitesmoke;
-  float: right;
-
 }
+
 .header-search-button {
+  margin-top: 35px;
   border-radius: 5px;
   background-color: white;
   padding: 4px 5px 3px 5px;
   color: lightslategray;
-  float: right;
 }
 
 /*
@@ -55,13 +62,13 @@ Footer container
 */
 
 .footer-container {
-  margin-left: 100px;
-  margin-right: 100px;
+  border-radius: 10px;
   background-color: #852acd;
   height: 90px;
 }
 
 .footer-title {
+  padding-top: 30px;
   color: white;
   text-align: center;
 }
@@ -73,10 +80,8 @@ MAIN container
 */
 
 .main-container {
-  margin-left: 100px;
-  margin-right: 100px;
+  border-radius: 5px;
   background-color: #f2f3f2;
-
 }
 
 /*
@@ -84,6 +89,10 @@ MAIN container
 Overview container
 ===========================
 */
+
+.overviewContainer {
+  padding: 20px;
+}
 
 .dropdown-selecter {
   width: 300px;
