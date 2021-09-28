@@ -2,6 +2,7 @@ import React from 'react';
 import './imageModalStyle.css'
 const axios = require('axios');
 var APIkey = require('../../../env/config.js')
+import Stars from './Stars.jsx'
 
 const thumbnailStyle = {
   border: '2px solid black',
@@ -33,6 +34,7 @@ class ReviewModal extends React.Component {
     this.state = {
       product_id: this.props.id,
       stars: '',
+      starCount: 0,
       youRecommend: '',
       comfort: '',
       size: '',
@@ -303,7 +305,8 @@ class ReviewModal extends React.Component {
       <section className="modal-main-NewReview">
       {this.props.children}
         <form onSubmit={this.handleSubmit}> <h3 style={{textAlign: 'center'}}>Add new review details</h3>
-            <br></br>
+          <br></br>
+            <Stars starCount={this.state.starCount}/>
             <label>
             <br></br>
             <div> Overall rating:
