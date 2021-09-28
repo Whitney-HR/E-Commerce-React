@@ -619,8 +619,22 @@ OverView Images
   margin-bottom: 5px;
 }
 
+.leftsidehold {
+  max-width: 110px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  max-height: 700px;
+}
+
+.imageCont {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 1000px;
+}
+
 .carousel {
-  float: left;
   max-width: 110px;
   display: flex;
   flex-direction: column;
@@ -636,11 +650,18 @@ OverView Images
 img.bigPic {
   cursor: zoom-in;
   height: 600px;
-  max-width: 45%;
+  width: 500px;
   padding-left: 5%;
   padding-right: 5%;
 }
 
+.largeImgCont {
+  width: 650px;
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  justify-content: center;
+}
 .img-magnifier-glass {
   box-sizing: border-box;
   position: absolute;
@@ -743,7 +764,10 @@ OverView Hub
   max-height: 16px
 }
 .productInfoContainer {
-  height: 770px
+  height: 770px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 /*
