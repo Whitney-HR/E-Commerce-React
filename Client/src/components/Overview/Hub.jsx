@@ -51,7 +51,8 @@ var Hub = (props) => {
 
   return (
     <div className='productInfoContainer'>
-      <div className='moveToRight'>
+      <Images chosenStyle={currentStyle}/>
+      <div >
         <div>
           <Stars rating={props.reviewMeta}/>
           <div onClick={seeAllReviews}>
@@ -91,18 +92,15 @@ var Hub = (props) => {
         </div>
         <div className='shareContainer' key="fb">
           <a className='linkStyle' href="https://www.facebook.com/" target="_blank">
-            <FaFacebookSquare size={30} color="cornflowerblue"/>
+            <FaFacebookSquare size={30} color="#852acd"/>
           </a>
           <a className='linkStyle' href="https://www.twitter.com/" target="_blank" key="twtr">
-            <FaTwitterSquare size={30} color="cornflowerblue"/>
+            <FaTwitterSquare size={30} color="#852acd"/>
           </a>
           <a className='linkStyle' href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" key="pin">
-            <FaPinterestSquare size={30} color="cornflowerblue"/>
+            <FaPinterestSquare size={30} color="#852acd"/>
           </a>
         </div>
-      </div>
-      <div>
-        <Images chosenStyle={currentStyle}/>
       </div>
     </div>
   )

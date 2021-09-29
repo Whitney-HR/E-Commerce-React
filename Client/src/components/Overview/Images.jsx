@@ -62,8 +62,8 @@ var Images = (props) => {
   }
 
   return (
-    <div>
-      <div >
+    <div className="imageCont">
+      <div className="leftsidehold">
         <div className='carousel'>
           {props.chosenStyle.photos.map((currentPicture, index) => {
             return (
@@ -71,18 +71,12 @@ var Images = (props) => {
             )
           })}
         </div>
+        <FaExpand size={30} onClick={showBigPicModal}/>
       </div>
-      <div >
+      <div className="largeImgCont">
+        {buttonLRender()}
         <img className="bigPic" src={bigPicture.url} alt="big pic goes here" onClick={showBigPicModal}></img>
-      </div>
-      <div>
-        <div className='expandButton' >
-            <FaExpand size={30} onClick={showBigPicModal}/>
-          <div className='makeRight'>
-            {buttonLRender()}
-            {buttonRRender()}
-          </div>
-        </div>
+        {buttonRRender()}
       </div>
       <div>
         <Modal show={addBigPicModal}>
