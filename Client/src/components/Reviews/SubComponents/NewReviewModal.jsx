@@ -368,28 +368,55 @@ class ReviewModal extends React.Component {
               <span style={{fontSize: '10px'}}>For privacy reasons, do not use your full name or email address</span>
             </div>
 
+            {/* email */}
 
-            <br></br>
-            <br></br>
-            <div>Your email:{emailFormat}{redRequiredBody}
+            <div className='emailContainer'>
+              <span className='reviewSummaryTitle'>
+                Your email:
+              </span>
+              {emailFormat}
+              {redRequiredBody}
               <input type="text" maxLength='60' name='email' placeholder={'Example: jackson11@email.com'}style={{width: '90%', align: 'middle'}} value={this.state.email} onChange={this.selectOnChange}/>
+              <span style={{fontSize: '10px'}}>For authentication reasons, you will not be emailed</span>
             </div>
-            <span style={{fontSize: '10px'}}>For authentication reasons, you will not be emailed</span>
-            <br></br>
-            <br></br>
-            {`Image 1 (Url):`} <input type="text" name='url1' value={this.state.name} onChange={this.selectOnChange}/>
-            <br></br>
-            {`Image 2 (Url):`} <input type="text" name='url2' value={this.state.name} onChange={this.selectOnChange}/>
-            <br></br>
-            {`Image 3 (Url):`} <input type="text" name='url3' value={this.state.name} onChange={this.selectOnChange}/>
-            <br></br>
-            {`Image 4 (Url):`} <input type="text" name='url4' value={this.state.name} onChange={this.selectOnChange}/>
-            <br></br>
-            {`Image 5 (Url):`} <input type="text" name='url5' value={this.state.name} onChange={this.selectOnChange}/>
-            <br></br>
+
+            {/* Images */}
+            <div className='imagesTitle'>
+                Upload your desired Images
+              </div>
+            <div className='imagesContainer'>
+
+              <div className='leftImages'>
+                <div>
+                  {`Image 1 (Url):`} <input type="text" name='url1' value={this.state.name} onChange={this.selectOnChange}/>
+                </div>
+                <div>
+                  {`Image 2 (Url):`} <input type="text" name='url2' value={this.state.name} onChange={this.selectOnChange}/>
+                </div>
+                <div>
+                  {`Image 3 (Url):`} <input type="text" name='url3' value={this.state.name} onChange={this.selectOnChange}/>
+                </div>
+              </div>
+              <div className='rightImages'>
+                <div>
+                  {`Image 4 (Url):`} <input type="text" name='url4' value={this.state.name} onChange={this.selectOnChange}/>
+                </div>
+                <div>
+                  {`Image 5 (Url):`} <input type="text" name='url5' value={this.state.name} onChange={this.selectOnChange}/>
+                </div>
+              </div>
+            </div>
           </label>
-          <input className="submit-review-modal-button"type="submit" value="submit" />
-          <input  className="hide-review-modal-button"onClick={this.props.HideNewReviewModal} type="submit" value="hide" />
+
+          {/* buttons */}
+          <div className='modalButtons'>
+            <div>
+              <input className="submit-review-modal-button"type="submit" value="submit" />
+            </div>
+            <div>
+              <input  className="hide-review-modal-button"onClick={this.props.HideNewReviewModal} type="submit" value="hide" />
+            </div>
+          </div>
         </form>
 
       </section>
