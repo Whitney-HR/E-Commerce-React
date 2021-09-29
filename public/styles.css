@@ -504,18 +504,18 @@ R&R container
 ===========================
 */
 
-.review-container {
+/* .review-container {
   height: 800px;
   padding-left: 100px;
-}
+} */
 
-.rating-breakdown {
+/* .rating-breakdown {
   float: left;
   height: 700px;
   width: 25%;
   overflow-y: scroll;
   overflow-x: hidden;
-}
+} */
 
 .review-feed {
   float: left;
