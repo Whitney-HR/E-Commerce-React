@@ -629,88 +629,22 @@ h1 {
   font-weight: 100;
   color: #626262;
 }
-/*
-p {
-  margin-bottom: 8px;
-}
-
-a {
-  color: #2196f3;
-}
-
-input:focus {
-  box-shadow: none;
-  outline: 0;
-}
-input[type=text] {
-  width: 400px;
-  padding: 8px 12px;
-  border: 1px solid #ddd;
-  border-radius: 3px;
-} */
 
 
-
-.star {
-  position: relative;
-  display: inline-block;
-  width: 0;
-  height: 0;
-  margin-left: 0.9em;
-  margin-right: 0.9em;
-  margin-bottom: 1.2em;
-  border-right: 0.3em solid transparent;
-  border-bottom: 0.7em solid #fc0;
-  border-left: 0.3em solid transparent;
-  /* Controlls the size of the stars. */
-  font-size: 24px;
-}
-.star:before, .star:after {
-  content: "";
-  display: block;
-  width: 0;
-  height: 0;
-  position: absolute;
-  top: 0.6em;
-  left: -1em;
-  border-right: 1em solid transparent;
-  border-bottom: 0.7em solid #fc0;
-  border-left: 1em solid transparent;
-  transform: rotate(-35deg);
-}
-.star:after {
-  transform: rotate(35deg);
+#starradio {
+  display: none;
 }
 
-.starWhite {
-  position: relative;
-  display: inline-block;
-  width: 0;
-  height: 0;
-  margin-left: 0.9em;
-  margin-right: 0.9em;
-  margin-bottom: 1.2em;
-  border-right: 0.3em solid transparent;
-  border-bottom: 0.7em solid white;
-  border-left: 0.3em solid transparent;
-  /* Controlls the size of the stars. */
-  font-size: 24px;
+.stars:hover {
+  cursor: pointer;
+
 }
-.starWhite:before, .starWhite:after {
-  content: "";
-  display: block;
-  width: 0;
-  height: 0;
-  position: absolute;
-  top: 0.6em;
-  left: -1em;
-  border-right: 1em solid transparent;
-  border-bottom: 0.7em solid white;
-  border-left: 1em solid transparent;
-  transform: rotate(-35deg);
-}
-.starWhite:after {
-  transform: rotate(35deg);
+
+.modalRatingTop {
+  border: 3px solid red;
+  margin: auto;
+
+
 }
 
 

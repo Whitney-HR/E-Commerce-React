@@ -3,6 +3,7 @@ import './imageModalStyle.css'
 const axios = require('axios');
 var APIkey = require('../../../env/config.js')
 import Stars from './Stars.jsx'
+import {ModalContainer} from './NewReviewModal.style.js'
 
 const thumbnailStyle = {
   border: '2px solid black',
@@ -33,8 +34,7 @@ class ReviewModal extends React.Component {
     super(props);
     this.state = {
       product_id: this.props.id,
-      stars: '',
-      starCount: 0,
+      stars: "",
       youRecommend: '',
       comfort: '',
       size: '',
@@ -63,6 +63,7 @@ class ReviewModal extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.selectOnChange = this.selectOnChange.bind(this);
+    this.handleStarChange = this.handleStarChange.bind(this);
   }
 
   componentDidMount() {
@@ -76,6 +77,13 @@ class ReviewModal extends React.Component {
   }
 
   //!this.state.size || !this.state.width || !this.state.comfort || !this.state.quality || !this.state.length || !this.state.fit ||
+
+  handleStarChange(value) {
+    this.setState({
+      stars: value
+    })
+  }
+
 
   handleChange(event) {
     this.setState({
@@ -186,22 +194,22 @@ class ReviewModal extends React.Component {
   const emailFormat = this.state.properEmail ?  <span></span> : <span style={{color: 'red', fontSize: 'large'}}>incorrect Email Format</span>
   var starDescription;
   switch (this.state.stars) {
-    case '':
+    case "":
       starDescription = <span></span>
       break;
-    case '1':
+    case 1:
       starDescription = <span>1 star - “Poor”</span>
       break;
-    case '2':
+    case 2:
       starDescription = <span>2 stars - “Fair”</span>
       break;
-    case '3':
+    case 3:
       starDescription = <span>3 stars - “Average”</span>
       break;
-    case '4':
+    case 4:
       starDescription = <span>4 stars - “Good”</span>
       break;
-    case '5':
+    case 5:
       starDescription = <span>5 stars - “Great”</span>
       break;
   }
@@ -301,17 +309,21 @@ class ReviewModal extends React.Component {
 
 
   return (
-    <div className={showHideClassName}>
+    <ModalContainer className={showHideClassName}>
       <section className="modal-main-NewReview">
       {this.props.children}
         <form onSubmit={this.handleSubmit}> <h3 style={{textAlign: 'center'}}>Add new review details</h3>
-          <br></br>
-            <Stars starCount={this.state.starCount}/>
+
+
             <label>
             <br></br>
-            <div> Overall rating:
+            <div className='modalRatingTop'> Overall rating:
               {starDescription}{redRequiredBody}
               <br></br>
+              <Stars
+              handlestarchange={this.handleStarChange}
+              stars={this.state.stars}
+            />
               <input type='range' value={this.state.stars} name="stars" min="1" max="5" step='1' onChange={this.selectOnChange} ></input>
             </div>
             <br></br>
@@ -365,7 +377,7 @@ class ReviewModal extends React.Component {
         </form>
 
       </section>
-    </div>
+    </ModalContainer>
   );
   }
 };

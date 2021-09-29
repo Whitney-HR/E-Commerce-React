@@ -1,19 +1,43 @@
-import React from 'react';
-import {ColorStar} from './Stars.styled.js';
+import React, {useState} from 'react';
 
 
-function Stars (props) {
-  let yellowStar = ([...Array(props.starCount)]);
-  let whiteStar =([...Array(5-props.starCount)]);
+import {FaStar} from 'react-icons/fa'
 
+
+const Stars = (props)=> {
+  const [hover, setHover] = useState(null)
 
 
   return (
-    <p>
-      {yellowStar.map((star, index)=>{return <i className="star" key={index}></i>})}
-      {whiteStar.map((star, index)=>{return <i className="starWhite" key={index}></i>})}
-    </p>
+      <div>
+    {[...Array(5)].map((star, i)=>{
+      const ratingValue = i + 1 ;
+
+      return(
+          <label key={i}>
+          <input
+            type='radio'
+            id='starradio'
+            name='rating'
+            value={ratingValue}
+            onClick={()=>{props.handlestarchange(ratingValue)}}
+
+          />
+          <FaStar
+            className='stars'
+            onMouseEnter={()=>{setHover(ratingValue)}}
+            onMouseLeave={()=>{setHover(null)}}
+            color={ratingValue <= (hover || props.stars) ? "#ffc107": "#e4e5e9"}
+            size={30}
+          />
+        </label>
+
+      )
+
+    })}
+  </div>
   )
 }
 
 export default Stars
+
