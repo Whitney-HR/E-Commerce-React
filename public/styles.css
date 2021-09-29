@@ -641,10 +641,68 @@ h1 {
 }
 
 .modalRatingTop {
-  border: 3px solid red;
   margin: auto;
+  position: relative;
+  width: 50%;
+  height: auto;
+  padding: 10px;
+  text-align: center;
 
 
+
+}
+
+.newReviewTitle {
+  margin: auto;
+  font-size: 35px;
+  font-weight: bold;
+  padding: 10px;
+  text-align: center;
+}
+
+.ratingDescription {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.charTitleStyle{
+  font-size: 25px;
+  font-weight: "bold";
+
+}
+
+.radioOptionsStyle {
+  text-align: center;
+  padding: 10px 0px 10px 0px;
+}
+
+.reviewSummaryTitle {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.summaryContainer {
+  margin: auto;
+  /* font-size: 35px; */
+  font-weight: bold;
+  padding: 10px;
+  text-align: center;
+}
+
+.bodyContainer {
+  margin: auto;
+  /* font-size: 35px; */
+  font-weight: bold;
+  padding: 10px;
+  text-align: center;
+}
+
+.nickNameContainer {
+  margin: auto;
+  /* font-size: 35px; */
+  font-weight: bold;
+  padding: 10px;
+  text-align: center;
 }
 
 

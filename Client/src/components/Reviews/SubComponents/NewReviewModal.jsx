@@ -3,7 +3,7 @@ import './imageModalStyle.css'
 const axios = require('axios');
 var APIkey = require('../../../env/config.js')
 import Stars from './Stars.jsx'
-import {ModalContainer} from './NewReviewModal.style.js'
+
 
 const thumbnailStyle = {
   border: '2px solid black',
@@ -15,11 +15,6 @@ const buttonStyle={
   alignItems: 'center'
 }
 
-
-var charTitleStyle = {
-  fontSize: 'large',
-  fontWeight: "bold"
-}
 
 var radioOptionsStyle = {
   textAlign: 'justify'
@@ -34,7 +29,7 @@ class ReviewModal extends React.Component {
     super(props);
     this.state = {
       product_id: this.props.id,
-      stars: "",
+      stars: '',
       youRecommend: '',
       comfort: '',
       size: '',
@@ -194,83 +189,83 @@ class ReviewModal extends React.Component {
   const emailFormat = this.state.properEmail ?  <span></span> : <span style={{color: 'red', fontSize: 'large'}}>incorrect Email Format</span>
   var starDescription;
   switch (this.state.stars) {
-    case "":
+    case '':
       starDescription = <span></span>
       break;
     case 1:
-      starDescription = <span>1 star - “Poor”</span>
+      starDescription = <span className='ratingDescription'> 1 star - “Poor”</span>
       break;
     case 2:
-      starDescription = <span>2 stars - “Fair”</span>
+      starDescription = <span className='ratingDescription'> 2 stars - “Fair”</span>
       break;
     case 3:
-      starDescription = <span>3 stars - “Average”</span>
+      starDescription = <span className='ratingDescription'> 3 stars - “Average”</span>
       break;
     case 4:
-      starDescription = <span>4 stars - “Good”</span>
+      starDescription = <span className='ratingDescription'> 4 stars - “Good”</span>
       break;
     case 5:
-      starDescription = <span>5 stars - “Great”</span>
+      starDescription = <span className='ratingDescription'> 5 stars - “Great”</span>
       break;
   }
 
   var renderSize = <span></span>;
   if(this.props.meta.Size) {
     renderSize =   (
-      <span>
-        <div style={radioOptionsStyle} onChange={this.selectOnChange}> <span style={charTitleStyle}>Size:</span> {redRequiredBody}
+      <span className='radioOptionsStyle'>
+        <div style={radioOptionsStyle} onChange={this.selectOnChange}> <span className='charTitleStyle'>Size:</span> {redRequiredBody}
           <input style={{color: 'red'}} type="radio" value={1} name="size" /> A size too small
           <input type="radio" value={2} name="size" /> ½ a size too small
           <input type="radio" value={3} name="size" /> Perfect
           <input type="radio" value={4} name="size" /> ½ a size too big
           <input type="radio" value={5} name="size" /> A size too wide
         </div>
-        <br></br>
+
       </span>
       )
   }
   var renderComfort = <span></span>;
   if (this.props.meta.Comfort) {
     renderComfort = (
-      <span>
-          <div style={radioOptionsStyle}  onChange={this.selectOnChange}>  <span style={charTitleStyle}>Comfort:</span> {redRequiredBody}
+      <span className='radioOptionsStyle'>
+          <div  onChange={this.selectOnChange}>  <span className='charTitleStyle'>Comfort:</span> {redRequiredBody}
             <input type="radio" value={1} name="comfort" /> Uncomfortable
             <input type="radio" value={2} name="comfort" /> Slightly uncomfortable
             <input type="radio" value={3} name="comfort" /> Ok
             <input type="radio" value={4} name="comfort" /> Comfortable
             <input type="radio" value={5} name="comfort" /> Perfect
           </div>
-        <br></br>
+
       </span>
     )
   }
   var renderWidth = <span></span>;
   if (this.props.meta.Width) {
     renderWidth = (
-      <span>
-          <div style={radioOptionsStyle}  onChange={this.selectOnChange}>  <span style={charTitleStyle}>Width:</span> {redRequiredBody}
+      <span className='radioOptionsStyle'>
+          <div  onChange={this.selectOnChange}>  <span className='charTitleStyle'>Width:</span> {redRequiredBody}
             <input type="radio" value={1} name="width" /> Too narrow
             <input type="radio" value={2} name="width" /> Slightly narrow
             <input type="radio" value={3} name="width" /> Perfect
             <input type="radio" value={4} name="width" /> Slightly wide
             <input type="radio" value={5} name="width" /> Too wide
           </div>
-        <br></br>
+
       </span>
     )
   }
   var renderQuality = <span></span>;
   if (this.props.meta.Quality) {
     renderWidth = (
-      <span>
-          <div style={radioOptionsStyle}  onChange={this.selectOnChange}>  <span style={charTitleStyle}>Quality</span> {redRequiredBody}
+      <span className='radioOptionsStyle'>
+          <div onChange={this.selectOnChange}>  <span className='charTitleStyle'>Quality</span> {redRequiredBody}
             <input type="radio" value={1} name="quality" /> Poor
             <input type="radio" value={2} name="quality" /> Below average
             <input type="radio" value={3} name="quality" /> What I expected
             <input type="radio" value={4} name="quality" /> Pretty great
             <input type="radio" value={5} name="quality" /> Perfect
           </div>
-        <br></br>
+
       </span>
     )
   }
@@ -278,30 +273,30 @@ class ReviewModal extends React.Component {
   var renderLength = <span></span>;
   if (this.props.meta.Length) {
     renderLength = (
-      <span>
-        <div style={radioOptionsStyle} onChange={this.selectOnChange}>  <span style={charTitleStyle}>Length</span> {redRequiredBody}
+      <span className='radioOptionsStyle'>
+        <div onChange={this.selectOnChange}>  <span className='charTitleStyle'>Length</span> {redRequiredBody}
           <input type="radio" value={1} name="length" /> Runs Short
           <input type="radio" value={2} name="length" /> Runs slightly short
           <input type="radio" value={3} name="length" /> Perfect
           <input type="radio" value={4} name="length" /> Runs slightly long
           <input type="radio" value={5} name="length" /> Runs long
       </div>
-      <br></br>
+
     </span>
     )
   }
   var renderFit = <span></span>;
   if (this.props.meta.Fit) {
     renderFit = (
-      <span>
-        <div style={radioOptionsStyle} onChange={this.selectOnChange}>  <span style={charTitleStyle}>Fit</span> {redRequiredBody}
+      <span className='radioOptionsStyle'>
+        <div onChange={this.selectOnChange}>  <span className='charTitleStyle'>Fit</span> {redRequiredBody}
           <input type="radio" value={1} name="fit" /> Runs tight
           <input type="radio" value={2} name="fit" /> Runs slightly tight
           <input type="radio" value={3} name="fit" /> Perfect
           <input type="radio" value={4} name="fit" /> Runs slightly long
           <input type="radio" value={5} name="fit" /> Runs long
         </div>
-        <br></br>
+
       </span>
     )
   }
@@ -309,50 +304,71 @@ class ReviewModal extends React.Component {
 
 
   return (
-    <ModalContainer className={showHideClassName}>
+    <div className={showHideClassName}>
       <section className="modal-main-NewReview">
       {this.props.children}
-        <form onSubmit={this.handleSubmit}> <h3 style={{textAlign: 'center'}}>Add new review details</h3>
-
-
+        <form onSubmit={this.handleSubmit}> <h3 className='newReviewTitle'>Add new review details</h3>
             <label>
-            <br></br>
-            <div className='modalRatingTop'> Overall rating:
-              {starDescription}{redRequiredBody}
-              <br></br>
-              <Stars
-              handlestarchange={this.handleStarChange}
-              stars={this.state.stars}
-            />
-              <input type='range' value={this.state.stars} name="stars" min="1" max="5" step='1' onChange={this.selectOnChange} ></input>
+            {/* Stars Ratings */}
+              <div className='modalRatingTop'> <span className='ratingDescription'>Overall rating:</span>
+                {starDescription}{redRequiredBody}
+                <Stars
+                  handlestarchange={this.handleStarChange}
+                  stars={this.state.stars}
+                />
             </div>
-            <br></br>
-          <div style={radioOptionsStyle}  onChange={this.selectOnChange}> <span style={charTitleStyle}>Whould you recommend this product?</span>{redRequiredBody}
-              <input type="radio" value={true} name="youRecommend" /> Yes
-              <input type="radio" value={false} name="youRecommend" /> No
-            </div>
-            <br></br>
-            <div style={{textAlign: 'center', fontSize: 'large',}}>Please choose the option that best describe the product:</div>
-            <br></br>
+
+          {/* Would you recomend? Yes or no */}
+          <div
+            className='radioOptionsStyle'
+            onChange={this.selectOnChange}>
+            <span className='charTitleStyle'>Would you recommend this product?</span>
+            {redRequiredBody}
+            <input className='ratingDescription' type="radio" value={true} name="youRecommend" /> Yes
+            <input className='ratingDescription' type="radio" value={false} name="youRecommend" /> No
+          </div>
+
+            {/* Product characteristics */}
+            <div style={{textAlign: 'center', fontSize: '28px', fontWeight: 'bold'}}>Please choose the option that best describe the product:</div>
             {renderSize}
             {renderWidth}
             {renderComfort}
             {renderQuality}
             {renderLength}
             {renderFit}
-            Review Summary<span style={{fontSize: '10px'}}>{` (${60-this.state.summary.length} characters left)`}</span>:
-            <br></br>
-            <input type="text" maxLength='60' name='summary' placeholder={'Example: Best purchase ever!'}style={{width: '90%', align: 'middle'}} value={this.state.summary} onChange={this.selectOnChange}/>
-            <br></br>
-            <br></br>
-            <span>Write your review</span><span style={{fontSize: '10px'}}/>  {minBody}     {redRequiredBody}
-            <textarea rows="5" style={{width: '90%', align: 'middle'}} cols="98" maxLength='1000' name='body' placeholder={'Why did you like the product or not?'} value={this.state.body} onChange={this.selectOnChange}/>
-            <br></br>
 
-            <div>What is your nickname:{redRequiredBody}
-              <input type="text" maxLength='60' name='nickName' placeholder={'Example: jackson11!'}style={{width: '90%', align: 'middle'}} value={this.state.nickName} onChange={this.selectOnChange}/>
+            {/* Title */}
+            <div className='summaryContainer'>
+              <span className='reviewSummaryTitle'>Review Summary</span>
+              <span style={{fontSize: '10px'}}>{` (${60-this.state.summary.length} characters left)`}</span>:
+              <input type="text" maxLength='60' name='summary' placeholder={'Example: Best purchase ever!'}style={{width: '90%', align: 'middle'}} value={this.state.summary} onChange={this.selectOnChange}/>
             </div>
-            <span style={{fontSize: '10px'}}>For privacy reasons, do not use your full name or email address</span>
+
+            {/* Body */}
+            <div className='bodyContainer'>
+              <span className='reviewSummaryTitle'>Write your review</span>
+              <span style={{fontSize: '10px'}}/>  {minBody}     {redRequiredBody}
+              <textarea
+                rows="5"
+                style={{width: '90%', align: 'middle'}}
+                cols="98"
+                maxLength='1000'
+                name='body'
+                placeholder={'Why did you like the product or not?'}
+                value={this.state.body}
+                onChange={this.selectOnChange}/>
+            </div>
+
+            {/* NickName */}
+            <div className='nickNameContainer'>
+              <span className="reviewSummaryTitle">What is your nickname: </span>
+              {redRequiredBody}
+              <input type="text" maxLength='60' name='nickName' placeholder={'Example: jackson11!'}style={{width: '90%', align: 'middle'}} value={this.state.nickName} onChange={this.selectOnChange}/>
+              <br></br>
+              <span style={{fontSize: '10px'}}>For privacy reasons, do not use your full name or email address</span>
+            </div>
+
+
             <br></br>
             <br></br>
             <div>Your email:{emailFormat}{redRequiredBody}
@@ -377,7 +393,7 @@ class ReviewModal extends React.Component {
         </form>
 
       </section>
-    </ModalContainer>
+    </div>
   );
   }
 };
