@@ -117,7 +117,6 @@ Q&A container
   flex-direction: column;
   height: 600px;
   border-radius: 5px;
-  padding-left: 100px;
 }
 
 /*
@@ -129,7 +128,6 @@ Q & A Feed Styles
 .question-feed {
   display: flex;
   flex-direction: column;
-  width: 92%;
   height: 500px;
   padding-left: 10px;
   padding-right: 10px;
@@ -227,7 +225,7 @@ Search Bar Styles
   border-radius: 5px;
   padding: 2px 23px 2px 30px;
   outline: 0;
-  background-color: rgb(201, 218, 223);
+  background-color: rgb(202, 162, 240);
   position: relative;
   /* float: right; */
 }

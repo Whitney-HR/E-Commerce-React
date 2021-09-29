@@ -93,11 +93,12 @@ var App = () => {
             <HeaderSearchBar  searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
           </div>        </header>
         <main className="main-container">
-          <div className='overviewContainer'>
+          {/* <div className='overviewContainer'>
             <Overview id={showingProduct.id} />
           </div>
           <Questions id={showingProduct.id} name={showingProduct.name} />
-          <Reviews id={showingProduct.id} />
+          <Reviews id={showingProduct.id} /> */}
+          <p>No Products Found</p>
         </main>
         <footer className="footer-container">
           <h2 className="footer-title">Please Visit our store in person!!</h2>
