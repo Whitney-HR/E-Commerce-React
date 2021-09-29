@@ -77,7 +77,9 @@ export default function QuestionFeed({ id, showModal, showAnswerModal, updateQue
             <AnswerFeed {...question} />
           </div>
         )}
-        <AddQuestion showModal={showModal} />
+        <div>
+          <AddQuestion showModal={showModal} />
+        </div>
       </section>
     )
   }
@@ -102,7 +104,9 @@ export default function QuestionFeed({ id, showModal, showAnswerModal, updateQue
       <section className="question-feed">
         <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery}/>
         {showing}
-        <AddQuestion showModal={showModal} />
+        <div>
+          <AddQuestion showModal={showModal} />
+        </div>
       </section>
     )
   } else {
@@ -110,7 +114,9 @@ export default function QuestionFeed({ id, showModal, showAnswerModal, updateQue
       <section className="question-feed">
         <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery}/>
         {showing}
-        <MoreAnsweredQuestions load={showTwoMore} /> <AddQuestion showModal={showModal} />
+        <div>
+          <MoreAnsweredQuestions load={showTwoMore} /> <AddQuestion showModal={showModal} />
+        </div>
       </section>
     )
   }

@@ -113,10 +113,10 @@ Q&A container
 ===========================
 */
 .questions-container {
+  display: flex;
+  flex-direction: column;
   height: 600px;
-  width: 94%;
   border-radius: 5px;
-  padding-left: 100px;
 }
 
 /*
@@ -126,12 +126,17 @@ Q & A Feed Styles
 */
 
 .question-feed {
-  width: 92%;
+  display: flex;
+  flex-direction: column;
   height: 500px;
   padding-left: 10px;
   padding-right: 10px;
   overflow-y: scroll;
   overflow-x: hidden;
+}
+
+.question-title {
+  padding-left: 10px;
 }
 
 /*
@@ -220,7 +225,7 @@ Search Bar Styles
   border-radius: 5px;
   padding: 2px 23px 2px 30px;
   outline: 0;
-  background-color: rgb(201, 218, 223);
+  background-color: rgb(202, 162, 240);
   position: relative;
   /* float: right; */
 }
