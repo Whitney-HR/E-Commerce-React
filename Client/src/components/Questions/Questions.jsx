@@ -147,7 +147,7 @@ export default function Questions({ id, name }) {
         </form>
           <button onClick={hideAnswerModal} className="modal-close-button">Close</button>
       </Modal>
-      <h2>Questions & Answers</h2>
+      <h2 className="question-title">Questions & Answers</h2>
       <QuestionFeed id={id} showModal={showQuesModal} showAnswerModal={showAnswerModal} updateQuestionBody={updateQuestionBody} updateQuestionId={updateQuestionId}/>
     </section>
   )
