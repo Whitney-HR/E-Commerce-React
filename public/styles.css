@@ -114,8 +114,8 @@ Q&A container
 */
 .questions-container {
   display: flex;
+  flex-direction: column;
   height: 600px;
-  width: 94%;
   border-radius: 5px;
   padding-left: 100px;
 }
@@ -127,12 +127,18 @@ Q & A Feed Styles
 */
 
 .question-feed {
+  display: flex;
+  flex-direction: column;
   width: 92%;
   height: 500px;
   padding-left: 10px;
   padding-right: 10px;
   overflow-y: scroll;
   overflow-x: hidden;
+}
+
+.question-title {
+  padding-left: 10px;
 }
 
 /*
