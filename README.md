@@ -8,6 +8,14 @@ This is a single page application for a theoretical E-commerce business that is 
 - [@NicolasLedam](https://github.com/Ledan-bot)
 - [@SantiagoVeraNicola](https://github.com/sveranicola)
 
+## Screenshots
+
+![App Screenshot1](https://res.cloudinary.com/jpbust/image/upload/v1633102232/Screen_Shot_2021-10-01_at_10.27.49_qzckfh.jpg)
+
+![App Screenshot2](https://res.cloudinary.com/jpbust/image/upload/v1633102506/Screen_Shot_2021-10-01_at_10.34.57_qbiixi.jpg)
+
+![App Screenshot3](https://res.cloudinary.com/jpbust/image/upload/v1633102232/Screen_Shot_2021-10-01_at_10.28.06_l4xxiv.jpg)
+
 
 ## Installation
 
