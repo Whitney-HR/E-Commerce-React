@@ -46,6 +46,7 @@ To run this project, you will need to add the following environment variables to
 `API_KEY` <- Insert Github API token
 
 Example:
+
 ![API help](https://res.cloudinary.com/jpbust/image/upload/v1633102772/Screen_Shot_2021-10-01_at_10.38.46_p3wclh.jpg)
 
 An example config file is located in /Client/src/env/example-config.js. Please create a new config.js file following the set-up in example-config.js
