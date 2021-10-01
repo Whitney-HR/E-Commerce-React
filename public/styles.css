@@ -5,9 +5,10 @@ APP container
 */
 
 #app {
-  margin-right: 100px;
-  margin-left: 100px;
-  width: 90%;
+  margin-right: 50px;
+  margin-left: 50px;
+  /* width: 90%; */
+  font-family: 'Roboto', sans-serif;
 }
 
 
@@ -17,34 +18,42 @@ HEADER container
 ===========================
 */
 .header-container {
-  margin-left: 100px;
-  margin-right: 100px;
-  background-color: cornflowerblue;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: #852acd;
   height: 90px;
 }
 
 .header-title {
-  color: lightgreen;
+  margin-left: 3%;
+  color: white;
+  font-size: 2.2em;
+  font-weight: 900;
   text-align: center;
+  margin-top: 15px;
 }
 
 .header-search {
-  float: right;
+  display: flex;
+  flex-direction: row;
+  margin-right: 3%;
 }
 
 .header-search-input {
+  margin-top: 35px;
   width: 200px;
   height: 20px;
   background-color: whitesmoke;
-  float: right;
-
 }
+
 .header-search-button {
+  margin-top: 35px;
   border-radius: 5px;
-  background-color: lightgreen;
+  background-color: white;
   padding: 4px 5px 3px 5px;
   color: lightslategray;
-  float: right;
 }
 
 /*
@@ -54,14 +63,14 @@ Footer container
 */
 
 .footer-container {
-  margin-left: 100px;
-  margin-right: 100px;
-  background-color: cornflowerblue;
+  border-radius: 10px;
+  background-color: #852acd;
   height: 90px;
 }
 
 .footer-title {
-  color: lightgreen;
+  padding-top: 30px;
+  color: white;
   text-align: center;
 }
 
@@ -72,9 +81,8 @@ MAIN container
 */
 
 .main-container {
-  margin-left: 100px;
-  margin-right: 100px;
-  background-color: lightgray;
+  border-radius: 5px;
+  background-color: #f2f3f2;
 }
 
 /*
@@ -83,13 +91,17 @@ Overview container
 ===========================
 */
 
+.overviewContainer {
+  padding: 20px;
+}
+
 .dropdown-selecter {
   width: 300px;
   height: 50px;
-  border: 1px solid black;
+  border: 1px solid white;
   font-size: 18px;
-  color: black;
-  background-color: cornflowerblue;
+  color: white;
+  background-color: #852acd;
   border-radius: 5px;
   box-shadow: 4px 4px #ccc;
   margin: 10px;
@@ -102,10 +114,10 @@ Q&A container
 ===========================
 */
 .questions-container {
+  display: flex;
+  flex-direction: column;
   height: 600px;
-  width: 94%;
   border-radius: 5px;
-  padding-left: 100px;
 }
 
 /*
@@ -115,12 +127,17 @@ Q & A Feed Styles
 */
 
 .question-feed {
-  width: 92%;
+  display: flex;
+  flex-direction: column;
   height: 500px;
   padding-left: 10px;
   padding-right: 10px;
   overflow-y: scroll;
   overflow-x: hidden;
+}
+
+.question-title {
+  padding-left: 10px;
 }
 
 /*
@@ -209,7 +226,7 @@ Search Bar Styles
   border-radius: 5px;
   padding: 2px 23px 2px 30px;
   outline: 0;
-  background-color: rgb(201, 218, 223);
+  background-color: rgb(202, 162, 240);
   position: relative;
   /* float: right; */
 }
@@ -225,38 +242,38 @@ Q & A Button Styles
 */
 
 .question-button {
-  background-color: cornflowerblue;
-  color: lightgreen;
+  background-color: #852acd;
+  color: white;
   padding-top: 15px;
   padding-bottom: 15px;
   padding-right: 10px;
   padding-left: 10px;
-  border: 2px solid cornflowerblue;
+  border: 2px solid #852acd;
   border-radius: 15px;
   margin: 0 10px 0 10px;
 }
 
 .question-button:hover {
-  background-color: lightgreen;
-  color: cornflowerblue;
+  background-color: white;
+  color: #852acd;
   cursor: pointer
 }
 
 .more-questions {
-  background-color: cornflowerblue;
-  color: lightgreen;
+  background-color: #852acd;
+  color: white;
   padding-top: 15px;
   padding-bottom: 15px;
   padding-right: 10px;
   padding-left: 10px;
-  border: 2px solid cornflowerblue;
+  border: 2px solid #852acd;
   border-radius: 15px;
   margin: 0 10px 0 10px;
 }
 
 .more-questions:hover {
-  background-color: lightgreen;
-  color: cornflowerblue;
+  background-color: white;
+  color: #852acd;
   cursor: pointer;
 }
 
@@ -367,33 +384,33 @@ Q & A Modal Button Styles
 
 .modal-submit-button {
   float: left;
-  background-color: cornflowerblue;
-  color: lightgreen;
+  background-color: #852acd;
+  color: white;
   padding: 10px 10px 10px 10px;
   border-radius: 15px;
   margin-left: 60px;
-  border: 2px solid cornflowerblue;
+  border: 2px solid #852acd;
 }
 
 .modal-close-button {
   float: left;
-  background-color: cornflowerblue;
-  color: lightgreen;
+  background-color: #852acd;
+  color: white;
   padding: 10px 10px 10px 10px;
   margin-left: 80px;
   border-radius: 15px;
-  border: 2px solid cornflowerblue;
+  border: 2px solid #852acd;
 }
 
 .modal-submit-button:hover {
-  background-color: lightgreen;
-  color: cornflowerblue;
+  background-color: white;
+  color: #852acd;
   cursor: pointer;
 }
 
 .modal-close-button:hover {
-  background-color: lightgreen;
-  color: cornflowerblue;
+  background-color: white;
+  color: #852acd;
   cursor: pointer;
 }
 
@@ -488,24 +505,16 @@ R&R container
 ===========================
 */
 
-.review-container {
+/* .review-container {
   height: 800px;
   padding-left: 100px;
-}
-
-.rating-breakdown {
-  float: left;
-  height: 700px;
-  width: 25%;
-  overflow-y: scroll;
-  overflow-x: hidden;
-}
+} */
 
 .review-feed {
   float: left;
   width: 74%;
   height: 700px;
-  background-color: lightgray;
+  background-color: #f5f5f5;
   overflow-y: scroll;
   overflow-x: hidden;
 }
@@ -513,7 +522,7 @@ R&R container
 .review-list {
   width: 90%;
   max-width: 90%;
-  border: 2px solid cornflowerblue;
+  border: 2px solid #852acd;
   padding: 10px;
   border-radius: 5px;
 }
@@ -525,59 +534,66 @@ R&R buttons
 */
 
 .more-reviews-button {
-  background-color: cornflowerblue;
-  color: lightgreen;
+  background-color: #852acd;
+  color: white;
   padding: 10px 10px 10px 10px;
   border-radius: 15px;
-  border: 2px solid cornflowerblue;
+  border: 2px solid #852acd;
   margin-top: 10px;
   margin-left: 40px;
 }
 
 .more-reviews-button:hover {
-  background-color: lightgreen;
-  color: cornflowerblue;
+  background-color: white;
+  color: #852acd;
 }
 
 .add-review-button {
-  background-color: cornflowerblue;
-  color: lightgreen;
+  background-color: #852acd;
+  color: white;
   padding: 10px 10px 10px 10px;
   border-radius: 15px;
-  border: 2px solid cornflowerblue;
+  border: 2px solid #852acd;
   margin-top: 10px;
   margin-left: 50px;
 }
 
 .add-review-button:hover {
-  background-color: lightgreen;
-  color: cornflowerblue;
+  background-color: white;
+  color: #852acd;
 }
 
 .submit-review-modal-button {
-  background-color: cornflowerblue;
-  color: lightgreen;
+  background-color: #852acd;
+  color: white;
   padding: 10px 10px 10px 10px;
   border-radius: 15px;
-  border: 2px solid cornflowerblue;
-  margin-left: 200px;
+  border: 2px solid #852acd;
+  /* margin-left: 200px; */
+  width: 200px;
 }
 .submit-review-modal-button:hover {
-  background-color: lightgreen;
-  color: cornflowerblue;
+  background-color: white;
+  color: #852acd;
 }
 
 .hide-review-modal-button {
-  background-color: cornflowerblue;
-  color: lightgreen;
+  background-color: #852acd;
+  color: white;
   padding: 10px 10px 10px 10px;
   border-radius: 15px;
-  border: 2px solid cornflowerblue;
-  margin-left: 200px;
+  border: 2px solid #852acd;
+  /* margin-left: 200px; */
+  width: 200px;
 }
 .hide-review-modal-button:hover {
-  background-color: lightgreen;
-  color: cornflowerblue;
+  background-color: white;
+  color: #852acd;
+}
+
+.modalButtons {
+  display: flex;
+  justify-content: space-evenly;
 }
 
 /*
@@ -588,8 +604,136 @@ R&R Modal
 
 
 .modal-main-NewReview {
-  background: cornflowerblue;
+  background: #852acd;
 }
+
+@import url("https://fonts.googleapis.com/css?family=Roboto:100,400");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+}
+*:before, *:after {
+  box-sizing: inherit;
+  -webkit-font-smoothing: antialiased;
+}
+
+.Pbreakdown {
+  overflow: hidden;
+}
+
+body {
+  padding: 24px 32px;
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #444;
+}
+
+h1 {
+  margin-bottom: 20px;
+  padding-bottom: 4px;
+  /* border-bottom: 1px solid #ddd; */
+  font-size: 32px;
+  font-weight: 100;
+  color: #626262;
+}
+
+
+#starradio {
+  display: none;
+}
+
+.stars:hover {
+  cursor: pointer;
+
+}
+
+.modalRatingTop {
+  margin: auto;
+  position: relative;
+  width: 50%;
+  height: auto;
+  padding: 10px;
+  text-align: center;
+
+
+
+}
+
+.newReviewTitle {
+  margin: auto;
+  font-size: 35px;
+  font-weight: bold;
+  padding: 10px;
+  text-align: center;
+}
+
+.ratingDescription {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.charTitleStyle{
+  font-size: 25px;
+  font-weight: "bold";
+
+}
+
+.radioOptionsStyle {
+  text-align: center;
+  padding: 10px 0px 10px 0px;
+}
+
+.reviewSummaryTitle {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.summaryContainer {
+  margin: auto;
+  font-weight: bold;
+  padding: 10px;
+  text-align: center;
+}
+
+.bodyContainer {
+  margin: auto;
+  font-weight: bold;
+  padding: 10px;
+  text-align: center;
+}
+
+.nickNameContainer {
+  margin: auto;
+  font-weight: bold;
+  padding: 10px;
+  text-align: center;
+}
+
+.emailContainer {
+  margin: auto;
+  font-weight: bold;
+  padding: 10px;
+  text-align: center;
+}
+
+.imagesContainer {
+  margin: auto;
+  font-weight: bold;
+  padding: 10px;
+  justify-content: center;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.imagesTitle {
+  font-size: 22px;
+  font-weight: bold;
+  text-align: center;
+}
+
 
  /*
 ===========================
@@ -601,15 +745,29 @@ OverView Images
 }
 
 .pictureSelect {
-  border: 2px solid black;
+  border: 2px solid white;
   height: 80px;
   width: 80px;
   margin-top: 5px;
   margin-bottom: 5px;
 }
 
+.leftsidehold {
+  max-width: 110px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  max-height: 700px;
+}
+
+.imageCont {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 1000px;
+}
+
 .carousel {
-  float: left;
   max-width: 110px;
   display: flex;
   flex-direction: column;
@@ -625,11 +783,18 @@ OverView Images
 img.bigPic {
   cursor: zoom-in;
   height: 600px;
-  max-width: 45%;
+  width: 500px;
   padding-left: 5%;
   padding-right: 5%;
 }
 
+.largeImgCont {
+  width: 650px;
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  justify-content: center;
+}
 .img-magnifier-glass {
   box-sizing: border-box;
   position: absolute;
@@ -675,7 +840,7 @@ OverView
 */
 
 .overViewHolder {
-  height: 1000px
+  height: 870px
 }
 
 .shrinkToLeft {
@@ -732,7 +897,10 @@ OverView Hub
   max-height: 16px
 }
 .productInfoContainer {
-  height: 770px
+  height: 770px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 /*

@@ -4,10 +4,11 @@ const axios = require('axios');
 
 var PbreakdownStyle = {
   width: '250px',
-  border: '2px',
   padding: '10px',
-  borderStyle: 'solid',
-  borderColor: 'cornflowerblue'
+  overflow: 'hidden'
+  // border: '2px',
+  // borderStyle: 'solid',
+  // borderColor: 'cornflowerblue'
 
 }
 
@@ -48,7 +49,7 @@ function Pbreakdown(props) {
   if(characteristics) {
     var fit = (characteristics.Fit ? (
 
-      <div> Fit
+      <div className='Pbreakdown'> Fit
       <div style={progress}>
         <div style={{position: 'relative', left: (characteristics.Fit.value/5)*240+'px'}}><div className="arrow-down"></div></div>
       </div>
@@ -66,7 +67,7 @@ function Pbreakdown(props) {
     var length = (characteristics.Length ? (
 
 
-      <div> Length
+      <div className='Pbreakdown'> Length
 
       <div style={progress}>
         <div style={{position: 'relative', left: (characteristics.Length.value/5)*240+'px'}}><div className="arrow-down"></div></div>
@@ -85,7 +86,7 @@ function Pbreakdown(props) {
     var comfort = (characteristics.Comfort ? (
 
 
-      <div> Comfort
+      <div className='Pbreakdown'> Comfort
 
       <div style={progress}>
       <div style={{position: 'relative', left: (characteristics.Comfort.value/5)*240+'px', overflow: 'visible'}}><div className="arrow-down"></div></div>
@@ -103,7 +104,7 @@ function Pbreakdown(props) {
     var quality = (characteristics.Quality ? (
 
 
-      <div> Quality
+      <div className='Pbreakdown'> Quality
       <div style={progress}>
         <div style={{position: 'relative', left: (characteristics.Quality.value/5)*240+'px'}}><div className="arrow-down"></div></div>
 
@@ -122,7 +123,7 @@ function Pbreakdown(props) {
       var size = (characteristics.Size ? (
 
 
-        <div> Size
+        <div className='Pbreakdown'> Size
         <div style={progress}>
 
           <div style={{position: 'relative', left: (characteristics.Size.value/5)*240+'px'}}><div className="arrow-down"></div></div>
@@ -141,7 +142,7 @@ function Pbreakdown(props) {
       var width = (characteristics.Width ? (
 
 
-        <div> Width
+        <div className='Pbreakdown'> Width
         <div style={progress}>
 
           <div style={{position: 'relative', left: (characteristics.Width.value/5)*240+'px'}}><div className="arrow-down"></div></div>
@@ -165,7 +166,6 @@ function Pbreakdown(props) {
 
   }
 
-// (Math.round(characteristics.Quality.value/5 * 100)).toFixed(2)+'%'
 
 
   if(characteristics) {

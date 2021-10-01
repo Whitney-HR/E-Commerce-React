@@ -46,10 +46,14 @@ var App = () => {
       <>
         <header className="header-container">
           <h1 className="header-title">Whitney Technological Solutions</h1>
-          <HeaderSearchBar className="header-search" searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
+          <div className="header-search">
+            <HeaderSearchBar  searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
+          </div>
         </header>
         <main className="main-container">
-          <Overview id={filteredProducts[0].id} />
+          <div className='overviewContainer'>
+            <Overview id={filteredProducts[0].id} />
+          </div>
           <Questions id={filteredProducts[0].id} name={filteredProducts[0].name} />
           <Reviews id={filteredProducts[0].id} />
         <footer className="footer-container">
@@ -65,16 +69,19 @@ var App = () => {
       <>
         <header className="header-container">
           <h1 className="header-title">Whitney Technological Solutions</h1>
-          <HeaderSearchBar className="header-search" searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
-        </header>
+          <div className="header-search">
+            <HeaderSearchBar  searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
+          </div>        </header>
         <main className="main-container">
-          <Overview id={showingProduct.id} />
+          <div className='overviewContainer'>
+            <Overview id={showingProduct.id} />
+          </div>
           <Questions id={showingProduct.id} name={showingProduct.name} />
           <Reviews id={showingProduct.id} />
+        </main>
         <footer className="footer-container">
           <h2 className="footer-title">Please Visit our store in person!!</h2>
         </footer>
-        </main>
       </>
     )
   } else if (products.length !== 0) {
@@ -82,16 +89,20 @@ var App = () => {
       <>
         <header className="header-container">
           <h1 className="header-title">Whitney Technological Solutions</h1>
-          <HeaderSearchBar className="header-search" searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
-        </header>
+          <div className="header-search">
+            <HeaderSearchBar  searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
+          </div>        </header>
         <main className="main-container">
-          <Overview id={showingProduct.id} />
+          {/* <div className='overviewContainer'>
+            <Overview id={showingProduct.id} />
+          </div>
           <Questions id={showingProduct.id} name={showingProduct.name} />
-          <Reviews id={showingProduct.id} />
+          <Reviews id={showingProduct.id} /> */}
+          <p>No Products Found</p>
+        </main>
         <footer className="footer-container">
           <h2 className="footer-title">Please Visit our store in person!!</h2>
         </footer>
-        </main>
       </>
     )
   }
