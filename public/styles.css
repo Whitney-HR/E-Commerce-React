@@ -32,6 +32,7 @@ HEADER container
   font-size: 2.2em;
   font-weight: 900;
   text-align: center;
+  margin-top: 15px;
 }
 
 .header-search {
@@ -628,7 +629,7 @@ body {
 h1 {
   margin-bottom: 20px;
   padding-bottom: 4px;
-  border-bottom: 1px solid #ddd;
+  /* border-bottom: 1px solid #ddd; */
   font-size: 32px;
   font-weight: 100;
   color: #626262;
