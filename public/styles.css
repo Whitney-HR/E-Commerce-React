@@ -612,10 +612,15 @@ R&R Modal
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+
 }
 *:before, *:after {
   box-sizing: inherit;
   -webkit-font-smoothing: antialiased;
+}
+
+.Pbreakdown {
+  overflow: hidden;
 }
 
 body {
